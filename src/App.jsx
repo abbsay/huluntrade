@@ -23,6 +23,10 @@ function Header() {
         <Link to="/">
           <img src="/logo.png" alt="Hulun Trade Logo" id="logo_img" />
         </Link>
+        {/* Language Switcher moved here to group with logo on mobile */}
+        <div id="lang">
+          <LangSwitcher />
+        </div>
       </div>
 
       <nav aria-label="Primary">
@@ -77,11 +81,6 @@ function Header() {
 
         </ul>
       </nav>
-
-      {/* Language Switcher */}
-      <div id="lang">
-        <LangSwitcher />
-      </div>
     </header>
   );
 }
