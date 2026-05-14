@@ -94,6 +94,7 @@ img {
   display: flex;
   align-items: stretch;
   height: 100%;
+  margin-left: auto;
 }
 
 #menu .nav-links {
@@ -268,6 +269,7 @@ span.ico {
   position: relative;
   padding-top: 24px !important;
   padding-bottom: 8px !important;
+  border-left: 1px solid var(--color-border);
 }
 
 /* Language Switcher */

@@ -75,12 +75,13 @@ function Header() {
             </Link>
           </li>
 
-          {/* Language */}
-          <li id="lang">
-            <LangSwitcher />
-          </li>
         </ul>
       </nav>
+
+      {/* Language Switcher */}
+      <div id="lang">
+        <LangSwitcher />
+      </div>
     </header>
   );
 }
