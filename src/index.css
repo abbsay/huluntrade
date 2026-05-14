@@ -1291,20 +1291,46 @@ span.ico {
     justify-content: center;
     width: 100%;
   }
-  #menu .nav-links > li > a,
-  #menu .nav-links > li > button.lang-toggle {
+  #menu .nav-links > li > a {
     padding: 14px 4px 10px;
     font-size: 11px;
     height: 100%;
     justify-content: flex-end;
   }
-  .lang-switcher {
-    height: 100%;
-  }
+  
+  /* Flex order for mobile menu */
+  #home { order: 1; }
+  #products { order: 2; }
+  #about { order: 3; }
+  #contact-nav { order: 4; }
+  #phone_menu_nav { order: 5; }
+  #catalog { order: 6; }
+
+  /* Extract Language to Top Right */
   #lang {
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-    height: 100%;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: auto !important;
+    padding: 0 !important;
+    height: auto;
+  }
+  #menu .nav-links > li > button.lang-toggle {
+    padding: 5px;
+    font-size: 12px;
+    height: auto;
+    justify-content: center;
+    flex-direction: row;
+    gap: 4px;
+  }
+  .lang-switcher {
+    height: auto;
+  }
+  .lang-ico {
+    margin-bottom: 0 !important;
+    width: 28px !important;
+    height: 24px !important;
+    background-size: contain !important;
   }
   span.ico {
     transform: scale(0.8);
