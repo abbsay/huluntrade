@@ -1314,6 +1314,7 @@ span.ico {
     width: auto !important;
     padding: 0 !important;
     height: auto;
+    border: none !important;
   }
   #menu .nav-links > li > button.lang-toggle {
     padding: 5px;
@@ -1328,9 +1329,10 @@ span.ico {
   }
   .lang-ico {
     margin-bottom: 0 !important;
-    width: 28px !important;
-    height: 24px !important;
-    background-size: contain !important;
+    width: 41px;
+    height: 35px;
+    transform: scale(0.65);
+    transform-origin: right center;
   }
   span.ico {
     transform: scale(0.8);
