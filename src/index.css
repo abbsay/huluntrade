@@ -1293,12 +1293,18 @@ span.ico {
   }
   #menu .nav-links > li > a,
   #menu .nav-links > li > button.lang-toggle {
-    padding: 14px 4px;
+    padding: 14px 4px 10px;
     font-size: 11px;
+    height: 100%;
+    justify-content: flex-end;
+  }
+  .lang-switcher {
+    height: 100%;
   }
   #lang {
     padding-top: 0 !important;
     padding-bottom: 0 !important;
+    height: 100%;
   }
   span.ico {
     transform: scale(0.8);
