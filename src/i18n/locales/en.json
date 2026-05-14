@@ -1,0 +1,71 @@
+{
+  "nav": {
+    "catalogue": "Download catalogue",
+    "home": "Home",
+    "products": "Products",
+    "about": "About us",
+    "contact": "Contact"
+  },
+  "home": {
+    "featured": "Featured Categories",
+    "view_all": "View all products"
+  },
+  "footer": {
+    "tagline": "Candy & Sweets Distribution",
+    "quicklinks": "Quick Links",
+    "downloadpdf": "Download PDF",
+    "products": "Products",
+    "privacy": "Privacy Policy",
+    "contactinfo": "Contact Info",
+    "contactdesc": "To get our updated price list with photos, please contact us by email or call us.",
+    "findus": "Find out where we are >>",
+    "email_label": "email",
+    "phone_label": "phone",
+    "wechat_label": "wechat",
+    "trust_line1": "100% SAFETY",
+    "trust_line2": "100% SATISFACTION",
+    "copyright": "\u00a9 {year} Hulun Trade Co., Ltd. All rights reserved."
+  },
+  "about": {
+    "title": "About us",
+    "story": "We are an industrial and trade food company founded in 2015. The office is located in the world's small commodity city - Yiwu. The company specializes in candy production activities. Products are exported to Russia, the Middle East, South America, Southeast Asia and African countries. We specialize in marshmallows, gummies and all kinds of handmade hard candies. Support various OEMs. We warmly welcome customers from all over the world to visit our company and consult us by email.",
+    "closing": "There is nothing sweeter than bringing joy to people around the world!"
+  },
+  "products_page": {
+    "title": "CATEGORIES",
+    "news_items": "New Arrivals",
+    "lollipop": "Lollipop",
+    "dip_lick": "Dip & Lick",
+    "bubble_gum": "Bubble Gum",
+    "sprays": "Sprays",
+    "roll_on": "Roll-on",
+    "squeeze_gel": "Squeeze Gel",
+    "powder_candy": "Powder Candy",
+    "jelly": "Jelly Candy",
+    "chocolate": "Chocolate",
+    "hard_candy": "Hard Candy",
+    "other": "Other Products"
+  },
+  "contact": {
+    "title": "Contact",
+    "office_hours": "Our office is active from Monday to Friday, 8AM to 5PM (China time).",
+    "mobile_title": "Mobile phone",
+    "email_title": "Inquiries can also be directed",
+    "form_subtitle": "form",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "message": "Message",
+    "privacy_agree": "I agree to the processing of personal data in accordance with the Privacy Policy in order to send a question via the contact form.",
+    "send": "Send",
+    "success": "Thank you! Your message has been sent."
+  },
+  "product_details": {
+    "back_to_categories": "Back to Categories",
+    "inquire_button": "Inquire About This Product",
+    "features": "Features",
+    "weight": "Weight",
+    "packaging": "Packaging",
+    "no_products": "No products found in this category yet! Check back soon."
+  }
+}

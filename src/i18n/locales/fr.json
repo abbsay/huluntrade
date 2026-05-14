@@ -1,0 +1,71 @@
+{
+  "nav": {
+    "catalogue": "Télécharger le catalogue",
+    "home": "Accueil",
+    "products": "Produits",
+    "about": "À propos",
+    "contact": "Contact"
+  },
+  "home": {
+    "featured": "Catégories en vedette",
+    "view_all": "Voir tous les produits"
+  },
+  "footer": {
+    "tagline": "Distribution de bonbons et confiseries",
+    "quicklinks": "Liens rapides",
+    "downloadpdf": "Télécharger PDF",
+    "products": "Produits",
+    "privacy": "Politique de confidentialité",
+    "contactinfo": "Coordonnées",
+    "contactdesc": "Pour obtenir notre liste de prix actualisée avec photos, veuillez nous contacter par e-mail ou nous appeler.",
+    "findus": "Découvrez où nous sommes >>",
+    "email_label": "e-mail",
+    "phone_label": "téléphone",
+    "wechat_label": "WeChat",
+    "trust_line1": "100% SÉCURITÉ",
+    "trust_line2": "100% SATISFACTION",
+    "copyright": "\u00a9 {year} Hulun Trade Co., Ltd. Tous droits réservés."
+  },
+  "about": {
+    "title": "À propos",
+    "story": "Nous sommes une entreprise agroalimentaire industrielle et commerciale fondée en 2015. Le bureau est situé dans la ville mondiale des petites marchandises - Yiwu. L'entreprise se spécialise dans les activités de production de bonbons. Les produits sont exportés vers la Russie, le Moyen-Orient, l'Amérique du Sud, l'Asie du Sud-Est et les pays africains. Nous sommes spécialisés dans les guimauves, les gommes et toutes sortes de bonbons durs artisanaux. Nous soutenons divers projets OEM. Nous accueillons chaleureusement les clients du monde entier pour visiter notre entreprise et nous consulter par e-mail.",
+    "closing": "Il n'y a rien de plus doux que d'apporter de la joie aux gens du monde entier !"
+  },
+  "products_page": {
+    "title": "CATÉGORIES",
+    "news_items": "Nouveautés",
+    "lollipop": "Sucettes",
+    "dip_lick": "Dip & Lick",
+    "bubble_gum": "Chewing-gum",
+    "sprays": "Sprays",
+    "roll_on": "Roll-on",
+    "squeeze_gel": "Gel à presser",
+    "powder_candy": "Bonbons en poudre",
+    "jelly": "Bonbons gélifiés",
+    "chocolate": "Chocolat",
+    "hard_candy": "Bonbons durs",
+    "other": "Autres produits"
+  },
+  "contact": {
+    "title": "Contact",
+    "office_hours": "Notre bureau est ouvert du lundi au vendredi, de 8h à 17h (heure de Chine).",
+    "mobile_title": "Téléphone mobile",
+    "email_title": "Les demandes peuvent également être adressées",
+    "form_subtitle": "formulaire",
+    "name": "Nom",
+    "email": "E-mail",
+    "phone": "Téléphone",
+    "message": "Message",
+    "privacy_agree": "J'accepte le traitement des données personnelles conformément à la Politique de confidentialité afin d'envoyer une question via le formulaire de contact.",
+    "send": "Envoyer",
+    "success": "Merci ! Votre message a été envoyé."
+  },
+  "product_details": {
+    "back_to_categories": "Back to Categories",
+    "inquire_button": "Inquire About This Product",
+    "features": "Features",
+    "weight": "Weight",
+    "packaging": "Packaging",
+    "no_products": "No products found in this category yet! Check back soon."
+  }
+}
