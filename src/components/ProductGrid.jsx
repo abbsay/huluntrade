@@ -2,14 +2,12 @@ import { Link } from 'react-router-dom';
 import { useI18n } from '../i18n';
 
 const FEATURED = [
-  { id: 'bubble_gum',   image: '/images/logos/boom-spray-LOGO.jpg' },
-  { id: 'sprays',       image: '/images/slider/MR-SQ-POP-SLIDER.jpg' },
-  { id: 'lollipop',     image: '/images/logos/SPINER-CANDY-LOGO.jpg' },
-  { id: 'chocolate',    image: '/images/slider/ALIEN-CAR-SLIDER.jpg' },
-  { id: 'hard_candy',   image: '/images/logos/SOUR-CRAZY-ROLL.jpg' },
-  { id: 'jelly',        image: '/images/slider/SLIDER-CHAMELEON-POP-kopia.jpg' },
-  { id: 'squeeze_gel',  image: '/images/slider/SLIDER-HAPPY-TOOLS.jpg' },
-  { id: 'roll_on',      image: '/images/slider/JB-SLIDER.jpg' },
+  { id: '35g-marshmallow', image: '/images/categories/lollipop.png', name: '35g Marshmallow' },
+  { id: '50g-jelly', image: '/images/categories/jelly.png', name: '50g Jelly' },
+  { id: '48g-jelly', image: '/images/slider/SLIDER-CHAMELEON-POP-kopia.jpg', name: '48g Jelly' },
+  { id: '8g-jelly', image: '/images/logos/logo-3.jpg', name: '8g Jelly' },
+  { id: '35g-bear-candy', image: '/images/logos/SOUR-CRAZY-ROLL.jpg', name: '35g Bear Candy' },
+  { id: '15g-lollipop', image: '/images/slider/MR-SQ-POP-SLIDER.jpg', name: '15g Lollipop' }
 ];
 
 function ProductGrid() {
@@ -28,14 +26,14 @@ function ProductGrid() {
               key={item.id}
               to={`/product/${item.id}`}
               className="product-card"
-              aria-label={t(`products_page.${item.id}`)}
+              aria-label={item.name}
             >
               <div
                 className="product-card-img"
                 style={{ backgroundImage: `url(${item.image})` }}
               />
               <h3 className="product-card-title">
-                {t(`products_page.${item.id}`)}
+                {item.name}
               </h3>
             </Link>
           ))}

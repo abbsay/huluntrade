@@ -34,17 +34,18 @@
   "products_page": {
     "title": "КАТЕГОРИИ",
     "news_items": "Новинки",
-    "lollipop": "Леденцы на палочке",
-    "dip_lick": "Dip & Lick",
+    "marshmallow": "Маршмэллоу",
+    "lollipop": "Леденец",
+    "dip_lick": "Обмакни и оближи",
     "bubble_gum": "Жевательная резинка",
     "sprays": "Спреи",
-    "roll_on": "Ролики",
-    "squeeze_gel": "Гелевые конфеты",
+    "roll_on": "Роликовые",
+    "squeeze_gel": "Выдави гель",
     "powder_candy": "Порошковые конфеты",
     "jelly": "Желейные конфеты",
     "chocolate": "Шоколад",
-    "hard_candy": "Карамель",
-    "other": "Другие товары"
+    "hard_candy": "Твердая карамель",
+    "other": "Другие продукты"
   },
   "contact": {
     "title": "Контакт",

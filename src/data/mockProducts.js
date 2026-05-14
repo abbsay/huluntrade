@@ -2,108 +2,70 @@
 // In a real application, this would come from an API backend.
 
 export const mockProducts = [
-  // Lollipops
+  // Marshmallow
   {
-    id: 'spiner-candy',
-    categoryId: 'lollipop',
-    name: 'Spiner Candy Lollipop',
-    image: '/images/logos/SPINER-CANDY-LOGO.jpg',
-    description: 'A fun, spinning lollipop that brings joy to every bite! Features a colorful swirly design and a sweet strawberry flavor.',
-    features: ['Fruit Flavored', 'Interactive Spinner', 'Individually Wrapped'],
-    weight: '15g per piece',
-    packaging: 'Display Box (24 pieces)'
-  },
-  {
-    id: 'rainbow-swirl',
-    categoryId: 'lollipop',
-    name: 'Rainbow Swirl Pop',
+    id: '35g-marshmallow',
+    categoryId: 'marshmallow',
+    name: '35g Marshmallow',
     image: '/images/categories/lollipop.png',
-    description: 'The classic giant rainbow swirl lollipop. Perfect for parties and gifts!',
-    features: ['Mixed Fruit Flavor', 'Giant Size', 'Vibrant Colors'],
-    weight: '50g per piece',
-    packaging: 'Display Box (12 pieces)'
+    description: 'Soft, fluffy, and delicious 35g marshmallow. Perfect for a sweet treat!',
+    features: ['Soft Texture', 'Sweet Flavor', 'Individually Packaged'],
+    weight: '35g',
+    packaging: 'Standard Bag'
   },
   
-  // Sprays
+  // Jelly
   {
-    id: 'mr-sq-pop',
-    categoryId: 'sprays',
-    name: 'Mr. SQ POP Spray',
-    image: '/images/slider/MR-SQ-POP-SLIDER.jpg',
-    description: 'A sour and sweet liquid candy spray that delivers a blast of flavor! Kids love the fun spray bottle.',
-    features: ['Sour Apple & Blue Raspberry', 'Liquid Candy', 'Fun Spray Action'],
-    weight: '20ml',
-    packaging: 'Display Box (30 pieces)'
+    id: '50g-jelly',
+    categoryId: 'jelly',
+    name: '50g Jelly',
+    image: '/images/categories/jelly.png',
+    description: 'Fruity and chewy 50g jelly candy. Bursting with delicious flavors.',
+    features: ['Fruity Taste', 'Chewy Texture', 'Fun Snack'],
+    weight: '50g',
+    packaging: 'Standard Bag'
   },
   {
-    id: 'boom-spray',
-    categoryId: 'sprays',
-    name: 'Boom Spray Liquid Candy',
-    image: '/images/logos/boom-spray-LOGO.jpg',
-    description: 'Explosive sour flavor in every spray! The ultimate treat for thrill-seekers.',
-    features: ['Extreme Sour', 'Pocket Sized', 'Liquid Candy'],
-    weight: '15ml',
-    packaging: 'Display Box (36 pieces)'
+    id: '48g-jelly',
+    categoryId: 'jelly',
+    name: '48g Jelly',
+    image: '/images/slider/SLIDER-CHAMELEON-POP-kopia.jpg',
+    description: 'A classic 48g jelly treat, packed with sweet and vibrant fruit flavors.',
+    features: ['Classic Jelly', 'Mixed Fruit', 'Chewy'],
+    weight: '48g',
+    packaging: 'Standard Bag'
   },
-
-  // Chocolate
   {
-    id: 'alien-car-chocolate',
-    categoryId: 'chocolate',
-    name: 'Alien Car Chocolate Surprise',
-    image: '/images/slider/ALIEN-CAR-SLIDER.jpg',
-    description: 'Delicious milk chocolate shaped like a fun alien car. Comes with a hidden candy surprise inside!',
-    features: ['Rich Milk Chocolate', 'Toy Surprise Included', 'Fun Shape'],
-    weight: '30g',
-    packaging: 'Display Box (24 pieces)'
+    id: '8g-jelly',
+    categoryId: 'jelly',
+    name: '8g Jelly',
+    image: '/images/logos/logo-3.jpg',
+    description: 'Bite-sized 8g jelly candy. A small treat with big flavor!',
+    features: ['Bite Sized', 'Convenient Snack', 'Fruit Flavors'],
+    weight: '8g',
+    packaging: 'Small Pouch'
   },
 
   // Hard Candy
   {
-    id: 'sour-crazy-roll',
+    id: '35g-bear-candy',
     categoryId: 'hard_candy',
-    name: 'Sour Crazy Roll',
+    name: '35g Bear Candy',
     image: '/images/logos/SOUR-CRAZY-ROLL.jpg',
-    description: 'A continuous roll of sweet and sour hard candy. Unroll the fun!',
-    features: ['Sweet & Sour', 'Interactive Dispenser', 'Long-lasting'],
-    weight: '25g',
-    packaging: 'Display Box (24 pieces)'
-  },
-
-  // Jelly
-  {
-    id: 'chameleon-pop-jelly',
-    categoryId: 'jelly',
-    name: 'Chameleon Pop Jelly Bean',
-    image: '/images/slider/SLIDER-CHAMELEON-POP-kopia.jpg',
-    description: 'Chewy, fruity jelly candies that magically change color on your tongue!',
-    features: ['Color Changing', 'Chewy Texture', 'Mixed Berry Flavor'],
-    weight: '40g',
-    packaging: 'Display Box (18 pieces)'
-  },
-
-  // Squeeze Gel
-  {
-    id: 'happy-tools-gel',
-    categoryId: 'squeeze_gel',
-    name: 'Happy Tools Squeeze Gel',
-    image: '/images/slider/SLIDER-HAPPY-TOOLS.jpg',
-    description: 'Squeeze out the fun with this gel candy! Shaped like fun builder tools.',
-    features: ['Gel Candy', 'Tool Shapes', 'Strawberry & Apple'],
+    description: 'Cute bear-shaped hard candy that lasts long and tastes great.',
+    features: ['Bear Shape', 'Long-lasting', 'Sweet Taste'],
     weight: '35g',
-    packaging: 'Display Box (24 pieces)'
+    packaging: 'Display Box'
   },
-
-  // Roll On
   {
-    id: 'jb-slider-roll-on',
-    categoryId: 'roll_on',
-    name: 'JB Slider Roll-On Candy',
-    image: '/images/slider/JB-SLIDER.jpg',
-    description: 'Roll it on your tongue for a burst of liquid candy flavor!',
-    features: ['Roll-on Applicator', 'Liquid Candy', 'Sour Cherry'],
-    weight: '20ml',
-    packaging: 'Display Box (24 pieces)'
+    id: '15g-lollipop',
+    categoryId: 'hard_candy',
+    name: '15g Lollipop',
+    image: '/images/slider/MR-SQ-POP-SLIDER.jpg',
+    description: 'A classic 15g hard candy lollipop on a stick.',
+    features: ['Classic Lollipop', 'Sweet & Fruity', 'On a Stick'],
+    weight: '15g',
+    packaging: 'Display Box'
   }
 ];
 
