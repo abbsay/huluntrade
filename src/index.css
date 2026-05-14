@@ -78,8 +78,6 @@ img {
   align-items: center;
   padding-left: 30px;
   flex-shrink: 0;
-  position: relative;
-  z-index: 10;
 }
 
 #logo_menu img {
@@ -1347,6 +1345,7 @@ span.ico {
 
   /* 3. Scrolling Navigation: Clean and Modern */
   #menu nav {
+    margin-right: 0 !important; /* Reset desktop margin */
     -ms-overflow-style: none; /* Hide scrollbar IE/Edge */
     scrollbar-width: none; /* Hide scrollbar Firefox */
   }
