@@ -35,7 +35,8 @@
     "title": "CATEGORIES",
     "news_items": "New Arrivals",
     "marshmallow": "Marshmallow",
-    "lollipop": "Lollipop",
+    "news": "New Products",
+    "lollipop": "Lollipops",
     "dip_lick": "Dip & Lick",
     "bubble_gum": "Bubble Gum",
     "sprays": "Sprays",
@@ -43,8 +44,10 @@
     "squeeze_gel": "Squeeze Gel",
     "powder_candy": "Powder Candy",
     "jelly": "Jelly Candy",
+    "licore": "Licorice & Jellies",
     "chocolate": "Chocolate",
     "hard_candy": "Hard Candy",
+    "candies": "Candies",
     "other": "Other Products"
   },
   "contact": {

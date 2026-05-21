@@ -6,9 +6,18 @@ import { Link } from 'react-router-dom';
  * barColor = label bar background matching original CSS
  */
 const CATEGORIES = [
-  { id: 'marshmallow', barColor: '#6a78e6', img: '/images/categories/lollipop.png' },
-  { id: 'jelly',       barColor: '#d90ea6', img: '/images/categories/jelly.png' },
-  { id: 'hard_candy',  barColor: '#f7ad50', img: '/images/categories/hard_candy.png' }
+  { id: 'news',         barColor: '#6a78e6', img: '/images/categories/news.png' },
+  { id: 'lollipop',     barColor: '#d90ea6', img: '/images/categories/lollipop.png' },
+  { id: 'dip_lick',     barColor: '#f7ad50', img: '/images/categories/dip_lick.png' },
+  { id: 'bubble_gum',   barColor: '#f79eff', img: '/images/categories/bubble_gum.png' },
+  { id: 'sprays',       barColor: '#92cdc2', img: '/images/categories/sprays.png' },
+  { id: 'roll_on',      barColor: '#85be21', img: '/images/categories/roll_on.png' },
+  { id: 'squeeze_gel',  barColor: '#bf1075', img: '/images/categories/squeeze_gel.png' },
+  { id: 'powder_candy', barColor: '#7895e5', img: '/images/categories/powder_candy.png' },
+  { id: 'licore',       barColor: '#d9bc1e', img: '/images/categories/jelly.png' },
+  { id: 'chocolate',    barColor: '#00baeb', img: '/images/categories/chocolate.png' },
+  { id: 'candies',      barColor: '#0adda5', img: '/images/categories/hard_candy.png' },
+  { id: 'other',        barColor: '#d694e4', img: '/images/categories/other.png' }
 ];
 
 function Products() {
@@ -49,10 +58,10 @@ function Products() {
           {CATEGORIES.map((cat) => {
             const name = t(`products_page.${cat.id}`);
             return (
-              <div key={cat.id} className="colProd cat">
+              <div key={cat.id} className="colProd cat" style={{ '--cat-color': cat.barColor }}>
                 <Link to={`/category/${cat.id}`} aria-label={name} className="cat-card-link">
                   {/* Label on TOP */}
-                  <div className="category_name" style={{ background: cat.barColor }}>
+                  <div className="category_name" style={{ background: 'var(--cat-color)' }}>
                     <span>{name}</span>
                   </div>
                   <div className="cat-img-area">

@@ -35,7 +35,8 @@
     "title": "فئات المنتجات",
     "news_items": "وصل حديثا",
     "marshmallow": "مارشميلو",
-    "lollipop": "مصاصة",
+    "news": "وصل حديثا",
+    "lollipop": "مصاصات",
     "dip_lick": "اغمس والعق",
     "bubble_gum": "علكة",
     "sprays": "بخاخات",
@@ -43,8 +44,10 @@
     "squeeze_gel": "جل للعصر",
     "powder_candy": "حلوى بودرة",
     "jelly": "حلوى الجيلي",
+    "licore": "عرق السوس والجيلي",
     "chocolate": "شوكولاتة",
     "hard_candy": "حلوى صلبة",
+    "candies": "حلويات",
     "other": "منتجات أخرى"
   },
   "contact": {
