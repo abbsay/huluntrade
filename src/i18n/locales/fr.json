@@ -35,7 +35,8 @@
     "title": "CATÉGORIES",
     "marshmallow": "Guimauve",
     "jelly": "Bonbons en Gelée",
-    "hard_candy": "Bonbons Durs"
+    "hard_candy": "Bonbons Durs",
+    "candy_toy": "Jouet de Bonbon"
   },
   "contact": {
     "title": "Contact",
@@ -57,7 +58,8 @@
     "features": "Caractéristiques",
     "weight": "Poids",
     "packaging": "Emballage",
-    "no_products": "Aucun produit trouvé dans cette catégorie pour le moment ! Revenez bientôt."
+    "no_products": "Aucun produit trouvé dans cette catégorie pour le moment ! Revenez bientôt.",
+    "coming_soon": "Bientôt disponible..."
   },
   "subcategories": {
     "35g_marshmallow": "Guimauve 35g",

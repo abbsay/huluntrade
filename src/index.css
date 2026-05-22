@@ -655,7 +655,7 @@ span.ico {
 
 #product_category_list {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 0;
   max-width: 1400px;
   margin: 0 auto;
@@ -1263,7 +1263,7 @@ span.ico {
     min-width: 140px;
   }
   #product_category_list {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 

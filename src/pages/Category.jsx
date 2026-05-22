@@ -94,8 +94,8 @@ function Category() {
           </div>
         ) : (
           <div className="empty-state sticker-card">
-            <h2>😢</h2>
-            <p>{t('product_details.no_products')}</p>
+            <h2>{categoryId === 'candy_toy' ? '🎉' : '😢'}</h2>
+            <p>{categoryId === 'candy_toy' ? t('product_details.coming_soon') : t('product_details.no_products')}</p>
           </div>
         )}
 

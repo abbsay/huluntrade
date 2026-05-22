@@ -35,7 +35,8 @@
     "title": "CATEGORIES",
     "marshmallow": "Marshmallow",
     "jelly": "Jelly Candy",
-    "hard_candy": "Hard Candy"
+    "hard_candy": "Hard Candy",
+    "candy_toy": "Candy Toy"
   },
   "contact": {
     "title": "Contact",
@@ -57,7 +58,8 @@
     "features": "Features",
     "weight": "Weight",
     "packaging": "Packaging",
-    "no_products": "No products found in this category yet! Check back soon."
+    "no_products": "No products found in this category yet! Check back soon.",
+    "coming_soon": "Coming Soon..."
   },
   "subcategories": {
     "35g_marshmallow": "35g Marshmallow",
