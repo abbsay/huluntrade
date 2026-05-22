@@ -101,7 +101,7 @@ img {
   align-items: stretch;
   height: 100%;
   margin-left: auto;
-  margin-right: 140px;
+  margin-right: 180px;
 }
 
 #menu .nav-links {
@@ -122,9 +122,10 @@ img {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  width: 100px;
-  padding: 12px 10px;
+  justify-content: flex-start;
+  width: 108px;
+  height: 88px;
+  padding: 8px 4px;
   border-radius: 16px;
   text-align: center;
   font-family: 'Oswald', sans-serif;
@@ -133,7 +134,7 @@ img {
   text-transform: uppercase;
   color: var(--color-text-dark);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  line-height: 1.3;
+  line-height: 1.2;
 }
 
 #menu .nav-links > li.active > a {
@@ -1253,7 +1254,7 @@ span.ico {
 
 [dir='rtl'] #menu nav {
   margin-right: auto !important;
-  margin-left: 140px !important;
+  margin-left: 180px !important;
 }
 
 [dir='rtl'] #logo_menu {
