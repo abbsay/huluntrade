@@ -279,6 +279,7 @@ span.ico {
   display: block;
   margin: 0 !important;
   background-size: contain !important;
+  transform: none !important;
 }
 
 .lang-code {
@@ -300,7 +301,7 @@ span.ico {
   position: absolute;
   top: calc(100% + 8px);
   right: 0;
-  width: 125px;
+  width: 100%;
   background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -654,7 +655,7 @@ span.ico {
 
 #product_category_list {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 0;
   max-width: 1400px;
   margin: 0 auto;
@@ -1272,7 +1273,7 @@ span.ico {
   /* 1. Top Bar: Perfect Centering with Grid */
   #logo_menu {
     display: grid;
-    grid-template-columns: 80px 1fr 80px; /* Symmetrical sides to force absolute center */
+    grid-template-columns: 110px 1fr 110px; /* Symmetrical sides to force absolute center */
     align-items: center;
     width: 100%;
     padding: 10px 15px;
@@ -1303,7 +1304,7 @@ span.ico {
   }
   
   .lang-switcher {
-    width: 90px;
+    width: 110px;
   }
   
   .lang-toggle {
@@ -1414,7 +1415,7 @@ span.ico {
     padding: 10px 6px 14px;
   }
   #product_category_list {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
   }
   .cat-emoji {
     font-size: 40px;

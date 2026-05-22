@@ -33,22 +33,9 @@
   },
   "products_page": {
     "title": "КАТЕГОРИИ",
-    "news_items": "Новинки",
     "marshmallow": "Маршмэллоу",
-    "news": "Новинки",
-    "lollipop": "Леденцы",
-    "dip_lick": "Обмакни и оближи",
-    "bubble_gum": "Жевательная резинка",
-    "sprays": "Спреи",
-    "roll_on": "Роликовые конфеты",
-    "squeeze_gel": "Выдави гель",
-    "powder_candy": "Порошковые конфеты",
     "jelly": "Желейные конфеты",
-    "licore": "Лакрица и желейки",
-    "chocolate": "Шоколад",
-    "hard_candy": "Твердая карамель",
-    "candies": "Конфеты",
-    "other": "Другие продукты"
+    "hard_candy": "Твердая карамель"
   },
   "contact": {
     "title": "Контакт",
@@ -65,11 +52,11 @@
     "success": "Спасибо! Ваше сообщение отправлено."
   },
   "product_details": {
-    "back_to_categories": "Back to Categories",
-    "inquire_button": "Inquire About This Product",
-    "features": "Features",
-    "weight": "Weight",
-    "packaging": "Packaging",
-    "no_products": "No products found in this category yet! Check back soon."
+    "back_to_categories": "Назад к категориям",
+    "inquire_button": "Запросить информацию о товаре",
+    "features": "Особенности",
+    "weight": "Вес",
+    "packaging": "Упаковка",
+    "no_products": "В этой категории пока нет товаров! Зайдите позже."
   }
 }

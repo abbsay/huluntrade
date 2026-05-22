@@ -32,23 +32,10 @@
     "closing": "نحن فخورون بفريقنا المهني والتزامنا بتقديم حلويات آمنة، لذيذة ومبهجة للعائلات والشركاء في جميع أنحاء العالم!"
   },
   "products_page": {
-    "title": "فئات المنتجات",
-    "news_items": "وصل حديثا",
+    "title": "الفئات",
     "marshmallow": "مارشميلو",
-    "news": "وصل حديثا",
-    "lollipop": "مصاصات",
-    "dip_lick": "اغمس والعق",
-    "bubble_gum": "علكة",
-    "sprays": "بخاخات",
-    "roll_on": "رول أون",
-    "squeeze_gel": "جل للعصر",
-    "powder_candy": "حلوى بودرة",
     "jelly": "حلوى الجيلي",
-    "licore": "عرق السوس والجيلي",
-    "chocolate": "شوكولاتة",
-    "hard_candy": "حلوى صلبة",
-    "candies": "حلويات",
-    "other": "منتجات أخرى"
+    "hard_candy": "حلوى صلبة"
   },
   "contact": {
     "title": "اتصل بنا",
@@ -65,11 +52,11 @@
     "success": "شكرًا لك! تم إرسال رسالتك."
   },
   "product_details": {
-    "back_to_categories": "Back to Categories",
-    "inquire_button": "Inquire About This Product",
-    "features": "Features",
-    "weight": "Weight",
-    "packaging": "Packaging",
-    "no_products": "No products found in this category yet! Check back soon."
+    "back_to_categories": "العودة إلى الفئات",
+    "inquire_button": "استفسر عن هذا المنتج",
+    "features": "الميزات",
+    "weight": "الوزن",
+    "packaging": "التعبئة والتغليف",
+    "no_products": "لم يتم العثور على منتجات في هذه الفئة بعد! تحقق لاحقًا."
   }
 }

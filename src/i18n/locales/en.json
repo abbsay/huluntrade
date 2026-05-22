@@ -33,22 +33,9 @@
   },
   "products_page": {
     "title": "CATEGORIES",
-    "news_items": "New Arrivals",
     "marshmallow": "Marshmallow",
-    "news": "New Products",
-    "lollipop": "Lollipops",
-    "dip_lick": "Dip & Lick",
-    "bubble_gum": "Bubble Gum",
-    "sprays": "Sprays",
-    "roll_on": "Roll-on",
-    "squeeze_gel": "Squeeze Gel",
-    "powder_candy": "Powder Candy",
     "jelly": "Jelly Candy",
-    "licore": "Licorice & Jellies",
-    "chocolate": "Chocolate",
-    "hard_candy": "Hard Candy",
-    "candies": "Candies",
-    "other": "Other Products"
+    "hard_candy": "Hard Candy"
   },
   "contact": {
     "title": "Contact",

@@ -33,22 +33,9 @@
   },
   "products_page": {
     "title": "CATÉGORIES",
-    "news_items": "Nouveautés",
     "marshmallow": "Guimauve",
-    "news": "Nouveautés",
-    "lollipop": "Sucettes",
-    "dip_lick": "Tremper & Lécher",
-    "bubble_gum": "Chewing-gum",
-    "sprays": "Sprays",
-    "roll_on": "Roll-on",
-    "squeeze_gel": "Gel à presser",
-    "powder_candy": "Bonbons en poudre",
     "jelly": "Bonbons en Gelée",
-    "licore": "Réglisse & Gélifiés",
-    "chocolate": "Chocolat",
-    "hard_candy": "Bonbons Durs",
-    "candies": "Bonbons",
-    "other": "Autres Produits"
+    "hard_candy": "Bonbons Durs"
   },
   "contact": {
     "title": "Contact",
@@ -65,11 +52,11 @@
     "success": "Merci ! Votre message a été envoyé."
   },
   "product_details": {
-    "back_to_categories": "Back to Categories",
-    "inquire_button": "Inquire About This Product",
-    "features": "Features",
-    "weight": "Weight",
-    "packaging": "Packaging",
-    "no_products": "No products found in this category yet! Check back soon."
+    "back_to_categories": "Retour aux catégories",
+    "inquire_button": "Demander des informations sur ce produit",
+    "features": "Caractéristiques",
+    "weight": "Poids",
+    "packaging": "Emballage",
+    "no_products": "Aucun produit trouvé dans cette catégorie pour le moment ! Revenez bientôt."
   }
 }

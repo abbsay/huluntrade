@@ -7,11 +7,8 @@ import 'swiper/css/effect-fade';
 
 function SwiperHero() {
   const slides = [
-    { id: 1, image: '/images/slider/JB-SLIDER.jpg', alt: 'Johnny Bee Slider' },
-    { id: 2, image: '/images/slider/ALIEN-CAR-SLIDER.jpg', alt: 'Alien Car Slider' },
-    { id: 3, image: '/images/slider/MR-SQ-POP-SLIDER.jpg', alt: 'Mr Squeeze Pop Slider' },
-    { id: 4, image: '/images/slider/SLIDER-CHAMELEON-POP-kopia.jpg', alt: 'Chameleon Pop Slider' },
-    { id: 5, image: '/images/slider/SLIDER-HAPPY-TOOLS.jpg', alt: 'Happy Tools Slider' },
+    { id: 1, image: '/images/slider/banner1.png', alt: 'Hulun Trade Banner 1' },
+    { id: 2, image: '/images/slider/banner2.png', alt: 'Hulun Trade Banner 2' },
   ];
 
   return (
