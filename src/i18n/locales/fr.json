@@ -50,7 +50,9 @@
     "message": "Message",
     "privacy_agree": "J'accepte le traitement des données personnelles conformément à la Politique de confidentialité afin d'envoyer une question via le formulaire de contact.",
     "send": "Envoyer",
-    "success": "Merci ! Votre message a été envoyé."
+    "sending": "Envoi en cours...",
+    "success": "Merci ! Votre message a été envoyé.",
+    "error": "Échec de l'envoi du message. Veuillez réessayer plus tard."
   },
   "product_details": {
     "back_to_categories": "Retour aux catégories",

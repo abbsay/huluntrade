@@ -5,17 +5,43 @@ function Contact() {
   const { t } = useI18n();
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
   const [agreed, setAgreed] = useState(false);
+  const [status, setStatus] = useState('idle'); // 'idle' | 'loading' | 'success' | 'error'
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleChange = (e) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!agreed) return;
-    alert(t('contact.success'));
-    setForm({ name: '', email: '', phone: '', message: '' });
-    setAgreed(false);
+    if (!agreed || status === 'loading') return;
+
+    setStatus('loading');
+    setErrorMessage('');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(form),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setStatus('success');
+        setForm({ name: '', email: '', phone: '', message: '' });
+        setAgreed(false);
+      } else {
+        setStatus('error');
+        setErrorMessage(data.error || t('contact.error'));
+      }
+    } catch (err) {
+      setStatus('error');
+      setErrorMessage(t('contact.error'));
+    }
   };
 
   return (
@@ -80,6 +106,7 @@ function Contact() {
                 placeholder={t('contact.name')}
                 value={form.name}
                 onChange={handleChange}
+                disabled={status === 'loading'}
                 required
               />
             </div>
@@ -92,6 +119,7 @@ function Contact() {
                 placeholder={t('contact.email')}
                 value={form.email}
                 onChange={handleChange}
+                disabled={status === 'loading'}
                 required
               />
             </div>
@@ -104,6 +132,7 @@ function Contact() {
                 placeholder={t('contact.phone')}
                 value={form.phone}
                 onChange={handleChange}
+                disabled={status === 'loading'}
               />
             </div>
             
@@ -115,24 +144,45 @@ function Contact() {
                 placeholder={t('contact.message')}
                 value={form.message}
                 onChange={handleChange}
+                disabled={status === 'loading'}
                 required
               />
             </div>
             
-            <label className="fun-checkbox">
+            <label className={`fun-checkbox ${status === 'loading' ? 'disabled' : ''}`}>
               <input
                 type="checkbox"
                 checked={agreed}
                 onChange={(e) => setAgreed(e.target.checked)}
+                disabled={status === 'loading'}
                 required
               />
               <span className="checkmark"></span>
               <span className="agree-text">{t('contact.privacy_agree')}</span>
             </label>
             
-            <button type="submit" className="candy-btn bounce-anim">
-              🚀 {t('contact.send')}
+            <button 
+              type="submit" 
+              className={`candy-btn bounce-anim ${status === 'loading' ? 'loading' : ''}`}
+              disabled={status === 'loading'}
+            >
+              {status === 'loading' ? (
+                <>{t('contact.sending', 'Sending...')}</>
+              ) : (
+                <>🚀 {t('contact.send')}</>
+              )}
             </button>
+
+            {status === 'success' && (
+              <div className="form-status success-message">
+                🎉 {t('contact.success')}
+              </div>
+            )}
+            {status === 'error' && (
+              <div className="form-status error-message">
+                ❌ {errorMessage}
+              </div>
+            )}
           </form>
         </div>
       </div>

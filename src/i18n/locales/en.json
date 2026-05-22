@@ -50,7 +50,9 @@
     "message": "Message",
     "privacy_agree": "I agree to the processing of personal data in accordance with the Privacy Policy in order to send a question via the contact form.",
     "send": "Send",
-    "success": "Thank you! Your message has been sent."
+    "sending": "Sending...",
+    "success": "Thank you! Your message has been sent.",
+    "error": "Failed to send message. Please try again later."
   },
   "product_details": {
     "back_to_categories": "Back to Categories",
