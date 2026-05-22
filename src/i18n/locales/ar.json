@@ -24,7 +24,7 @@
     "wechat_label": "ويتشات",
     "trust_line1": "أمان 100%",
     "trust_line2": "رضا 100%",
-    "copyright": "\u00a9 {year} Hulun Trade. جميع الحقوق محفوظة."
+    "copyright": "© {year} Hulun Trade. جميع الحقوق محفوظة."
   },
   "about": {
     "title": "من نحن",
@@ -58,5 +58,13 @@
     "weight": "الوزن",
     "packaging": "التعبئة والتغليف",
     "no_products": "لم يتم العثور على منتجات في هذه الفئة بعد! تحقق لاحقًا."
+  },
+  "subcategories": {
+    "35g_marshmallow": "مارشميلو 35 غرام",
+    "50g_jelly": "جيلي 50 غرام",
+    "48g_jelly": "جيلي 48 غرام",
+    "8g_jelly": "جيلي 8 غرام",
+    "35g_bear_candy": "حلوى الدببة 35 غرام",
+    "15g_lollipop": "مصاصة 15 غرام"
   }
 }

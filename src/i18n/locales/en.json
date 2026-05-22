@@ -24,7 +24,7 @@
     "wechat_label": "wechat",
     "trust_line1": "100% SAFETY",
     "trust_line2": "100% SATISFACTION",
-    "copyright": "\u00a9 {year} Hulun Trade. All rights reserved."
+    "copyright": "© {year} Hulun Trade. All rights reserved."
   },
   "about": {
     "title": "About us",
@@ -58,5 +58,13 @@
     "weight": "Weight",
     "packaging": "Packaging",
     "no_products": "No products found in this category yet! Check back soon."
+  },
+  "subcategories": {
+    "35g_marshmallow": "35g Marshmallow",
+    "50g_jelly": "50g Jelly",
+    "48g_jelly": "48g Jelly",
+    "8g_jelly": "8g Jelly",
+    "35g_bear_candy": "35g Bear Candy",
+    "15g_lollipop": "15g Lollipop"
   }
 }

@@ -24,7 +24,7 @@
     "wechat_label": "WeChat",
     "trust_line1": "100% БЕЗОПАСНОСТЬ",
     "trust_line2": "100% УДОВЛЕТВОРЕНИЕ",
-    "copyright": "\u00a9 {year} Hulun Trade. Все права защищены."
+    "copyright": "© {year} Hulun Trade. Все права защищены."
   },
   "about": {
     "title": "О нас",
@@ -58,5 +58,13 @@
     "weight": "Вес",
     "packaging": "Упаковка",
     "no_products": "В этой категории пока нет товаров! Зайдите позже."
+  },
+  "subcategories": {
+    "35g_marshmallow": "Маршмэллоу 35г",
+    "50g_jelly": "Желейные конфеты 50г",
+    "48g_jelly": "Желейные конфеты 48г",
+    "8g_jelly": "Желейные конфеты 8г",
+    "35g_bear_candy": "Мармеладные мишки 35г",
+    "15g_lollipop": "Леденцы 15г"
   }
 }

@@ -24,7 +24,7 @@
     "wechat_label": "WeChat",
     "trust_line1": "100% SÉCURITÉ",
     "trust_line2": "100% SATISFACTION",
-    "copyright": "\u00a9 {year} Hulun Trade. Tous droits réservés."
+    "copyright": "© {year} Hulun Trade. Tous droits réservés."
   },
   "about": {
     "title": "À propos",
@@ -58,5 +58,13 @@
     "weight": "Poids",
     "packaging": "Emballage",
     "no_products": "Aucun produit trouvé dans cette catégorie pour le moment ! Revenez bientôt."
+  },
+  "subcategories": {
+    "35g_marshmallow": "Guimauve 35g",
+    "50g_jelly": "Gelée 50g",
+    "48g_jelly": "Gelée 48g",
+    "8g_jelly": "Gelée 8g",
+    "35g_bear_candy": "Bonbons oursons 35g",
+    "15g_lollipop": "Sucette 15g"
   }
 }
