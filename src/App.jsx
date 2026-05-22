@@ -10,8 +10,8 @@ import Contact from './pages/Contact';
 import Category from './pages/Category';
 import ProductDetail from './pages/ProductDetail';
 
-const PHONE_DISPLAY = '+48 501 354 352';
-const PHONE_TEL = '+48501354352';
+const PHONE_DISPLAY = '+86 13967427888';
+const PHONE_TEL = '+8613967427888';
 
 function Header() {
   const { t } = useI18n();
@@ -21,7 +21,7 @@ function Header() {
     <header id="menu" className="header">
       <div id="logo_menu">
         <Link to="/">
-          <img src="/logo.png" alt="Mada Sweet Logo" id="logo_img" />
+          <img src="/logo.png" alt="Hulun Trade Logo" id="logo_img" />
         </Link>
         {/* Language Switcher moved here to group with logo on mobile */}
         <div id="lang">
@@ -160,17 +160,15 @@ function Footer() {
           <div className="footer_left bounce-hover">
             <div className="footer-icon-wrapper">📍</div>
             <div className="footer-text-content">
-              <strong>Mada Sweet</strong>
+              <strong>HULUN TRADE CO., LTD</strong>
               <br />
-              ul. Polna 7
+              Yiwu, Zhejiang
               <br />
-              26-026 Morawica
-              <br />
-              Poland
+              China
               <br />
               <a
                 className="btn_fun"
-                href="https://maps.google.com/?q=Polna+7,26-026+Morawica,Poland"
+                href="https://maps.google.com/?q=Yiwu,Zhejiang,China"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -186,11 +184,11 @@ function Footer() {
               <strong>{t('footer.contactdesc')}</strong>
               <br />
               {t('footer.email_label')}:{' '}
-              <a href="mailto:kontakt@madasweet.pl" className="fun-link">kontakt@madasweet.pl</a>
+              <a href="mailto:Van001@huluntrade.com" className="fun-link">Van001@huluntrade.com</a>
               <br />
-              NIP: <span className="highlight-text">6570080542</span>
+              WeChat: <span className="highlight-text">13967427888 / 17758069907</span>
               <br />
-              gsm: <a href="tel:+48501354352" className="fun-link">+48 501 354 352</a> / <a href="tel:+48605303966" className="fun-link">+48 605 303 966</a>
+              TEL: <a href="tel:+8613967427888" className="fun-link">+86 13967427888</a>
             </div>
           </div>
         </div>
