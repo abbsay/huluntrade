@@ -24,12 +24,12 @@
     "wechat_label": "wechat",
     "trust_line1": "100% SAFETY",
     "trust_line2": "100% SATISFACTION",
-    "copyright": "\u00a9 {year} Hulun Trade Co., Ltd. All rights reserved."
+    "copyright": "\u00a9 {year} Mada Sweet. All rights reserved."
   },
   "about": {
     "title": "About us",
-    "story": "We are an industrial and trade food company founded in 2015. The office is located in the world's small commodity city - Yiwu. The company specializes in candy production activities. Products are exported to Russia, the Middle East, South America, Southeast Asia and African countries. We specialize in marshmallows, gummies and all kinds of handmade hard candies. Support various OEMs. We warmly welcome customers from all over the world to visit our company and consult us by email.",
-    "closing": "There is nothing sweeter than bringing joy to people around the world!"
+    "story": "Mada Sweet was established in 1989 in Kielce, Poland. Since the beginning of our activity, we have dealt with the import and distribution of impulse confectionery. Following the initial success in Poland, we created our own brands Johny Bee and X-Treme, which are now leading brands in the candy novelty category within the European Union. We manage the entire product development process \u2014 from the initial concept and ingredient selection to the final package design, offering a wide range of unique and patented products.",
+    "closing": "We are proud of our creative team and our commitment to bringing sweet joy to children and families across the globe!"
   },
   "products_page": {
     "title": "CATEGORIES",
@@ -52,9 +52,9 @@
   },
   "contact": {
     "title": "Contact",
-    "office_hours": "Our office is active from Monday to Friday, 8AM to 5PM (China time).",
-    "mobile_title": "Mobile phone",
-    "email_title": "Inquiries can also be directed",
+    "office_hours": "Our office is active from Monday to Friday, 8:00 AM to 4:00 PM (Central European Time).",
+    "mobile_title": "Contact Numbers",
+    "email_title": "Direct Inquiries",
     "form_subtitle": "form",
     "name": "Name",
     "email": "Email",

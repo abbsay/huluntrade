@@ -24,12 +24,12 @@
     "wechat_label": "WeChat",
     "trust_line1": "100% SÉCURITÉ",
     "trust_line2": "100% SATISFACTION",
-    "copyright": "\u00a9 {year} Hulun Trade Co., Ltd. Tous droits réservés."
+    "copyright": "\u00a9 {year} Mada Sweet. Tous droits réservés."
   },
   "about": {
     "title": "À propos",
-    "story": "Nous sommes une entreprise agroalimentaire industrielle et commerciale fondée en 2015. Le bureau est situé dans la ville mondiale des petites marchandises - Yiwu. L'entreprise se spécialise dans les activités de production de bonbons. Les produits sont exportés vers la Russie, le Moyen-Orient, l'Amérique du Sud, l'Asie du Sud-Est et les pays africains. Nous sommes spécialisés dans les guimauves, les gommes et toutes sortes de bonbons durs artisanaux. Nous soutenons divers projets OEM. Nous accueillons chaleureusement les clients du monde entier pour visiter notre entreprise et nous consulter par e-mail.",
-    "closing": "Il n'y a rien de plus doux que d'apporter de la joie aux gens du monde entier !"
+    "story": "La société Mada Sweet a été créée en 1989 à Kielce, en Pologne. Depuis le début de notre activité, nous nous occupons de l'importation et de la distribution de confiseries d'impulsion. Suite au succès initial en Pologne, nous avons créé nos propres marques Johny Bee et X-Treme, qui sont aujourd'hui des marques leaders dans la catégorie des nouveautés de confiserie au sein de l'Union européenne. Nous gérons l'ensemble du processus de développement des produits — du concept initial et de la sélection des ingrédients à la conception finale de l'emballage, offrant une large gamme de produits uniques et brevetés.",
+    "closing": "Nous sommes fiers de notre équipe créative et de notre engagement à apporter une joie sucrée aux enfants et aux familles du monde entier !"
   },
   "products_page": {
     "title": "CATÉGORIES",
@@ -52,9 +52,9 @@
   },
   "contact": {
     "title": "Contact",
-    "office_hours": "Notre bureau est ouvert du lundi au vendredi, de 8h à 17h (heure de Chine).",
-    "mobile_title": "Téléphone mobile",
-    "email_title": "Les demandes peuvent également être adressées",
+    "office_hours": "Notre bureau est ouvert du lundi au vendredi, de 8h00 à 16h00 (heure d'Europe centrale).",
+    "mobile_title": "Numéros de contact",
+    "email_title": "Demandes directes",
     "form_subtitle": "formulaire",
     "name": "Nom",
     "email": "E-mail",

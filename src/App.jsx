@@ -10,8 +10,8 @@ import Contact from './pages/Contact';
 import Category from './pages/Category';
 import ProductDetail from './pages/ProductDetail';
 
-const PHONE_DISPLAY = '+86 139 6742 7888';
-const PHONE_TEL = '+8613967427888';
+const PHONE_DISPLAY = '+48 501 354 352';
+const PHONE_TEL = '+48501354352';
 
 function Header() {
   const { t } = useI18n();
@@ -21,7 +21,7 @@ function Header() {
     <header id="menu" className="header">
       <div id="logo_menu">
         <Link to="/">
-          <img src="/logo.png" alt="Hulun Trade Logo" id="logo_img" />
+          <img src="/logo.png" alt="Mada Sweet Logo" id="logo_img" />
         </Link>
         {/* Language Switcher moved here to group with logo on mobile */}
         <div id="lang">
@@ -90,7 +90,7 @@ function LangSwitcher() {
   const [isOpen, setIsOpen] = useState(false);
   const rootRef = useRef(null);
 
-  // 点击外部关闭
+  // Close when clicking outside
   useEffect(() => {
     function onDocClick(e) {
       if (rootRef.current && !rootRef.current.contains(e.target)) {
@@ -101,12 +101,21 @@ function LangSwitcher() {
     return () => document.removeEventListener('mousedown', onDocClick);
   }, []);
 
+  // Close when pressing Escape key
+  useEffect(() => {
+    function onKeyDown(e) {
+      if (e.key === 'Escape') {
+        setIsOpen(false);
+      }
+    }
+    document.addEventListener('keydown', onKeyDown);
+    return () => document.removeEventListener('keydown', onKeyDown);
+  }, []);
+
   return (
     <div
       className="lang-switcher"
       ref={rootRef}
-      onMouseEnter={() => setIsOpen(true)}
-      onMouseLeave={() => setIsOpen(false)}
     >
       <button
         type="button"
@@ -131,7 +140,7 @@ function LangSwitcher() {
                 setIsOpen(false);
               }}
             >
-              {opt.label}
+              {opt.native}
             </li>
           ))}
         </ul>
@@ -151,15 +160,17 @@ function Footer() {
           <div className="footer_left bounce-hover">
             <div className="footer-icon-wrapper">📍</div>
             <div className="footer-text-content">
-              <strong>HULUN TRADE CO., LTD</strong>
+              <strong>Mada Sweet</strong>
               <br />
-              Yiwu, Zhejiang
+              ul. Polna 7
               <br />
-              China
+              26-026 Morawica
+              <br />
+              Poland
               <br />
               <a
                 className="btn_fun"
-                href="https://maps.google.com/?q=Yiwu,Zhejiang,China"
+                href="https://maps.google.com/?q=Polna+7,26-026+Morawica,Poland"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -175,11 +186,11 @@ function Footer() {
               <strong>{t('footer.contactdesc')}</strong>
               <br />
               {t('footer.email_label')}:{' '}
-              <a href="mailto:Van001@huluntrade.com" className="fun-link">Van001@huluntrade.com</a>
+              <a href="mailto:kontakt@madasweet.pl" className="fun-link">kontakt@madasweet.pl</a>
               <br />
-              {t('footer.wechat_label')}: <span className="highlight-text">13967427888 / 17758069907</span>
+              NIP: <span className="highlight-text">6570080542</span>
               <br />
-              gsm: <a href={`tel:${PHONE_TEL}`} className="fun-link">{PHONE_DISPLAY}</a>
+              gsm: <a href="tel:+48501354352" className="fun-link">+48 501 354 352</a> / <a href="tel:+48605303966" className="fun-link">+48 605 303 966</a>
             </div>
           </div>
         </div>

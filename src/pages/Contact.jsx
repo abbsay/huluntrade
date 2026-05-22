@@ -36,8 +36,8 @@ function Contact() {
             <div className="info-item">
               <div className="icon-circle">🏢</div>
               <div className="info-text">
-                <strong>HULUN TRADE CO., LTD</strong>
-                <p>Yiwu, Zhejiang, China</p>
+                <strong>MADA SWEET</strong>
+                <p>ul. Polna 7, 26-026 Morawica, Poland</p>
               </div>
             </div>
 
@@ -52,8 +52,8 @@ function Contact() {
               <div className="icon-circle">📞</div>
               <div className="info-text">
                 <strong>{t('contact.mobile_title')}</strong>
-                <p className="highlight-pill">+86 139 6742 7888</p>
-                <p className="highlight-pill">+86 177 5806 9907</p>
+                <p className="highlight-pill">Dobrawa Bakalarz: +48 501 354 352</p>
+                <p className="highlight-pill">Tomasz Pawłowski: +48 605 303 966</p>
               </div>
             </div>
 
@@ -61,8 +61,8 @@ function Contact() {
               <div className="icon-circle">📧</div>
               <div className="info-text">
                 <strong>{t('contact.email_title')}</strong>
-                <p>E-MAIL: <a href="mailto:VAN001@HULUNTRADE.COM" className="fun-link">VAN001@HULUNTRADE.COM</a></p>
-                <p>WECHAT: <span className="highlight-pill">13967427888</span></p>
+                <p>E-MAIL: <a href="mailto:kontakt@madasweet.pl" className="fun-link">kontakt@madasweet.pl</a></p>
+                <p>NIP: <span className="highlight-pill">6570080542</span></p>
               </div>
             </div>
           </div>

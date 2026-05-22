@@ -5,7 +5,7 @@ import fr from './locales/fr.json';
 
 export const LOCALES = { en, ar, ru, fr };
 export const RTL_LANGS = ['ar'];
-export const STORAGE_KEY = 'huluntrade-lang';
+export const STORAGE_KEY = 'madasweet-lang';
 
 export const LANG_OPTIONS = [
   { code: 'en', label: 'EN', native: 'English' },
