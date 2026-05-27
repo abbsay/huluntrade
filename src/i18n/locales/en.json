@@ -70,5 +70,11 @@
     "8g_jelly": "8g Jelly",
     "35g_bear_candy": "35g Bear Candy",
     "15g_lollipop": "15g Lollipop"
+  },
+  "not_found": {
+    "title": "Oops! Page Not Found",
+    "description": "Looks like this candy got lost! The page you're looking for doesn't exist or has been moved.",
+    "go_home": "Back to Home",
+    "browse_products": "Browse Products"
   }
 }

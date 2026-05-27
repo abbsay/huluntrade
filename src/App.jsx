@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { Routes, Route, Link, useLocation } from 'react-router-dom';
 import { useI18n, LANG_OPTIONS } from './i18n';
 
@@ -9,6 +9,7 @@ import Products from './pages/Products';
 import Contact from './pages/Contact';
 import Category from './pages/Category';
 import ProductDetail from './pages/ProductDetail';
+import NotFound from './pages/NotFound';
 
 const PHONE_DISPLAY = '+86 13967427888';
 const PHONE_TEL = '+8613967427888';
@@ -16,72 +17,120 @@ const PHONE_TEL = '+8613967427888';
 function Header() {
   const { t } = useI18n();
   const location = useLocation();
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  // Scroll-aware header
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 80);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  // Close menu on route change
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [location.pathname]);
+
+  // Body scroll lock when menu is open
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [menuOpen]);
+
+  const closeMenu = useCallback(() => setMenuOpen(false), []);
+
+  const headerClass = [
+    'header',
+    scrolled ? 'header--scrolled' : '',
+    menuOpen ? 'header--menu-open' : '',
+  ].filter(Boolean).join(' ');
+
+  const navItems = [
+    { id: 'home', path: '/', label: t('nav.home'), icon: '/images/home_ico.png' },
+    { id: 'products', path: '/products', label: t('nav.products'), icon: '/images/box_ico.png' },
+    { id: 'about', path: '/about', label: t('nav.about'), icon: '/images/chat_ico.png' },
+    { id: 'contact-nav', path: '/contact', label: t('nav.contact'), icon: '/images/plane_ico.png' },
+  ];
 
   return (
-    <header id="menu" className="header">
-      <div id="logo_menu">
-        <Link to="/">
-          <img src="/logo.png" alt="Hulun Trade Logo" id="logo_img" />
-        </Link>
-        {/* Language Switcher moved here to group with logo on mobile */}
-        <div id="lang">
-          <LangSwitcher />
+    <>
+      <header id="menu" className={headerClass}>
+        {/* Zone 1: Logo */}
+        <div id="logo_menu">
+          <Link to="/" onClick={closeMenu}>
+            <img src="/logo.png" alt="Hulun Trade Logo" id="logo_img" />
+          </Link>
         </div>
-      </div>
 
-      <nav aria-label="Primary">
-        <ul className="nav-links">
-          {/* Phone */}
-          <li id="phone_menu_nav">
-            <a href={`tel:${PHONE_TEL}`}>
-              <span className="ico" aria-hidden="true"></span>
-              {PHONE_DISPLAY}
-            </a>
-          </li>
+        {/* Zone 2: Primary Navigation */}
+        <nav aria-label="Primary" className={menuOpen ? 'nav--open' : ''}>
+          <ul className="nav-links">
+            {navItems.map((item) => (
+              <li
+                key={item.id}
+                id={item.id}
+                className={location.pathname === item.path ? 'active' : ''}
+              >
+                <Link to={item.path} onClick={closeMenu}>
+                  <span
+                    className="ico"
+                    aria-hidden="true"
+                    style={{ backgroundImage: `url('${item.icon}')` }}
+                  />
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
-          {/* Catalogue (外链/下载占位) */}
-          <li id="catalog">
-            <a href="#" onClick={(e) => e.preventDefault()}>
-              <span className="ico" aria-hidden="true"></span>
-              {t('nav.catalogue')}
-            </a>
-          </li>
+        {/* Zone 3: Actions (Phone, Catalogue, Language) */}
+        <div className="header-actions">
+          <a href={`tel:${PHONE_TEL}`} className="action-phone" id="phone_menu_nav">
+            <span
+              className="ico"
+              aria-hidden="true"
+              style={{ backgroundImage: `url('/images/phone_ico.png')` }}
+            />
+            <span className="action-phone-text">{PHONE_DISPLAY}</span>
+          </a>
 
-          {/* Home */}
-          <li id="home" className={location.pathname === '/' ? 'active' : ''}>
-            <Link to="/">
-              <span className="ico" aria-hidden="true"></span>
-              {t('nav.home')}
-            </Link>
-          </li>
+          <Link
+            to="/contact"
+            className="action-catalogue"
+            id="catalog"
+          >
+            <span
+              className="ico"
+              aria-hidden="true"
+              style={{ backgroundImage: `url('/images/catalog_ico.png')` }}
+            />
+            <span className="action-catalogue-text">{t('nav.catalogue')}</span>
+          </Link>
 
-          {/* Products */}
-          <li id="products" className={location.pathname === '/products' ? 'active' : ''}>
-            <Link to="/products">
-              <span className="ico" aria-hidden="true"></span>
-              {t('nav.products')}
-            </Link>
-          </li>
+          <LangSwitcher />
 
-          {/* About */}
-          <li id="about" className={location.pathname === '/about' ? 'active' : ''}>
-            <Link to="/about">
-              <span className="ico" aria-hidden="true"></span>
-              {t('nav.about')}
-            </Link>
-          </li>
+          {/* Hamburger button (mobile only) */}
+          <button
+            type="button"
+            className={`hamburger ${menuOpen ? 'hamburger--active' : ''}`}
+            aria-label="Toggle navigation menu"
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen((v) => !v)}
+          >
+            <span className="hamburger-line" />
+            <span className="hamburger-line" />
+            <span className="hamburger-line" />
+          </button>
+        </div>
+      </header>
 
-          {/* Contact (route to page) */}
-          <li id="contact-nav" className={location.pathname === '/contact' ? 'active' : ''}>
-            <Link to="/contact">
-              <span className="ico" aria-hidden="true"></span>
-              {t('nav.contact')}
-            </Link>
-          </li>
-
-        </ul>
-      </nav>
-    </header>
+      {/* Mobile overlay backdrop */}
+      {menuOpen && (
+        <div className="menu-backdrop" onClick={closeMenu} aria-hidden="true" />
+      )}
+    </>
   );
 }
 
@@ -124,7 +173,7 @@ function LangSwitcher() {
         aria-expanded={isOpen}
         onClick={() => setIsOpen((v) => !v)}
       >
-        <span className="ico lang-ico" aria-hidden="true"></span>
+        <span className="ico lang-ico" aria-hidden="true" />
         <span className="lang-code">{currentLang.toUpperCase()}</span>
       </button>
       {isOpen && (
@@ -219,6 +268,7 @@ function App() {
         <Route path="/category/:categoryId" element={<Category />} />
         <Route path="/product/:productId" element={<ProductDetail />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </div>

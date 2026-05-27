@@ -70,5 +70,11 @@
     "8g_jelly": "Gelée 8g",
     "35g_bear_candy": "Bonbons oursons 35g",
     "15g_lollipop": "Sucette 15g"
+  },
+  "not_found": {
+    "title": "Oups ! Page introuvable",
+    "description": "On dirait que ce bonbon s'est perdu ! La page que vous cherchez n'existe pas ou a été déplacée.",
+    "go_home": "Retour à l'accueil",
+    "browse_products": "Parcourir les produits"
   }
 }

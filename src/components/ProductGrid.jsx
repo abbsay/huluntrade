@@ -1,14 +1,20 @@
 import { Link } from 'react-router-dom';
 import { useI18n } from '../i18n';
+import { mockProducts } from '../data/mockProducts';
 
-const FEATURED = [
-  { id: '35g-marshmallow', image: '/images/categories/lollipop.png', name: '35g Marshmallow' },
-  { id: '50g-jelly', image: '/images/categories/jelly.png', name: '50g Jelly' },
-  { id: '48g-jelly', image: '/images/slider/SLIDER-CHAMELEON-POP-kopia.jpg', name: '48g Jelly' },
-  { id: '8g-jelly', image: '/images/logos/logo-3.jpg', name: '8g Jelly' },
-  { id: '35g-bear-candy', image: '/images/logos/SOUR-CRAZY-ROLL.jpg', name: '35g Bear Candy' },
-  { id: '15g-lollipop', image: '/images/slider/MR-SQ-POP-SLIDER.jpg', name: '15g Lollipop' }
+// Pick 6 representative products across different categories
+const FEATURED_IDS = [
+  'hl-marsh-001',   // marshmallow
+  'hl-marsh-005',   // marshmallow
+  'yt24051401',     // 50g jelly
+  'hl-jelly-005',   // 48g jelly
+  'hl24050701',     // 35g bear candy
+  'bbw24042929',    // 15g lollipop
 ];
+
+const FEATURED = FEATURED_IDS
+  .map(id => mockProducts.find(p => p.id === id))
+  .filter(Boolean);
 
 function ProductGrid() {
   const { t } = useI18n();

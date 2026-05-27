@@ -1,11 +1,13 @@
 import SwiperHero from '../components/SwiperHero';
+import ProductGrid from '../components/ProductGrid';
 import { useI18n } from '../i18n';
 import { Link } from 'react-router-dom';
 
 const CATEGORIES = [
   { id: 'marshmallow', barColor: '#ff9ebb', img: '/images/categories/other.png' },
   { id: 'jelly',       barColor: '#85be21', img: '/images/categories/jelly.png' },
-  { id: 'hard_candy',  barColor: '#bf1075', img: '/images/categories/hard_candy.png' }
+  { id: 'hard_candy',  barColor: '#bf1075', img: '/images/categories/hard_candy.png' },
+  { id: 'candy_toy',   barColor: '#ffb834', img: '/images/categories/other.png' },
 ];
 
 function Home() {
@@ -39,6 +41,7 @@ function Home() {
           </div>
         </div>
       </section>
+      <ProductGrid />
     </main>
   );
 }
