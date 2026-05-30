@@ -16,6 +16,13 @@ const FEATURED = FEATURED_IDS
   .map(id => mockProducts.find(p => p.id === id))
   .filter(Boolean);
 
+const CATEGORY_LABELS = {
+  marshmallow: 'Marshmallow',
+  jelly: 'Jelly Candy',
+  hard_candy: 'Hard Candy',
+  candy_toy: 'Candy Toy',
+};
+
 function ProductGrid() {
   const { t } = useI18n();
 
@@ -38,9 +45,16 @@ function ProductGrid() {
                 className="product-card-img"
                 style={{ backgroundImage: `url(${item.image})` }}
               />
-              <h3 className="product-card-title">
-                {item.name}
-              </h3>
+              <div className="product-card-body">
+                <p className="product-card-category">
+                  {CATEGORY_LABELS[item.categoryId] || item.categoryId}
+                </p>
+                <h3 className="product-card-title">{item.name}</h3>
+                <div className="product-card-meta">
+                  <span>{item.weight || 'N/A'}</span>
+                  <span>{item.packaging || 'Standard'}</span>
+                </div>
+              </div>
             </Link>
           ))}
         </div>

@@ -12,10 +12,60 @@ const CATEGORIES = [
 
 function Home() {
   const { t } = useI18n();
+  const trustItems = [
+    { label: 'Export Markets', value: '30+' },
+    { label: 'OEM Experience', value: '10+ Years' },
+    { label: 'Lead Time', value: '15-30 Days' },
+    { label: 'MOQ Support', value: 'Flexible' },
+  ];
+
+  const oemSteps = [
+    'Requirement & Packaging Brief',
+    'Sampling & Formula Confirmation',
+    'Mass Production & QC',
+    'Loading & Global Delivery',
+  ];
 
   return (
     <main>
       <SwiperHero />
+      <section className="corporate-intro-section">
+        <div className="container corporate-intro-grid">
+          <div>
+            <p className="corporate-kicker">Candy Manufacturing & Export from Yiwu</p>
+            <h1 className="corporate-title">Reliable B2B Supply for Global Candy Buyers</h1>
+            <p className="corporate-subtitle">
+              Hulun Trade focuses on marshmallow, jelly candy, hard candy and candy toy products
+              with stable quality, OEM support and efficient export fulfillment.
+            </p>
+            <div className="corporate-cta-row">
+              <Link to="/contact" className="btn-primary">Get Catalogue</Link>
+              <Link to="/contact" className="btn-secondary-outline">Request Quotation</Link>
+            </div>
+          </div>
+          <div className="corporate-card">
+            <h3>Why Buyers Work With Us</h3>
+            <ul>
+              <li>Factory-backed sourcing and export support</li>
+              <li>Multi-language communication for global clients</li>
+              <li>Custom packaging and private label options</li>
+              <li>Fast response for samples and quotations</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section className="trust-strip-section">
+        <div className="container trust-strip-grid">
+          {trustItems.map((item) => (
+            <div key={item.label} className="trust-item">
+              <div className="trust-value">{item.value}</div>
+              <div className="trust-label">{item.label}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <section className="product-grid-section">
         <div className="container">
           <div className="section-ribbon">
@@ -41,6 +91,40 @@ function Home() {
           </div>
         </div>
       </section>
+
+      <section className="oem-flow-section">
+        <div className="container">
+          <div className="section-ribbon">
+            <h2>OEM / Private Label Flow</h2>
+          </div>
+          <div className="oem-flow-grid">
+            {oemSteps.map((step, idx) => (
+              <div key={step} className="oem-step-card">
+                <span className="oem-step-index">0{idx + 1}</span>
+                <p>{step}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="corporate-contact-cta">
+        <div className="container corporate-contact-wrap">
+          <div>
+            <p className="corporate-contact-kicker">Fast Response for B2B Inquiry</p>
+            <h2>Need Price List, MOQ and Packaging Details?</h2>
+            <p>
+              Share your target market and preferred product type. Our team will provide a
+              tailored quotation and catalogue within 24 hours.
+            </p>
+          </div>
+          <div className="corporate-contact-actions">
+            <Link to="/contact" className="btn-primary">Send Inquiry</Link>
+            <a href="mailto:Van001@huluntrade.com" className="btn-secondary-outline">Email Directly</a>
+          </div>
+        </div>
+      </section>
+
       <ProductGrid />
     </main>
   );
