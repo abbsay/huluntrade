@@ -30,7 +30,7 @@ function ProductGrid() {
     <section className="product-grid-section" id="featured-products">
       <div className="container">
         <div className="section-ribbon">
-          <h2>{t('home.featured')}</h2>
+          <h2>{t('home.featured_products', 'Featured Products')}</h2>
         </div>
 
         <div className="product-grid">

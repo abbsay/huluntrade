@@ -1,5 +1,6 @@
 import SwiperHero from '../components/SwiperHero';
 import ProductGrid from '../components/ProductGrid';
+import LogoSlider from '../components/LogoSlider';
 import { useI18n } from '../i18n';
 import { Link } from 'react-router-dom';
 
@@ -27,8 +28,11 @@ function Home() {
   ];
 
   return (
-    <main>
+    <main className="home-page-declutter">
+      {/* 1. Hero Carousel */}
       <SwiperHero />
+
+      {/* 2. B2B Corporate Intro */}
       <section className="corporate-intro-section">
         <div className="container corporate-intro-grid">
           <div>
@@ -55,6 +59,7 @@ function Home() {
         </div>
       </section>
 
+      {/* 3. Trust Statistics Strip */}
       <section className="trust-strip-section">
         <div className="container trust-strip-grid">
           {trustItems.map((item) => (
@@ -66,13 +71,25 @@ function Home() {
         </div>
       </section>
 
-      <section className="product-grid-section">
+      {/* 4. Partner Brands Slider */}
+      <section className="partners-section">
+        <div className="container">
+          <div className="partners-header">
+            <h3>Our Partner Brands</h3>
+            <p>Trusted by distributors and global supermarkets</p>
+          </div>
+          <LogoSlider />
+        </div>
+      </section>
+
+      {/* 5. Product Categories Grid */}
+      <section className="categories-grid-section">
         <div className="container">
           <div className="section-ribbon">
             <h2>{t('home.featured')}</h2>
           </div>
           
-          <div id="product_category_list" style={{ marginTop: '20px' }}>
+          <div id="product_category_list">
             {CATEGORIES.map((cat) => {
               const name = t(`products_page.${cat.id}`);
               return (
@@ -92,6 +109,10 @@ function Home() {
         </div>
       </section>
 
+      {/* 6. Featured Products Grid */}
+      <ProductGrid />
+
+      {/* 7. OEM Customization Flow */}
       <section className="oem-flow-section">
         <div className="container">
           <div className="section-ribbon">
@@ -108,6 +129,7 @@ function Home() {
         </div>
       </section>
 
+      {/* 8. Corporate Bottom Contact CTA */}
       <section className="corporate-contact-cta">
         <div className="container corporate-contact-wrap">
           <div>
@@ -124,8 +146,6 @@ function Home() {
           </div>
         </div>
       </section>
-
-      <ProductGrid />
     </main>
   );
 }

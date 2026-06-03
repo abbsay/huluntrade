@@ -1,6 +1,62 @@
 import { useState } from 'react';
 import { useI18n } from '../i18n';
 
+// 精美自定义 SVG 图标库 (Feather-style, Stroke=2)
+const UserIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="svg-icon">
+    <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+    <circle cx="12" cy="7" r="4" />
+  </svg>
+);
+
+const MailIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="svg-icon">
+    <rect width="20" height="16" x="2" y="4" rx="2" />
+    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+  </svg>
+);
+
+const PhoneIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="svg-icon">
+    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+  </svg>
+);
+
+const MessageIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="svg-icon">
+    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+  </svg>
+);
+
+const ClockIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="svg-icon">
+    <circle cx="12" cy="12" r="10" />
+    <polyline points="12 6 12 12 16 14" />
+  </svg>
+);
+
+const MapPinIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="svg-icon">
+    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+    <circle cx="12" cy="10" r="3" />
+  </svg>
+);
+
+// 漂浮背景糖果 SVG
+const FloatingCandy = () => (
+  <svg viewBox="0 0 24 24" fill="currentColor" className="svg-candy-vector">
+    <path d="M17.2 6.8c-.4-.4-1-.4-1.4 0l-1.6 1.6C13.2 8.1 12 8 12 8s-.1 1.2.4 2.2L10.8 12 8 9.2l-4.2 4.2c-.4.4-.4 1 0 1.4l1.4 1.4c.4.4 1 .4 1.4 0l2.8-2.8 1.4 1.4c.4.4 1 .4 1.4 0l4.2-4.2-2.8-2.8 1.6-1.6c.4-.4.4-1 0-1.4l-1.4-1.4z" />
+  </svg>
+);
+
+const FloatingLollipop = () => (
+  <svg viewBox="0 0 24 24" fill="currentColor" className="svg-candy-vector">
+    <circle cx="12" cy="8" r="5" />
+    <path d="M12 13v8" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
+    <path d="M12 5a3 3 0 0 1 3 3" fill="none" stroke="currentColor" strokeWidth="1.2" />
+  </svg>
+);
+
 function Contact() {
   const { t } = useI18n();
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
@@ -34,6 +90,7 @@ function Contact() {
         setStatus('success');
         setForm({ name: '', email: '', phone: '', message: '' });
         setAgreed(false);
+        setAgreed(false);
       } else {
         setStatus('error');
         setErrorMessage(data.error || t('contact.error'));
@@ -48,10 +105,10 @@ function Contact() {
     <main id="contactPage" className="fun-page-bg">
       <div className="wave-top"></div>
 
-      {/* Floating Decorations */}
-      <div className="floating-candy float-1">💌</div>
-      <div className="floating-candy float-3">🌈</div>
-      <div className="floating-candy float-5">📞</div>
+      {/* Elegant Floating SVG Candy Vectors */}
+      <div className="floating-candy float-1 opacity-soft"><FloatingCandy /></div>
+      <div className="floating-candy float-3 opacity-soft"><FloatingLollipop /></div>
+      <div className="floating-candy float-5 opacity-soft"><FloatingCandy /></div>
 
       <div className="contact-wrapper">
         {/* Left: Contact Info Sticker */}
@@ -60,7 +117,9 @@ function Contact() {
           
           <div className="contact-info-list">
             <div className="info-item">
-              <div className="icon-circle">🏢</div>
+              <div className="icon-circle candy-peach">
+                <MapPinIcon />
+              </div>
               <div className="info-text">
                 <strong>HULUN TRADE CO., LTD</strong>
                 <p>Yiwu, Zhejiang, China</p>
@@ -68,14 +127,18 @@ function Contact() {
             </div>
 
             <div className="info-item">
-              <div className="icon-circle">⏰</div>
+              <div className="icon-circle candy-mint">
+                <ClockIcon />
+              </div>
               <div className="info-text">
                 <p>{t('contact.office_hours')}</p>
               </div>
             </div>
 
             <div className="info-item">
-              <div className="icon-circle">📞</div>
+              <div className="icon-circle candy-yellow">
+                <PhoneIcon />
+              </div>
               <div className="info-text">
                 <strong>{t('contact.mobile_title')}</strong>
                 <p className="highlight-pill">WeChat: 13967427888 / 17758069907</p>
@@ -84,7 +147,9 @@ function Contact() {
             </div>
 
             <div className="info-item">
-              <div className="icon-circle">📧</div>
+              <div className="icon-circle candy-purple">
+                <MailIcon />
+              </div>
               <div className="info-text">
                 <strong>{t('contact.email_title')}</strong>
                 <p>E-MAIL: <a href="mailto:Van001@huluntrade.com" className="fun-link">Van001@huluntrade.com</a></p>
@@ -99,7 +164,9 @@ function Contact() {
           
           <form onSubmit={handleSubmit} className="fun-contact-form">
             <div className="input-group">
-              <span className="input-icon">👤</span>
+              <span className="input-icon">
+                <UserIcon />
+              </span>
               <input
                 type="text"
                 name="name"
@@ -112,7 +179,9 @@ function Contact() {
             </div>
             
             <div className="input-group">
-              <span className="input-icon">📩</span>
+              <span className="input-icon">
+                <MailIcon />
+              </span>
               <input
                 type="email"
                 name="email"
@@ -125,7 +194,9 @@ function Contact() {
             </div>
             
             <div className="input-group">
-              <span className="input-icon">📱</span>
+              <span className="input-icon">
+                <PhoneIcon />
+              </span>
               <input
                 type="tel"
                 name="phone"
@@ -137,7 +208,9 @@ function Contact() {
             </div>
             
             <div className="input-group">
-              <span className="input-icon top-icon">📝</span>
+              <span className="input-icon top-icon">
+                <MessageIcon />
+              </span>
               <textarea
                 name="message"
                 rows="5"

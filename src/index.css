@@ -2366,3 +2366,260 @@ span.ico {
     border-radius: 30px;
   }
 }
+
+/* ==========================================================================
+   VISUAL UPGRADE & DECLUTTERING (Visual declutter, premium icons, slider, layout)
+   ========================================================================== */
+
+/* 1. 首页去密集化 & 容器呼吸感 */
+.home-page-declutter section {
+  padding: 80px 0; /* 调大间距，增加视觉呼吸感 */
+}
+.home-page-declutter .corporate-intro-section {
+  padding-top: 100px;
+  padding-bottom: 80px;
+}
+.home-page-declutter .trust-strip-section {
+  padding: 40px 0;
+}
+
+/* 2. Logo 品牌滑块样式 */
+.partners-section {
+  background: #fafcff;
+  border-top: 1px solid #f0f6fa;
+  border-bottom: 1px solid #f0f6fa;
+  padding: 60px 0 !important;
+  text-align: center;
+}
+.partners-header {
+  margin-bottom: 40px;
+}
+.partners-header h3 {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--color-text-dark);
+  margin: 0 0 10px;
+  letter-spacing: -0.02em;
+}
+.partners-header p {
+  color: #718096;
+  font-size: 15px;
+  margin: 0;
+}
+.logo-slider-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.logo-item {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+  border: 1px solid #f2f4f8;
+  padding: 10px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.logo-item img {
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.55;
+  transition: all 0.3s ease;
+}
+.logo-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  border-color: #e2e8f0;
+}
+.logo-item:hover img {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+/* 3. 重塑分类卡片，去密集化 & 加大呼吸感 */
+.categories-grid-section {
+  background: #ffffff;
+}
+#product_category_list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px; /* 使用明确的间隔 */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+#product_category_list .colProd {
+  margin: 0; /* 清空旧的margin */
+  border: none; /* 去除生硬边框 */
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.15);
+}
+#product_category_list .colProd:hover {
+  transform: translateY(-8px) scale(1.02); /* 去除偏转旋转，采用更稳重精致的平移 */
+  box-shadow: 0 20px 40px rgba(0,0,0,0.06), 0 12px 24px color-mix(in srgb, var(--cat-color) 15%, transparent);
+}
+.category_name {
+  font-size: 18px;
+  padding: 18px 12px 14px;
+}
+.cat-img-area {
+  background: #fbfdff;
+  padding: 24px;
+}
+.cat-img-area img {
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.15);
+}
+#product_category_list .colProd:hover .cat-img-area img {
+  transform: scale(1.08); /* 柔和放大图片，极其精致 */
+}
+
+/* 4. 精致 SVG 图标样式 (Contact 页面 & 全站) */
+.svg-icon {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  stroke-width: 2.2px;
+  display: block;
+}
+.icon-circle {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.icon-circle.candy-peach {
+  background: #fff0f3;
+  color: #ff5e7e;
+  box-shadow: 0 4px 15px rgba(255, 94, 126, 0.12);
+}
+.icon-circle.candy-mint {
+  background: #eefcf7;
+  color: #10b981;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.12);
+}
+.icon-circle.candy-yellow {
+  background: #fffbeb;
+  color: #f59e0b;
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.12);
+}
+.icon-circle.candy-purple {
+  background: #f5f3ff;
+  color: #8b5cf6;
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.12);
+}
+.info-item:hover .icon-circle {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* 输入框 SVG */
+.input-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.input-icon {
+  position: absolute;
+  left: 16px;
+  color: #a0aec0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s ease;
+}
+.input-icon.top-icon {
+  top: 18px;
+}
+.input-group input, 
+.input-group textarea {
+  padding-left: 48px !important; /* 给 SVG 留出空间 */
+  transition: all 0.3s ease;
+}
+.input-group input:focus + .input-icon,
+.input-group textarea:focus + .input-icon {
+  color: var(--color-primary);
+}
+
+/* 5. 优雅低噪背景漂浮元素 */
+.svg-candy-vector {
+  width: 48px;
+  height: 48px;
+  color: #ffa4bc;
+  opacity: 0.12; /* 极其浅的半透明，不刺眼 */
+  display: block;
+}
+.opacity-soft {
+  opacity: 0.35 !important;
+}
+.floating-candy {
+  font-size: 0; /* 消除原本的 emoji 大小，改由内嵌 SVG 决定 */
+  animation: floatUpDownPremium 12s ease-in-out infinite alternate; /* 大幅调慢动效 */
+}
+@keyframes floatUpDownPremium {
+  0% { transform: translateY(0) rotate(0deg) scale(0.95); }
+  100% { transform: translateY(-40px) rotate(10deg) scale(1.05); }
+}
+
+/* 6. 产品网格 (ProductGrid) 微调 */
+.product-grid-section {
+  padding: 60px 0 80px;
+}
+.product-grid {
+  gap: 28px; /* 间距拉开，增强呼吸感 */
+}
+.product-card {
+  border: none;
+  border-radius: 18px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.06);
+}
+.product-card-img {
+  background-color: #fafbfc;
+  border-bottom: 1px solid #f5f7fa;
+}
+.product-card-body {
+  padding: 16px 18px 20px;
+}
+.product-card-meta span {
+  font-size: 11px;
+  border-color: #eef2f6;
+  background: #f8fafc;
+  color: #64748b;
+  padding: 4px 8px;
+}
+
+/* 7. 手机端响应式兼容覆盖 */
+@media (max-width: 1024px) {
+  #product_category_list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+@media (max-width: 768px) {
+  .home-page-declutter section {
+    padding: 50px 0;
+  }
+  .partners-section {
+    padding: 40px 0 !important;
+  }
+}
+@media (max-width: 480px) {
+  #product_category_list {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
