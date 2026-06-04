@@ -2050,9 +2050,25 @@ span.ico {
 /* Category Product Grid */
 .product-grid-layout {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 32px;
   margin-bottom: 40px;
+}
+
+/* Override .sticker-card bloat when used as a product card */
+.sticker-card.product-item {
+  min-width: unset;
+  border-radius: 22px;
+  border: 2px solid #ffe6f0;
+  padding: 16px 16px 20px;
+  box-shadow: 0 4px 16px rgba(255, 107, 157, 0.08);
+  background: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sticker-card.product-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(255, 107, 157, 0.16);
 }
 
 .product-item {
@@ -2061,36 +2077,40 @@ span.ico {
   align-items: center;
   text-decoration: none;
   color: #4a4a4a;
-  padding: 20px;
 }
 
 .product-img-wrapper {
   width: 100%;
-  aspect-ratio: 1;
-  border-radius: 20px;
+  aspect-ratio: 4 / 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fffbfd;
+  border: 2px solid #fff0f5;
+  border-radius: 16px;
+  padding: 14px;
+  margin-bottom: 14px;
   overflow: hidden;
-  margin-bottom: 15px;
-  background: #fff9fc;
-  border: 3px solid #ffe6f0;
 }
 
 .product-img-wrapper img {
-  width: 100%;
-  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
   object-fit: contain;
-  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .product-item:hover .product-img-wrapper img {
-  transform: scale(1.1) rotate(5deg);
+  transform: scale(1.08) rotate(3deg);
 }
 
 .product-item h3 {
   font-family: 'Baloo 2', cursive;
-  font-size: 1.5rem;
+  font-size: 1.15rem;
   text-align: center;
   color: #ff6b9d;
   margin: 0;
+  line-height: 1.3;
 }
 
 /* Empty State */

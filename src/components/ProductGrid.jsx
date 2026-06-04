@@ -4,8 +4,8 @@ import { mockProducts } from '../data/mockProducts';
 
 // Pick 6 representative products across different categories
 const FEATURED_IDS = [
-  'hl-marsh-001',   // marshmallow
-  'hl-marsh-005',   // marshmallow
+  'hl-marsh-010',   // marshmallow
+  'hl-marsh-014',   // marshmallow
   'yt24051401',     // 50g jelly
   'hl-jelly-005',   // 48g jelly
   'hl24050701',     // 35g bear candy
