@@ -41,10 +41,9 @@ function ProductGrid() {
               className="product-card"
               aria-label={item.name}
             >
-              <div
-                className="product-card-img"
-                style={{ backgroundImage: `url(${item.image})` }}
-              />
+              <div className="product-card-img-wrapper">
+                <img src={item.image} alt={item.name} className="product-card-img" />
+              </div>
               <div className="product-card-body">
                 <p className="product-card-category">
                   {CATEGORY_LABELS[item.categoryId] || item.categoryId}
