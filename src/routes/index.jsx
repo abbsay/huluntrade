@@ -83,8 +83,8 @@ function Home() {
             <h3>Our Partner Brands</h3>
             <p>Trusted by distributors and global supermarkets</p>
           </div>
-          <LogoSlider />
         </div>
+        <LogoSlider />
       </section>
 
       {/* 5. Product Categories Grid */}

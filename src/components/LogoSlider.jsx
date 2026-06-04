@@ -31,12 +31,12 @@ function LogoSlider() {
           delay: 0,
           disableOnInteraction: false,
         }}
-        slidesPerView={2}
+        slidesPerView={1.5}
         spaceBetween={20}
         breakpoints={{
-          480: { slidesPerView: 3, spaceBetween: 20 },
-          768: { slidesPerView: 5, spaceBetween: 30 },
-          1024: { slidesPerView: 7, spaceBetween: 40 },
+          480: { slidesPerView: 2, spaceBetween: 24 },
+          768: { slidesPerView: 3, spaceBetween: 32 },
+          1024: { slidesPerView: 4, spaceBetween: 40 },
         }}
         allowTouchMove={false}
         className="logo-swiper"
