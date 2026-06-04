@@ -2452,10 +2452,10 @@ span.ico {
   align-items: center;
   justify-content: center;
   height: 240px;
-  background: #ffffff;
-  border-radius: 20px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
-  border: 1px solid #f2f4f8;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
   padding: 24px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -2470,9 +2470,7 @@ span.ico {
   transition: all 0.3s ease;
 }
 .logo-item:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-  border-color: #e2e8f0;
+  transform: scale(1.06);
 }
 .logo-item:hover img {
   filter: grayscale(0%);
@@ -2671,7 +2669,7 @@ span.ico {
   .logo-item {
     height: 180px;
     padding: 16px;
-    border-radius: 16px;
+    border-radius: 0;
   }
 }
 @media (max-width: 480px) {
@@ -2701,6 +2699,6 @@ span.ico {
   .logo-item {
     height: 140px;
     padding: 12px;
-    border-radius: 12px;
+    border-radius: 0;
   }
 }
