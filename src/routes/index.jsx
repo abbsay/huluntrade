@@ -1,8 +1,9 @@
-import SwiperHero from '../components/SwiperHero';
-import ProductGrid from '../components/ProductGrid';
-import LogoSlider from '../components/LogoSlider';
-import { useI18n } from '../i18n';
-import { Link } from 'react-router-dom';
+import { createFileRoute } from '@tanstack/react-router'
+import SwiperHero from '../components/SwiperHero'
+import ProductGrid from '../components/ProductGrid'
+import LogoSlider from '../components/LogoSlider'
+import { useI18n } from '../i18n'
+import { Link } from '@tanstack/react-router'
 
 const CATEGORIES = [
   { id: 'marshmallow', barColor: '#ff9ebb', img: '/images/categories/other.png' },
@@ -10,6 +11,10 @@ const CATEGORIES = [
   { id: 'hard_candy',  barColor: '#bf1075', img: '/images/categories/hard_candy.png' },
   { id: 'candy_toy',   barColor: '#ffb834', img: '/images/categories/other.png' },
 ];
+
+export const Route = createFileRoute('/')({
+  component: Home
+})
 
 function Home() {
   const { t } = useI18n();
@@ -149,5 +154,3 @@ function Home() {
     </main>
   );
 }
-
-export default Home;

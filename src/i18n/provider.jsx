@@ -9,14 +9,18 @@ function applyLangToDOM(lang) {
 }
 
 export function I18nProvider({ children }) {
-  const [lang, setLang] = useState(() => {
+  const [lang, setLang] = useState('en');
+
+  useEffect(() => {
     try {
       const saved = localStorage.getItem(STORAGE_KEY);
-      return saved && LOCALES[saved] ? saved : 'en';
+      if (saved && LOCALES[saved]) {
+        setLang(saved);
+      }
     } catch {
-      return 'en';
+      /* ignore */
     }
-  });
+  }, []);
 
   useEffect(() => {
     applyLangToDOM(lang);

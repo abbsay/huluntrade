@@ -1,5 +1,9 @@
-import { Link } from 'react-router-dom';
-import { useI18n } from '../i18n';
+import { createFileRoute, Link } from '@tanstack/react-router'
+import { useI18n } from '../i18n'
+
+export const Route = createFileRoute('/$')({
+  component: NotFound
+})
 
 function NotFound() {
   const { t } = useI18n();
@@ -31,5 +35,3 @@ function NotFound() {
     </main>
   );
 }
-
-export default NotFound;

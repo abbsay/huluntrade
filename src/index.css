@@ -805,8 +805,8 @@ span.ico {
 
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 22px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
   margin-top: 10px;
 }
 
@@ -1012,15 +1012,11 @@ span.ico {
 /* Light blue background container for grid with polka dots */
 .products-grid-bg {
   position: relative;
-  background-color: #e8f6fd;
-  background-image: radial-gradient(rgba(0, 159, 227, 0.15) 20%, transparent 20%),
-                    radial-gradient(rgba(0, 159, 227, 0.15) 20%, transparent 20%);
-  background-size: 40px 40px;
-  background-position: 0 0, 20px 20px;
+  background-color: #f3f8fc;
   border-radius: 30px;
   margin: 0 20px;
   padding: 40px 0;
-  box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.02);
 }
 
 .wave-top, .wave-bottom {
@@ -1140,9 +1136,7 @@ span.ico {
    Fun Pages Base (About & Contact)
    ============================================ */
 .fun-page-bg {
-  background: url('/images/fun-bg.png') center top no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
+  background: #f8fafc;
   position: relative;
   overflow: hidden;
   padding: 80px 0 120px;
@@ -2050,7 +2044,7 @@ span.ico {
 /* Category Product Grid */
 .product-grid-layout {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 32px;
   margin-bottom: 40px;
 }
@@ -2058,17 +2052,20 @@ span.ico {
 /* Override .sticker-card bloat when used as a product card */
 .sticker-card.product-item {
   min-width: unset;
-  border-radius: 22px;
-  border: 2px solid #ffe6f0;
-  padding: 16px 16px 20px;
-  box-shadow: 0 4px 16px rgba(255, 107, 157, 0.08);
+  max-width: 360px;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 107, 157, 0.15);
+  padding: 12px;
+  box-shadow: 0 4px 16px rgba(255, 107, 157, 0.05);
   background: #fff;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .sticker-card.product-item:hover {
   transform: translateY(-6px);
-  box-shadow: 0 12px 32px rgba(255, 107, 157, 0.16);
+  box-shadow: 0 12px 32px rgba(255, 107, 157, 0.12);
 }
 
 .product-item {
@@ -2081,15 +2078,15 @@ span.ico {
 
 .product-img-wrapper {
   width: 100%;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 1 / 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #fffbfd;
-  border: 2px solid #fff0f5;
-  border-radius: 16px;
-  padding: 14px;
-  margin-bottom: 14px;
+  background: #fdfdfd;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  border-radius: 14px;
+  padding: 8px;
+  margin-bottom: 12px;
   overflow: hidden;
 }
 
@@ -2636,10 +2633,48 @@ span.ico {
   .partners-section {
     padding: 40px 0 !important;
   }
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .product-grid-layout {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .sticker-card.product-item {
+    border-radius: 16px;
+    padding: 10px;
+  }
+  .product-img-wrapper {
+    padding: 6px;
+    margin-bottom: 8px;
+  }
+  .product-item h3 {
+    font-size: 1rem;
+  }
 }
 @media (max-width: 480px) {
   #product_category_list {
     grid-template-columns: 1fr;
     gap: 16px;
+  }
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .product-grid-layout {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .sticker-card.product-item {
+    padding: 8px;
+    border-radius: 12px;
+  }
+  .product-img-wrapper {
+    padding: 4px;
+    margin-bottom: 6px;
+  }
+  .product-item h3 {
+    font-size: 0.9rem;
   }
 }

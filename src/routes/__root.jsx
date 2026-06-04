@@ -1,18 +1,74 @@
-import { useState, useEffect, useRef, useCallback } from 'react';
-import { Routes, Route, Link, useLocation } from 'react-router-dom';
-import { useI18n, LANG_OPTIONS } from './i18n';
-
-// Pages
-import Home from './pages/Home';
-import About from './pages/About';
-import Products from './pages/Products';
-import Contact from './pages/Contact';
-import Category from './pages/Category';
-import ProductDetail from './pages/ProductDetail';
-import NotFound from './pages/NotFound';
+import { HeadContent, Scripts, Outlet, createRootRoute } from '@tanstack/react-router'
+import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
+import { TanStackDevtools } from '@tanstack/react-devtools'
+import { useState, useEffect, useRef, useCallback } from 'react'
+import { useLocation, Link } from '@tanstack/react-router'
+import { I18nProvider, useI18n, LANG_OPTIONS } from '../i18n'
+import appCss from '../index.css?url'
 
 const PHONE_DISPLAY = '+86 13967427888';
 const PHONE_TEL = '+8613967427888';
+
+export const Route = createRootRoute({
+  head: () => ({
+    meta: [
+      { charSet: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1.0' },
+      { name: 'theme-color', content: '#009fe3' },
+      { name: 'description', content: 'Hulun Trade — Candy & Sweets Distribution. Established in 2015, we specialize in marshmallows, gummies, and handmade hard candies exported globally.' },
+      { title: 'Hulun Trade — Candy & Sweets Distribution' },
+    ],
+    links: [
+      { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
+      { rel: 'apple-touch-icon', href: '/logo.jpg' },
+      { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+      { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' },
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Noto+Sans+Arabic:wght@400;500;600&family=Noto+Sans:wght@400;500;600&family=Oswald:wght@400;500;600&family=Poppins:wght@300;400;600;700&family=Quicksand:wght@400;500;600;700&display=swap',
+      },
+      { rel: 'stylesheet', href: appCss },
+    ],
+  }),
+  shellComponent: RootDocument,
+})
+
+function RootDocument({ children }) {
+  return (
+    <html lang="en">
+      <head>
+        <HeadContent />
+      </head>
+      <body>
+        <I18nProvider>
+          <RootLayout>{children}</RootLayout>
+        </I18nProvider>
+        <TanStackDevtools
+          config={{
+            position: 'bottom-right',
+          }}
+          plugins={[
+            {
+              name: 'Tanstack Router',
+              render: <TanStackRouterDevtoolsPanel />,
+            },
+          ]}
+        />
+        <Scripts />
+      </body>
+    </html>
+  )
+}
+
+function RootLayout({ children }) {
+  return (
+    <div className="app">
+      <Header />
+      <Outlet />
+      <Footer />
+    </div>
+  )
+}
 
 function Header() {
   const { t } = useI18n();
@@ -249,30 +305,3 @@ function Footer() {
     </footer>
   );
 }
-
-function App() {
-  const location = useLocation();
-
-  useEffect(() => {
-    // 路由切换时滚到顶部
-    window.scrollTo(0, 0);
-  }, [location.pathname]);
-
-  return (
-    <div className="app">
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/category/:categoryId" element={<Category />} />
-        <Route path="/product/:productId" element={<ProductDetail />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-      <Footer />
-    </div>
-  );
-}
-
-export default App;

@@ -1,9 +1,13 @@
-import { useParams, Link, useNavigate } from 'react-router-dom';
-import { useI18n } from '../i18n';
-import { getProductById } from '../data/mockProducts';
+import { createFileRoute, useParams, Link, useNavigate } from '@tanstack/react-router'
+import { useI18n } from '../i18n'
+import { getProductById } from '../data/mockProducts'
+
+export const Route = createFileRoute('/product/$productId')({
+  component: ProductDetail
+})
 
 function ProductDetail() {
-  const { productId } = useParams();
+  const { productId } = useParams({ from: '/product/$productId' });
   const { t } = useI18n();
   const navigate = useNavigate();
   const product = getProductById(productId);
@@ -14,7 +18,7 @@ function ProductDetail() {
         <div className="container" style={{ textAlign: 'center', marginTop: '100px' }}>
           <div className="sticker-card">
             <h1>Product Not Found</h1>
-            <button onClick={() => navigate('/products')} className="btn-fun bounce-hover">
+            <button onClick={() => navigate({ to: '/products' })} className="btn-fun bounce-hover">
               Go Back
             </button>
           </div>
@@ -28,7 +32,7 @@ function ProductDetail() {
       <div className="container">
         
         <div className="detail-header">
-          <button onClick={() => navigate(-1)} className="back-btn bounce-hover">
+          <button onClick={() => window.history.back()} className="back-btn bounce-hover">
             ← {t('product_details.back_to_categories')}
           </button>
         </div>
@@ -78,5 +82,3 @@ function ProductDetail() {
     </main>
   );
 }
-
-export default ProductDetail;

@@ -1,7 +1,8 @@
-import { useState } from 'react';
-import { useI18n } from '../i18n';
+import { createFileRoute } from '@tanstack/react-router'
+import { useState } from 'react'
+import { useI18n } from '../i18n'
 
-// 精美自定义 SVG 图标库 (Feather-style, Stroke=2)
+// SVG Icon components
 const UserIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="svg-icon">
     <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
@@ -42,7 +43,6 @@ const MapPinIcon = () => (
   </svg>
 );
 
-// 漂浮背景糖果 SVG
 const FloatingCandy = () => (
   <svg viewBox="0 0 24 24" fill="currentColor" className="svg-candy-vector">
     <path d="M17.2 6.8c-.4-.4-1-.4-1.4 0l-1.6 1.6C13.2 8.1 12 8 12 8s-.1 1.2.4 2.2L10.8 12 8 9.2l-4.2 4.2c-.4.4-.4 1 0 1.4l1.4 1.4c.4.4 1 .4 1.4 0l2.8-2.8 1.4 1.4c.4.4 1 .4 1.4 0l4.2-4.2-2.8-2.8 1.6-1.6c.4-.4.4-1 0-1.4l-1.4-1.4z" />
@@ -56,6 +56,10 @@ const FloatingLollipop = () => (
     <path d="M12 5a3 3 0 0 1 3 3" fill="none" stroke="currentColor" strokeWidth="1.2" />
   </svg>
 );
+
+export const Route = createFileRoute('/contact')({
+  component: Contact
+})
 
 function Contact() {
   const { t } = useI18n();
@@ -89,7 +93,6 @@ function Contact() {
       if (response.ok) {
         setStatus('success');
         setForm({ name: '', email: '', phone: '', message: '' });
-        setAgreed(false);
         setAgreed(false);
       } else {
         setStatus('error');
@@ -264,5 +267,3 @@ function Contact() {
     </main>
   );
 }
-
-export default Contact;

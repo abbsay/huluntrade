@@ -1,10 +1,7 @@
-const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Methods": "POST, OPTIONS",
-  "Access-Control-Allow-Headers": "Content-Type",
-};
+import { createFileRoute } from '@tanstack/react-router'
+import { json } from '@tanstack/react-start'
 
-// 辅助函数：将字符串编码为符合 Gmail API 要求的 Base64URL 格式，完美支持 UTF-8 字符（如中文）
+// Helper: encode to Base64URL
 function base64EncodeUrl(str) {
   const encoder = new TextEncoder();
   const data = encoder.encode(str);
@@ -16,7 +13,7 @@ function base64EncodeUrl(str) {
   return b64.replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
 }
 
-// 辅助函数：使用 Refresh Token 刷新获取临时的 Access Token
+// Helper: Refresh access token
 async function getGmailAccessToken(clientId, clientSecret, refreshToken) {
   const url = "https://oauth2.googleapis.com/token";
   const response = await fetch(url, {
@@ -41,30 +38,22 @@ async function getGmailAccessToken(clientId, clientSecret, refreshToken) {
   return data.access_token;
 }
 
-export default {
-  async fetch(request, env, ctx) {
-    const url = new URL(request.url);
-
-    // Route /api/contact requests
-    if (url.pathname === "/api/contact" || url.pathname === "/api/contact/") {
-      if (request.method === "OPTIONS") {
-        return new Response(null, {
-          status: 204,
-          headers: corsHeaders
-        });
-      }
-
-      if (request.method === "POST") {
+export const Route = createFileRoute('/api/contact')({
+  server: {
+    handlers: {
+      POST: async ({ request }) => {
         try {
-          // Check if Gmail API Credentials are configured
+          // Dynamic import of env to prevent client-side build errors
+          const { env } = await import('cloudflare:workers');
+          
           const clientId = env.GMAIL_CLIENT_ID;
           const clientSecret = env.GMAIL_CLIENT_SECRET;
           const refreshToken = env.GMAIL_REFRESH_TOKEN;
 
           if (!clientId || !clientSecret || !refreshToken) {
-            return new Response(
-              JSON.stringify({ error: "Email service credentials are not configured on Cloudflare (missing GMAIL_CLIENT_ID, GMAIL_CLIENT_SECRET, or GMAIL_REFRESH_TOKEN)." }),
-              { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+            return json(
+              { error: "Email service credentials are not configured on Cloudflare (missing GMAIL_CLIENT_ID, GMAIL_CLIENT_SECRET, or GMAIL_REFRESH_TOKEN)." },
+              { status: 500 }
             );
           }
 
@@ -74,9 +63,9 @@ export default {
 
           // Basic validation
           if (!name || !email || !message) {
-            return new Response(
-              JSON.stringify({ error: "Missing required fields: name, email, message." }),
-              { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+            return json(
+              { error: "Missing required fields: name, email, message." },
+              { status: 400 }
             );
           }
 
@@ -91,18 +80,10 @@ export default {
             <p style="white-space: pre-line; background-color: #f7f7f7; padding: 15px; border-radius: 8px; border: 1px solid #ddd;">${message}</p>
           `;
 
-          // 1. 获取 Gmail Access Token
-          let accessToken;
-          try {
-            accessToken = await getGmailAccessToken(clientId, clientSecret, refreshToken);
-          } catch (tokenError) {
-            return new Response(
-              JSON.stringify({ error: `Auth Error: ${tokenError.message}` }),
-              { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-            );
-          }
+          // 1. Get Access Token
+          const accessToken = await getGmailAccessToken(clientId, clientSecret, refreshToken);
 
-          // 2. 构造 MIME 邮件
+          // 2. Build MIME Email
           const encodedSubject = btoa(
             Array.from(new TextEncoder().encode(emailSubject), (byte) =>
               String.fromCharCode(byte)
@@ -122,7 +103,7 @@ export default {
 
           const base64RawMail = base64EncodeUrl(rawMail);
 
-          // 3. 调用 Gmail API 发送邮件
+          // 3. Send email via Gmail API
           const gmailResponse = await fetch("https://gmail.googleapis.com/gmail/v1/users/me/messages/send", {
             method: "POST",
             headers: {
@@ -144,42 +125,15 @@ export default {
 
           if (!gmailResponse.ok) {
             const errorMsg = gmailData.error && gmailData.error.message ? gmailData.error.message : (gmailData.error || "Failed to send email via Gmail API.");
-            return new Response(
-              JSON.stringify({ error: errorMsg }),
-              { status: gmailResponse.status, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-            );
+            return json({ error: errorMsg }, { status: gmailResponse.status });
           }
 
-          return new Response(
-            JSON.stringify({ success: true, message: "Email sent successfully!" }),
-            { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-          );
+          return json({ success: true, message: "Email sent successfully!" });
 
         } catch (error) {
-          return new Response(
-            JSON.stringify({ error: error.message || "Internal server error." }),
-            { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-          );
+          return json({ error: error.message || "Internal server error." }, { status: 500 });
         }
       }
-
-      return new Response(
-        JSON.stringify({ error: "Method not allowed." }),
-        { status: 405, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-      );
     }
-
-    // Serve static assets for all other routes
-    // SPA fallback: if the asset doesn't exist, serve index.html
-    // so React Router can handle client-side routing
-    const assetResponse = await env.ASSETS.fetch(request);
-
-    if (assetResponse.status === 404) {
-      // Rewrite to index.html for SPA client-side routes
-      const indexRequest = new Request(new URL('/', request.url), request);
-      return env.ASSETS.fetch(indexRequest);
-    }
-
-    return assetResponse;
   }
-};
+})

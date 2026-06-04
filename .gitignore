@@ -26,3 +26,9 @@ dev-dist
 
 # Cloudflare local variables
 .dev.vars
+
+# Cloudflare wrangler cache
+.wrangler/
+
+# Tanstack router cache
+.tanstack/

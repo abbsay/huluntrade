@@ -1,9 +1,13 @@
-import { useParams, Link } from 'react-router-dom';
-import { useI18n } from '../i18n';
-import { getProductsByCategory } from '../data/mockProducts';
+import { createFileRoute, useParams, Link } from '@tanstack/react-router'
+import { useI18n } from '../i18n'
+import { getProductsByCategory } from '../data/mockProducts'
+
+export const Route = createFileRoute('/category/$categoryId')({
+  component: Category
+})
 
 function Category() {
-  const { categoryId } = useParams();
+  const { categoryId } = useParams({ from: '/category/$categoryId' });
   const { t } = useI18n();
   const products = getProductsByCategory(categoryId);
 
@@ -103,5 +107,3 @@ function Category() {
     </main>
   );
 }
-
-export default Category;

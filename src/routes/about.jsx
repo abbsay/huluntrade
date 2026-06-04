@@ -1,4 +1,9 @@
-import { useI18n } from '../i18n';
+import { createFileRoute } from '@tanstack/react-router'
+import { useI18n } from '../i18n'
+
+export const Route = createFileRoute('/about')({
+  component: About
+})
 
 function About() {
   const { t } = useI18n();
@@ -27,5 +32,3 @@ function About() {
     </main>
   );
 }
-
-export default About;
