@@ -919,7 +919,7 @@ span.ico {
    Products page — Fun & Lively Match
    ============================================ */
 .products-page {
-  background-color: #fff9fc; /* Soft pinkish white */
+  background: linear-gradient(180deg, #f5f9fc 0%, #fdf6f9 100%);
   padding: 0 0 80px;
   min-height: 70vh;
   position: relative;
@@ -2069,17 +2069,17 @@ span.ico {
   max-width: 360px;
   width: 100%;
   margin: 0 auto;
-  border-radius: 20px;
-  border: 1px solid rgba(255, 107, 157, 0.15);
+  border-radius: 0;
+  border: none;
   padding: 12px;
-  box-shadow: 0 4px 16px rgba(255, 107, 157, 0.05);
-  background: #fff;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: none;
+  background: transparent;
+  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .sticker-card.product-item:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 32px rgba(255, 107, 157, 0.12);
+  transform: translateY(-4px);
+  box-shadow: none;
 }
 
 .product-item {
@@ -2652,7 +2652,7 @@ span.ico {
     gap: 16px;
   }
   .sticker-card.product-item {
-    border-radius: 16px;
+    border-radius: 0;
     padding: 10px;
   }
   .product-img-wrapper {
@@ -2678,7 +2678,7 @@ span.ico {
   }
   .sticker-card.product-item {
     padding: 8px;
-    border-radius: 12px;
+    border-radius: 0;
   }
   .product-img-wrapper {
     padding: 4px;
