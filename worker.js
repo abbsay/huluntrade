@@ -170,6 +170,16 @@ export default {
     }
 
     // Serve static assets for all other routes
-    return env.ASSETS.fetch(request);
+    // SPA fallback: if the asset doesn't exist, serve index.html
+    // so React Router can handle client-side routing
+    const assetResponse = await env.ASSETS.fetch(request);
+
+    if (assetResponse.status === 404) {
+      // Rewrite to index.html for SPA client-side routes
+      const indexRequest = new Request(new URL('/', request.url), request);
+      return env.ASSETS.fetch(indexRequest);
+    }
+
+    return assetResponse;
   }
 };
