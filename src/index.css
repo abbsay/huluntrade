@@ -2009,6 +2009,10 @@ span.ico {
 /* ============================================
    Category Page & Product Detail Page
    ============================================ */
+.category-page .container,
+.product-detail-page .container {
+  max-width: 1400px;
+}
 
 /* Category Header Banner */
 .category-banner {
@@ -2066,7 +2070,7 @@ span.ico {
 /* Override .sticker-card bloat when used as a product card */
 .sticker-card.product-item {
   min-width: unset;
-  max-width: 360px;
+  max-width: none;
   width: 100%;
   margin: 0 auto;
   border-radius: 0;
@@ -2481,7 +2485,7 @@ span.ico {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 24px; /* 使用明确的间隔 */
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 20px;
 }
