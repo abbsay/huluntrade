@@ -124,7 +124,7 @@ function Contact() {
                 <MapPinIcon />
               </div>
               <div className="info-text">
-                <strong>HULUN TRADE CO., LTD</strong>
+                <strong>Hulun Sweets</strong>
                 <p>Yiwu, Zhejiang, China</p>
               </div>
             </div>

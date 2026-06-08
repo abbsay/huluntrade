@@ -15,8 +15,8 @@ export const Route = createRootRoute({
       { charSet: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1.0' },
       { name: 'theme-color', content: '#009fe3' },
-      { name: 'description', content: 'Hulun Trade — Candy & Sweets Distribution. Established in 2015, we specialize in marshmallows, gummies, and handmade hard candies exported globally.' },
-      { title: 'Hulun Trade — Candy & Sweets Distribution' },
+      { name: 'description', content: 'Hulun Sweets — Delicious, Cute & Playful Candies. Fluffy marshmallows, juicy jellies, sweet lollipops, and creative candy toys made to bring smiles and joy to everyone!' },
+      { title: 'Hulun Sweets — Delicious, Cute & Playful Candies' },
     ],
     links: [
       { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
@@ -265,7 +265,7 @@ function Footer() {
           <div className="footer_left bounce-hover">
             <div className="footer-icon-wrapper">📍</div>
             <div className="footer-text-content">
-              <strong>HULUN TRADE CO., LTD</strong>
+              <strong>Hulun Sweets</strong>
               <br />
               Yiwu, Zhejiang
               <br />

@@ -1,14 +1,14 @@
 :root {
-  --color-primary: #009fe3;
-  --color-primary-dark: #0077b6;
-  --color-accent: #f47b20;
-  --color-yellow: #fff200;
-  --color-text: #555;
-  --color-text-dark: #222;
-  --color-muted: #888;
-  --color-bg: #ffffff;
-  --color-border: #ededed;
-  --color-footer: #f8f8f8;
+  --color-primary: #ff6b9d;
+  --color-primary-dark: #e84585;
+  --color-accent: #ffb347;
+  --color-yellow: #ffe066;
+  --color-text: #5a4a6a;
+  --color-text-dark: #3d2c50;
+  --color-muted: #9a8aaa;
+  --color-bg: #fffaf5;
+  --color-border: #ffe0ec;
+  --color-footer: #fff5f9;
 
   --font-main: 'Quicksand', 'Segoe UI', Tahoma, Arial, sans-serif;
   --transition: all 0.3s ease;
@@ -28,11 +28,28 @@ body {
 body {
   font-family: var(--font-main);
   color: var(--color-text);
-  background-color: var(--color-bg);
+  background: linear-gradient(180deg, #fff5f9 0%, #fef9f0 30%, #f5faf8 60%, #fef5fb 100%);
+  background-attachment: fixed;
   line-height: 1.6;
   font-size: 15px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Subtle polka dot candy pattern */
+.app {
+  position: relative;
+}
+.app::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle, #ffd6e7 1px, transparent 1px), radial-gradient(circle, #d4f0e7 1px, transparent 1px);
+  background-size: 48px 48px;
+  background-position: 0 0, 24px 24px;
+  opacity: 0.18;
+  pointer-events: none;
+  z-index: 0;
 }
 
 a {
@@ -68,13 +85,14 @@ img {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: rgba(255, 255, 255, 0.88);
+  background-color: rgba(255, 250, 245, 0.92);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  border-top: 4px solid var(--color-primary);
+  border-bottom: 1px solid rgba(255, 182, 210, 0.15);
+  border-top: 5px solid transparent;
+  border-image: repeating-linear-gradient(90deg, #ff6b9d 0 12%, #ffb347 12% 24%, #ffe066 24% 36%, #7dd3a8 36% 48%, #7ec8e3 48% 60%, #c4a7e7 60% 72%, #ff9ebb 72% 84%, #ff6b9d 84% 100%) 5;
   height: 96px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 4px 30px rgba(255, 107, 157, 0.06);
   transition: height 0.35s cubic-bezier(0.4, 0, 0.2, 1),
               box-shadow 0.35s ease,
               background-color 0.35s ease;
@@ -84,8 +102,8 @@ img {
 /* --- Scroll-aware shrink --- */
 #menu.header--scrolled {
   height: 64px;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
-  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 24px rgba(255, 107, 157, 0.1);
+  background-color: rgba(255, 250, 245, 0.97);
 }
 
 #menu.header--scrolled #logo_img {
@@ -227,20 +245,20 @@ span.ico {
 }
 
 /* ---- Home ---- */
-#home > a { color: #eb52a1; }
-#home > a:hover { background-color: #fdf0f6; box-shadow: 0 8px 20px rgba(235, 82, 161, 0.12); }
+#home > a { color: #ff6b9d; }
+#home > a:hover { background-color: #fff0f5; box-shadow: 0 8px 20px rgba(255, 107, 157, 0.15); }
 
 /* ---- Products ---- */
-#products > a { color: #9c6cc5; }
-#products > a:hover { background-color: #f6f1fb; box-shadow: 0 8px 20px rgba(156, 108, 197, 0.12); }
+#products > a { color: #c4a7e7; }
+#products > a:hover { background-color: #f8f3ff; box-shadow: 0 8px 20px rgba(196, 167, 231, 0.15); }
 
 /* ---- About ---- */
-#about > a { color: #6bbb4a; }
-#about > a:hover { background-color: #f1f8ee; box-shadow: 0 8px 20px rgba(107, 187, 74, 0.12); }
+#about > a { color: #7dd3a8; }
+#about > a:hover { background-color: #f0faf5; box-shadow: 0 8px 20px rgba(125, 211, 168, 0.15); }
 
 /* ---- Contact ---- */
-#contact-nav > a { color: #d45ba8; }
-#contact-nav > a:hover { background-color: #fcedf6; box-shadow: 0 8px 20px rgba(212, 91, 168, 0.12); }
+#contact-nav > a { color: #ffb347; }
+#contact-nav > a:hover { background-color: #fff8ee; box-shadow: 0 8px 20px rgba(255, 179, 71, 0.15); }
 
 /* --- Zone 3: Actions (Phone, Catalogue, Lang, Hamburger) --- */
 .header-actions {
@@ -255,8 +273,8 @@ span.ico {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: #19b7e4;
-  background: rgba(25, 183, 228, 0.08);
+  color: #ff6b9d;
+  background: rgba(255, 107, 157, 0.08);
   padding: 8px 16px;
   border-radius: 30px;
   font-family: var(--font-main);
@@ -274,10 +292,10 @@ span.ico {
 }
 
 .action-phone:hover {
-  background-color: #19b7e4;
+  background-color: #ff6b9d;
   color: #fff;
   transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(25, 183, 228, 0.25);
+  box-shadow: 0 6px 16px rgba(255, 107, 157, 0.3);
 }
 
 .action-phone:hover .ico {
@@ -289,8 +307,8 @@ span.ico {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  color: #57b6d4;
-  background: rgba(87, 182, 212, 0.08);
+  color: #c4a7e7;
+  background: rgba(196, 167, 231, 0.1);
   padding: 8px 14px;
   border-radius: 30px;
   font-family: var(--font-main);
@@ -308,10 +326,10 @@ span.ico {
 }
 
 .action-catalogue:hover {
-  background-color: rgba(87, 182, 212, 0.15);
-  color: #3a9ab8;
+  background-color: rgba(196, 167, 231, 0.2);
+  color: #a78bca;
   transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(87, 182, 212, 0.2);
+  box-shadow: 0 6px 16px rgba(196, 167, 231, 0.25);
 }
 
 /* --- Language Switcher --- */
@@ -381,11 +399,11 @@ span.ico {
 
 .lang-switcher:hover .lang-toggle,
 .lang-toggle[aria-expanded="true"] {
-  background-color: rgba(0, 159, 227, 0.08);
-  border-color: rgba(0, 159, 227, 0.35);
+  background-color: rgba(255, 107, 157, 0.08);
+  border-color: rgba(255, 107, 157, 0.35);
   color: var(--color-primary);
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 159, 227, 0.1);
+  box-shadow: 0 4px 12px rgba(255, 107, 157, 0.1);
 }
 
 .lang-dropdown {
@@ -393,12 +411,12 @@ span.ico {
   top: calc(100% + 8px);
   right: 0;
   width: 100%;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 250, 245, 0.97);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(0, 159, 227, 0.15);
+  border: 1px solid rgba(255, 107, 157, 0.15);
   border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 30px rgba(255, 107, 157, 0.1);
   z-index: 2000;
   overflow: hidden;
   animation: scaleIn 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.15);
@@ -427,12 +445,12 @@ span.ico {
 }
 
 .lang-option:hover {
-  background: rgba(0, 159, 227, 0.06);
+  background: rgba(255, 107, 157, 0.06);
   color: var(--color-primary);
 }
 
 .lang-option.active {
-  background: rgba(0, 159, 227, 0.1);
+  background: rgba(255, 107, 157, 0.1);
   color: var(--color-primary);
 }
 
@@ -514,9 +532,9 @@ span.ico {
    Corporate Pro Home Blocks (Design A)
    ============================================ */
 .corporate-intro-section {
-  background: linear-gradient(180deg, #f8fcff 0%, #ffffff 100%);
+  background: linear-gradient(180deg, #fff5f0 0%, #fff0f5 50%, #fef5fb 100%);
   padding: 46px 0 32px;
-  border-bottom: 1px solid #ebf3f9;
+  border-bottom: 1px solid #ffe0ec;
 }
 
 .corporate-intro-grid {
@@ -527,7 +545,7 @@ span.ico {
 }
 
 .corporate-kicker {
-  color: #007fba;
+  color: #ff6b9d;
   font-weight: 700;
   letter-spacing: 0.03em;
   margin-bottom: 10px;
@@ -537,13 +555,13 @@ span.ico {
 .corporate-title {
   font-size: clamp(30px, 3.4vw, 48px);
   line-height: 1.15;
-  color: #1f2d3d;
+  color: #3d2c50;
   margin-bottom: 12px;
 }
 
 .corporate-subtitle {
   font-size: 17px;
-  color: #5f7080;
+  color: #7a6b8a;
   max-width: 780px;
   margin-bottom: 20px;
 }
@@ -560,36 +578,36 @@ span.ico {
   justify-content: center;
   min-height: 44px;
   padding: 10px 18px;
-  border: 2px solid #009fe3;
+  border: 2px solid #ff6b9d;
   border-radius: 999px;
-  color: #009fe3;
+  color: #ff6b9d;
   font-weight: 700;
   background: #fff;
   transition: all 0.25s ease;
 }
 
 .btn-secondary-outline:hover {
-  background: #e9f7ff;
+  background: #fff0f5;
 }
 
 .corporate-card {
   background: #ffffff;
-  border: 1px solid #dbe9f4;
+  border: 3px dashed #ffe0ec;
   border-radius: 18px;
   padding: 22px 22px 16px;
-  box-shadow: 0 10px 26px rgba(21, 101, 192, 0.08);
+  box-shadow: 0 10px 26px rgba(255, 107, 157, 0.08);
 }
 
 .corporate-card h3 {
   font-size: 20px;
   margin-bottom: 12px;
-  color: #1f2d3d;
+  color: #3d2c50;
 }
 
 .corporate-card ul {
   list-style: disc;
   padding-left: 20px;
-  color: #4d6172;
+  color: #6a5a7a;
 }
 
 .corporate-card li {
@@ -607,24 +625,36 @@ span.ico {
 }
 
 .trust-item {
-  background: #f8fbff;
-  border: 1px solid #dbe8f3;
-  border-radius: 14px;
+  border: none;
+  border-radius: 18px;
   padding: 18px 14px;
   text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.trust-item:nth-child(1) { background: #fff0f5; }
+.trust-item:nth-child(2) { background: #f0faf5; }
+.trust-item:nth-child(3) { background: #f5f0ff; }
+.trust-item:nth-child(4) { background: #fff8ee; }
+
+.trust-item:hover {
+  transform: translateY(-4px);
 }
 
 .trust-value {
   font-size: 27px;
   line-height: 1;
   font-weight: 800;
-  color: #007fba;
+  background: linear-gradient(135deg, #ff6b9d, #ffb347, #7dd3a8, #c4a7e7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-bottom: 6px;
 }
 
 .trust-label {
   font-size: 14px;
-  color: #607284;
+  color: #7a6b8a;
   font-weight: 600;
 }
 
@@ -673,8 +703,8 @@ span.ico {
 
 .corporate-contact-wrap {
   border-radius: 20px;
-  border: 1px solid #dbe8f3;
-  background: linear-gradient(125deg, #f6fbff 0%, #ffffff 50%, #eef8ff 100%);
+  border: 3px dashed #ffe0ec;
+  background: linear-gradient(125deg, #fff5f0 0%, #fff0f5 50%, #fef5fb 100%);
   padding: 28px;
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
@@ -684,7 +714,7 @@ span.ico {
 
 .corporate-contact-kicker {
   margin: 0 0 8px;
-  color: #007fb9;
+  color: #ff6b9d;
   text-transform: uppercase;
   font-weight: 700;
   letter-spacing: 0.06em;
@@ -693,14 +723,14 @@ span.ico {
 
 .corporate-contact-wrap h2 {
   margin: 0 0 10px;
-  color: #1f2d3d;
+  color: #3d2c50;
   font-size: clamp(24px, 2.8vw, 36px);
   line-height: 1.2;
 }
 
 .corporate-contact-wrap p {
   margin: 0;
-  color: #5d7082;
+  color: #7a6b8a;
   font-size: 16px;
 }
 
@@ -740,7 +770,7 @@ span.ico {
    ============================================ */
 #logo-slider {
   padding: 0;
-  background: #fff;
+  background: #fffaf5;
   border-bottom: 5px solid var(--color-primary);
 }
 
@@ -799,7 +829,7 @@ span.ico {
    ============================================ */
 .product-grid-section {
   padding: 40px 0 60px;
-  background: #fff;
+  background: linear-gradient(180deg, #fffaf5 0%, #fff5f9 100%);
   text-align: center;
 }
 
@@ -858,7 +888,7 @@ span.ico {
 .product-card-category {
   margin: 0 0 8px;
   font-size: 11px;
-  color: #008ac8;
+  color: #c4a7e7;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   font-weight: 700;
@@ -883,9 +913,9 @@ span.ico {
 .product-card-meta span {
   display: inline-flex;
   align-items: center;
-  border: 1px solid #d7e6f1;
-  background: #f7fbff;
-  color: #4b6477;
+  border: 1px solid #ffe0ec;
+  background: #fff5f9;
+  color: #7a6b8a;
   font-size: 12px;
   font-weight: 600;
   border-radius: 999px;
@@ -919,7 +949,7 @@ span.ico {
    Products page — Fun & Lively Match
    ============================================ */
 .products-page {
-  background: linear-gradient(180deg, #f5f9fc 0%, #fdf6f9 100%);
+  background: linear-gradient(180deg, #fff5f9 0%, #fef9f0 100%);
   padding: 0 0 80px;
   min-height: 70vh;
   position: relative;
@@ -1026,11 +1056,11 @@ span.ico {
 /* Light blue background container for grid with polka dots */
 .products-grid-bg {
   position: relative;
-  background-color: #f3f8fc;
+  background-color: #fff5f0;
   border-radius: 30px;
   margin: 0 20px;
   padding: 40px 0;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+  box-shadow: 0 10px 30px rgba(255, 107, 157, 0.04);
 }
 
 .wave-top, .wave-bottom {
@@ -1150,7 +1180,7 @@ span.ico {
    Fun Pages Base (About & Contact)
    ============================================ */
 .fun-page-bg {
-  background: #f8fafc;
+  background: linear-gradient(180deg, #fff5f9 0%, #fef9f0 100%);
   position: relative;
   overflow: hidden;
   padding: 80px 0 120px;
@@ -1208,7 +1238,7 @@ span.ico {
 .story-text {
   font-family: 'Quicksand', sans-serif;
   font-size: 22px;
-  color: #555;
+  color: #5a4a6a;
   line-height: 1.8;
   font-weight: 600;
   margin-bottom: 30px;
@@ -1248,9 +1278,9 @@ span.ico {
 }
 
 .sticker-card.form-card {
-  background: #e8f6fd;
-  border-color: #009fe3;
-  box-shadow: 0 15px 35px rgba(0, 159, 227, 0.2);
+  background: #fff5f9;
+  border-color: var(--color-primary);
+  box-shadow: 0 15px 35px rgba(255, 107, 157, 0.15);
 }
 
 .contact-info-list {
@@ -1291,7 +1321,7 @@ span.ico {
   font-family: 'Quicksand', sans-serif;
   font-size: 16px;
   font-weight: 600;
-  color: #555;
+  color: var(--color-text);
   margin-top: 5px;
 }
 
@@ -1370,7 +1400,7 @@ span.ico {
   cursor: pointer;
   font-family: 'Quicksand', sans-serif;
   font-weight: 600;
-  color: #555;
+  color: var(--color-text);
 }
 
 .fun-checkbox input {
@@ -1385,14 +1415,15 @@ span.ico {
   height: 25px;
   width: 25px;
   background-color: #fff;
-  border: 3px solid #009fe3;
+  border: 3px solid var(--color-primary);
   border-radius: 8px;
   display: inline-block;
   position: relative;
 }
 
 .fun-checkbox input:checked ~ .checkmark {
-  background-color: #009fe3;
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
 }
 
 .checkmark:after {
@@ -1577,7 +1608,7 @@ span.ico {
 }
 
 .fun-link {
-  color: #009fe3;
+  color: var(--color-primary-dark);
   font-weight: 700;
   text-decoration: underline;
   text-decoration-style: wavy;
@@ -1586,8 +1617,8 @@ span.ico {
 }
 
 .fun-link:hover {
-  color: #ff6b6b;
-  text-decoration-color: #ff6b6b;
+  color: var(--color-primary);
+  text-decoration-color: var(--color-primary);
 }
 
 .highlight-text {
@@ -1600,39 +1631,32 @@ span.ico {
 .btn_fun {
   display: inline-block;
   margin-top: 15px;
-  background: #009fe3;
+  background: var(--color-primary);
   border-radius: 20px;
   color: #fff !important;
   padding: 8px 20px;
   font-size: 15px;
   font-weight: 700;
   transition: background 0.3s, transform 0.2s;
-  box-shadow: 0 4px 10px rgba(0, 159, 227, 0.3);
+  box-shadow: 0 4px 10px rgba(255, 107, 157, 0.3);
 }
 
 .btn_fun:hover {
-  background: #ff6b6b;
+  background: var(--color-primary-dark);
   transform: scale(1.05);
-  box-shadow: 0 6px 15px rgba(255, 107, 107, 0.4);
+  box-shadow: 0 6px 15px rgba(232, 69, 133, 0.4);
 }
 
 .footer-bottom {
   text-align: center;
-  padding: 25px 0;
-  color: #ff6b6b;
-  font-size: 16px;
+  border-top: 2px dashed #ffe0ec;
+  padding: 24px 0;
+  color: var(--color-muted);
+  font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.05em;
-  background: rgba(255,255,255,0.5);
+  background: rgba(255, 255, 255, 0.4);
   margin-top: 40px;
-}
-
-.footer-bottom {
-  text-align: center;
-  border-top: 1px solid #eee;
-  padding: 18px 0;
-  color: #888;
-  font-size: 13px;
 }
 
 /* ============================================
@@ -2190,7 +2214,7 @@ span.ico {
 .detail-desc {
   font-family: 'Quicksand', sans-serif;
   font-size: 1.2rem;
-  color: #555;
+  color: var(--color-text);
   line-height: 1.6;
   margin-bottom: 30px;
 }
@@ -2362,7 +2386,7 @@ span.ico {
   font-family: 'Quicksand', sans-serif;
   font-size: 1.1rem;
   font-weight: 600;
-  color: #888;
+  color: var(--color-muted);
   line-height: 1.6;
   margin-bottom: 30px;
 }
@@ -2419,9 +2443,9 @@ span.ico {
 
 /* 2. Logo 品牌滑块样式 */
 .partners-section {
-  background: #fafcff;
-  border-top: 1px solid #f0f6fa;
-  border-bottom: 1px solid #f0f6fa;
+  background: linear-gradient(180deg, #fff8ee 0%, #fff5f9 100%);
+  border-top: 2px dotted #ffe0ec;
+  border-bottom: 2px dotted #ffe0ec;
   padding: 60px 0 !important;
   text-align: center;
 }
@@ -2436,7 +2460,7 @@ span.ico {
   letter-spacing: -0.02em;
 }
 .partners-header p {
-  color: #718096;
+  color: #9a8aaa;
   font-size: 15px;
   margin: 0;
 }
@@ -2465,21 +2489,18 @@ span.ico {
   width: auto;
   height: auto;
   object-fit: contain;
-  filter: grayscale(100%);
-  opacity: 0.55;
   transition: all 0.3s ease;
 }
 .logo-item:hover {
   transform: scale(1.06);
 }
 .logo-item:hover img {
-  filter: grayscale(0%);
-  opacity: 1;
+  filter: brightness(1.05);
 }
 
 /* 3. 重塑分类卡片，去密集化 & 加大呼吸感 */
 .categories-grid-section {
-  background: #ffffff;
+  background: linear-gradient(180deg, #fef5fb 0%, #fff8ee 100%);
 }
 #product_category_list {
   display: grid;
@@ -2505,7 +2526,7 @@ span.ico {
   padding: 18px 12px 14px;
 }
 .cat-img-area {
-  background: #fbfdff;
+  background: #fffaf5;
   padding: 24px;
 }
 .cat-img-area img {
@@ -2627,9 +2648,9 @@ span.ico {
 }
 .product-card-meta span {
   font-size: 11px;
-  border-color: #eef2f6;
-  background: #f8fafc;
-  color: #64748b;
+  border-color: #ffe0ec;
+  background: #fff5f9;
+  color: #7a6b8a;
   padding: 4px 8px;
 }
 

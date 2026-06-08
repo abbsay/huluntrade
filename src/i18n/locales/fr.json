@@ -1,6 +1,6 @@
 {
   "nav": {
-    "catalogue": "Télécharger le catalogue",
+    "catalogue": "Catalogue de bonbons 🍬",
     "home": "Accueil",
     "products": "Produits",
     "about": "À propos",
@@ -11,13 +11,13 @@
     "view_all": "Voir tous les produits"
   },
   "footer": {
-    "tagline": "Distribution de bonbons et confiseries",
+    "tagline": "Bonbons délicieux, mignons et ludiques",
     "quicklinks": "Liens rapides",
     "downloadpdf": "Télécharger PDF",
     "products": "Produits",
     "privacy": "Politique de confidentialité",
     "contactinfo": "Coordonnées",
-    "contactdesc": "Pour obtenir notre liste de prix actualisée avec photos, veuillez nous contacter par e-mail ou nous appeler.",
+    "contactdesc": "Vous voulez commander nos délicieux bonbons ou vous avez des questions ? Contactez-nous à tout moment !",
     "findus": "Découvrez où nous sommes >>",
     "email_label": "e-mail",
     "phone_label": "téléphone",
@@ -28,8 +28,8 @@
   },
   "about": {
     "title": "À propos",
-    "story": "Hulun Trade a été créée en 2015 à Yiwu, Zhejiang, Chine. Nous sommes une entreprise industrielle et commerciale spécialisée dans la production et l'exportation de bonbons de haute qualité, notamment des guimauves, des gommes et des bonbons durs artisanaux. Nos produits sont exportés vers la Russie, le Moyen-Orient, l'Amérique du Sud, l'Asie du Sud-Est et l'Afrique. Nous proposons également des services OEM complets pour fabriquer des confiseries personnalisées pour des marques du monde entier.",
-    "closing": "Nous sommes fiers de notre équipe professionnelle et de notre engagement à offrir des douceurs sûres, délicieuses et joyeuses aux familles et partenaires du monde entier !"
+    "story": "Hulun Candy Shop a été fondé en 2015. Nous sommes spécialisés dans la fabrication et le partage de bonbons délicieux, mignons et ludiques, notamment des guimauves moelleuses, des bonbons en gelée juteux, des bonbons durs faits à la main et des jouets de bonbons amusants. Notre mission est de partager la joie des douceurs avec les amateurs de bonbons de tous âges, en apportant des sourires et des moments heureux à chacun !",
+    "closing": "Nous aimons ce que nous faisons et nous nous engageons à créer des bonbons sûrs, exquis et adorables qui remplissent votre vie de douceur !"
   },
   "products_page": {
     "title": "CATÉGORIES",
@@ -40,9 +40,9 @@
   },
   "contact": {
     "title": "Contact",
-    "office_hours": "Notre bureau est ouvert du lundi au vendredi, de 9h00 à 18h00 (heure de Pékin, GMT+8).",
+    "office_hours": "Nous sommes là pour vous aider du lundi au vendredi, de 9h00 à 18h00 (heure de Pékin, GMT+8) !",
     "mobile_title": "WeChat / Téléphone",
-    "email_title": "Demandes directes",
+    "email_title": "Dites bonjour ! ✉️",
     "form_subtitle": "formulaire",
     "name": "Nom",
     "email": "E-mail",
@@ -56,7 +56,7 @@
   },
   "product_details": {
     "back_to_categories": "Retour aux catégories",
-    "inquire_button": "Demander des informations sur ce produit",
+    "inquire_button": "Demander des informations sur cette douceur 🍬",
     "features": "Caractéristiques",
     "weight": "Poids",
     "packaging": "Emballage",

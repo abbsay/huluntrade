@@ -7,8 +7,8 @@ import 'swiper/css/effect-fade';
 
 function SwiperHero() {
   const slides = [
-    { id: 1, image: '/images/slider/banner1.svg', alt: 'Hulun Trade Candy Wholesale Banner' },
-    { id: 2, image: '/images/slider/banner2.svg', alt: 'Hulun Trade Export Products Banner' },
+    { id: 1, image: '/images/slider/banner1.svg', alt: 'Hulun Sweets Delicious Candies Banner' },
+    { id: 2, image: '/images/slider/banner2.svg', alt: 'Hulun Sweets Fun Shapes & Tasty Candy Banner' },
   ];
 
   return (

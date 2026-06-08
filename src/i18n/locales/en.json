@@ -1,6 +1,6 @@
 {
   "nav": {
-    "catalogue": "Download catalogue",
+    "catalogue": "Sweets Catalog 🍬",
     "home": "Home",
     "products": "Products",
     "about": "About us",
@@ -11,13 +11,13 @@
     "view_all": "View all products"
   },
   "footer": {
-    "tagline": "Candy & Sweets Distribution",
+    "tagline": "Delicious, Cute & Playful Candies",
     "quicklinks": "Quick Links",
     "downloadpdf": "Download PDF",
     "products": "Products",
     "privacy": "Privacy Policy",
     "contactinfo": "Contact Info",
-    "contactdesc": "To get our updated price list with photos, please contact us by email or call us.",
+    "contactdesc": "Want to get our delicious candies or have any questions? Reach out to us anytime!",
     "findus": "Find out where we are >>",
     "email_label": "email",
     "phone_label": "phone",
@@ -28,8 +28,8 @@
   },
   "about": {
     "title": "About us",
-    "story": "Hulun Trade was established in 2015 in Yiwu, Zhejiang, China. We are an industrial and trading enterprise specializing in the production and export of high-quality candies, including marshmallows, gummies, and handmade hard candies. Our products are exported to Russia, the Middle East, South America, Southeast Asia, and Africa. We also support comprehensive OEM services to manufacture customized sweets for brands worldwide.",
-    "closing": "We are proud of our professional team and our commitment to delivering safe, delicious, and joyful sweet treats to families and partners across the globe!"
+    "story": "Hulun Candy Shop was established in 2015. We specialize in making and sharing delicious, cute, and playful candies, including soft marshmallows, juicy gummies, handmade hard candies, and fun candy toys. Our mission is to share the joy of sweets with candy lovers of all ages, bringing smiles and happy moments to everyone!",
+    "closing": "We love what we do and are committed to creating safe, scrumptious, and adorable candies that fill your life with sweetness!"
   },
   "products_page": {
     "title": "CATEGORIES",
@@ -40,9 +40,9 @@
   },
   "contact": {
     "title": "Contact",
-    "office_hours": "Our office is active from Monday to Friday, 9:00 AM to 6:00 PM (Beijing Time, GMT+8).",
+    "office_hours": "We are here to help from Monday to Friday, 9:00 AM to 6:00 PM (Beijing Time, GMT+8)!",
     "mobile_title": "WeChat / Phone",
-    "email_title": "Direct Inquiries",
+    "email_title": "Say Hello!",
     "form_subtitle": "form",
     "name": "Name",
     "email": "Email",
@@ -56,7 +56,7 @@
   },
   "product_details": {
     "back_to_categories": "Back to Categories",
-    "inquire_button": "Inquire About This Product",
+    "inquire_button": "Ask About This Sweet 🍬",
     "features": "Features",
     "weight": "Weight",
     "packaging": "Packaging",

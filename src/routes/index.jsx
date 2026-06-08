@@ -19,17 +19,10 @@ export const Route = createFileRoute('/')({
 function Home() {
   const { t } = useI18n();
   const trustItems = [
-    { label: 'Export Markets', value: '30+' },
-    { label: 'OEM Experience', value: '10+ Years' },
-    { label: 'Lead Time', value: '15-30 Days' },
-    { label: 'MOQ Support', value: 'Flexible' },
-  ];
-
-  const oemSteps = [
-    'Requirement & Packaging Brief',
-    'Sampling & Formula Confirmation',
-    'Mass Production & QC',
-    'Loading & Global Delivery',
+    { label: 'Tasty & Delicious', value: '100%' },
+    { label: 'Cute Shapes', value: 'Creative' },
+    { label: 'Playful Sweets', value: 'Fun!' },
+    { label: 'Shared Happiness', value: 'Joyful' },
   ];
 
   return (
@@ -37,34 +30,35 @@ function Home() {
       {/* 1. Hero Carousel */}
       <SwiperHero />
 
-      {/* 2. B2B Corporate Intro */}
+      {/* 2. Brand Sweet Intro */}
       <section className="corporate-intro-section">
         <div className="container corporate-intro-grid">
           <div>
-            <p className="corporate-kicker">Candy Manufacturing & Export from Yiwu</p>
-            <h1 className="corporate-title">Reliable B2B Supply for Global Candy Buyers</h1>
+            <p className="corporate-kicker">Welcome to Hulun Candy Shop</p>
+            <h1 className="corporate-title">Delicious, Colorful & Playful Sweets for Everyone</h1>
             <p className="corporate-subtitle">
-              Hulun Trade focuses on marshmallow, jelly candy, hard candy and candy toy products
-              with stable quality, OEM support and efficient export fulfillment.
+              We bring you a delightful range of handpicked marshmallow clouds, juicy jellies, 
+              sweet lollipops, and creative candy toys. Our sweets are made to bring pure joy, 
+              bright smiles, and sweet moments to kids and candy lovers of all ages!
             </p>
             <div className="corporate-cta-row">
-              <Link to="/contact" className="btn-primary">Get Catalogue</Link>
-              <Link to="/contact" className="btn-secondary-outline">Request Quotation</Link>
+              <Link to="/products" className="btn-primary">Explore Sweets</Link>
+              <Link to="/contact" className="btn-secondary-outline">Say Hello 🍬</Link>
             </div>
           </div>
           <div className="corporate-card">
-            <h3>Why Buyers Work With Us</h3>
+            <h3>Why You'll Love Our Candies 🍭</h3>
             <ul>
-              <li>Factory-backed sourcing and export support</li>
-              <li>Multi-language communication for global clients</li>
-              <li>Custom packaging and private label options</li>
-              <li>Fast response for samples and quotations</li>
+              <li><strong>Super Yummy</strong>: Mouth-watering flavors and soft, fluffy textures</li>
+              <li><strong>Beautiful & Cute</strong>: Adorable shapes and vibrant colors</li>
+              <li><strong>Playful Designs</strong>: Creative candy toys that are both fun to play with and eat</li>
+              <li><strong>Safe & Pure</strong>: High-quality ingredients carefully crafted for peace of mind</li>
             </ul>
           </div>
         </div>
       </section>
 
-      {/* 3. Trust Statistics Strip */}
+      {/* 3. Sweet Statistics Strip */}
       <section className="trust-strip-section">
         <div className="container trust-strip-grid">
           {trustItems.map((item) => (
@@ -80,8 +74,8 @@ function Home() {
       <section className="partners-section">
         <div className="container">
           <div className="partners-header">
-            <h3>Our Partner Brands</h3>
-            <p>Trusted by distributors and global supermarkets</p>
+            <h3>Our Sweet Friends</h3>
+            <p>Sharing sweet happiness and joyful candies with friends everywhere!</p>
           </div>
         </div>
         <LogoSlider />
@@ -117,37 +111,19 @@ function Home() {
       {/* 6. Featured Products Grid */}
       <ProductGrid />
 
-      {/* 7. OEM Customization Flow */}
-      <section className="oem-flow-section">
-        <div className="container">
-          <div className="section-ribbon">
-            <h2>OEM / Private Label Flow</h2>
-          </div>
-          <div className="oem-flow-grid">
-            {oemSteps.map((step, idx) => (
-              <div key={step} className="oem-step-card">
-                <span className="oem-step-index">0{idx + 1}</span>
-                <p>{step}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 8. Corporate Bottom Contact CTA */}
+      {/* 7. Bottom Sweet Contact CTA */}
       <section className="corporate-contact-cta">
         <div className="container corporate-contact-wrap">
           <div>
-            <p className="corporate-contact-kicker">Fast Response for B2B Inquiry</p>
-            <h2>Need Price List, MOQ and Packaging Details?</h2>
+            <p className="corporate-contact-kicker">Share the Sweetness</p>
+            <h2>Want to Bring Home Some Sweet Candies?</h2>
             <p>
-              Share your target market and preferred product type. Our team will provide a
-              tailored quotation and catalogue within 24 hours.
+              Whether you are planning a fun party, looking for cute candy toys, or simply want to share a sweet moment with friends, write to us to get our latest sweet collections!
             </p>
           </div>
           <div className="corporate-contact-actions">
-            <Link to="/contact" className="btn-primary">Send Inquiry</Link>
-            <a href="mailto:Van001@huluntrade.com" className="btn-secondary-outline">Email Directly</a>
+            <Link to="/contact" className="btn-primary">Get In Touch</Link>
+            <a href="mailto:Van001@huluntrade.com" className="btn-secondary-outline">Email Us Directly</a>
           </div>
         </div>
       </section>
