@@ -3,7 +3,32 @@ import { useI18n } from '../i18n'
 import { getProductsByCategory } from '../data/mockProducts'
 
 export const Route = createFileRoute('/category/$categoryId')({
-  component: Category
+  component: Category,
+  head: ({ params }) => {
+    const categoryTitles = {
+      marshmallow: 'Delicious Marshmallows — Hulun Sweets',
+      jelly: 'Juicy Jelly Candies — Hulun Sweets',
+      hard_candy: 'Sweet Lollipops & Hard Candies — Hulun Sweets',
+      candy_toy: 'Playful Candy Toys — Hulun Sweets',
+    };
+    const categoryDescriptions = {
+      marshmallow: 'Discover our range of soft, fluffy, and delicious marshmallows by Hulun Sweets. Fun shapes and sweet flavors that everyone loves!',
+      jelly: 'Explore our collection of juicy and chewy jelly candies by Hulun Sweets. Packed with fruit flavors and cute, playful designs!',
+      hard_candy: 'Taste our delightful handmade hard candies and colorful lollipops by Hulun Sweets. Classic sweetness crafted to bring smiles!',
+      candy_toy: 'Explore our creative and interactive candy toys by Hulun Sweets. The perfect combination of delicious sweets and fun play!',
+    };
+
+    const id = params.categoryId;
+    const title = categoryTitles[id] || 'Our Sweet Candies — Hulun Sweets';
+    const description = categoryDescriptions[id] || 'Browse our delicious, cute, and playful candies!';
+
+    return {
+      meta: [
+        { title },
+        { name: 'description', content: description },
+      ],
+    };
+  },
 })
 
 function Category() {
@@ -75,7 +100,7 @@ function Category() {
               return (
                 <section key={subcatId} className="subcategory-section">
                   <h2 className="subcategory-title">
-                    <span className="subcategory-icon">{emojiIcon}</span>
+                    <span className="subcategory-icon" aria-hidden="true">{emojiIcon}</span>
                     <span className="subcategory-text">{titleText}</span>
                   </h2>
                   <div className="product-grid-layout">
@@ -98,7 +123,7 @@ function Category() {
           </div>
         ) : (
           <div className="empty-state sticker-card">
-            <h2>{categoryId === 'candy_toy' ? '🎉' : '😢'}</h2>
+            <h2 aria-hidden="true">{categoryId === 'candy_toy' ? '🎉' : '😢'}</h2>
             <p>{categoryId === 'candy_toy' ? t('product_details.coming_soon') : t('product_details.no_products')}</p>
           </div>
         )}

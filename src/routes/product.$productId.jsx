@@ -3,7 +3,20 @@ import { useI18n } from '../i18n'
 import { getProductById } from '../data/mockProducts'
 
 export const Route = createFileRoute('/product/$productId')({
-  component: ProductDetail
+  component: ProductDetail,
+  head: ({ params }) => {
+    const product = getProductById(params.productId);
+    const title = product ? `${product.name} — Hulun Sweets` : 'Product Details — Hulun Sweets';
+    const description = product 
+      ? `Discover ${product.name} by Hulun Sweets. Fluffy, chewy, and cute candy made to bring joy and sweet smiles!`
+      : 'Explore our delightful candies at Hulun Sweets.';
+    return {
+      meta: [
+        { title },
+        { name: 'description', content: description },
+      ],
+    };
+  },
 })
 
 function ProductDetail() {

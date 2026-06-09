@@ -2,7 +2,13 @@ import { createFileRoute } from '@tanstack/react-router'
 import { useI18n } from '../i18n'
 
 export const Route = createFileRoute('/about')({
-  component: About
+  component: About,
+  head: () => ({
+    meta: [
+      { title: 'About Us — Hulun Sweets' },
+      { name: 'description', content: 'Learn about Hulun Sweets — crafting delicious, cute, and playful candies since 2015. Our mission is to share the joy of sweets with candy lovers of all ages!' },
+    ],
+  }),
 })
 
 function About() {
@@ -12,10 +18,10 @@ function About() {
       <div className="wave-top"></div>
       
       {/* Playful Floating Decorations */}
-      <div className="floating-candy float-1">🎈</div>
-      <div className="floating-candy float-2">✨</div>
-      <div className="floating-candy float-3">🍬</div>
-      <div className="floating-candy float-4">🍭</div>
+      <div className="floating-candy float-1" aria-hidden="true">🎈</div>
+      <div className="floating-candy float-2" aria-hidden="true">✨</div>
+      <div className="floating-candy float-3" aria-hidden="true">🍬</div>
+      <div className="floating-candy float-4" aria-hidden="true">🍭</div>
 
       <div className="storybook-container">
         <h1 className="products-title bounce-anim fun-title">{t('about.title')}</h1>

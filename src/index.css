@@ -157,6 +157,10 @@ img {
   margin: 0 auto;
 }
 
+.mobile-only-actions {
+  display: none;
+}
+
 #menu .nav-links {
   display: flex;
   align-items: center;
@@ -411,6 +415,7 @@ span.ico {
   top: calc(100% + 8px);
   right: 0;
   width: 100%;
+  min-width: 120px;
   background: rgba(255, 250, 245, 0.97);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -671,7 +676,7 @@ span.ico {
 
 .oem-step-card {
   background: #ffffff;
-  border: 1px solid #dbe8f4;
+  border: 1px solid var(--color-border);
   border-radius: 14px;
   padding: 16px 14px;
   min-height: 118px;
@@ -683,15 +688,15 @@ span.ico {
   text-align: center;
   padding: 4px 10px;
   border-radius: 999px;
-  background: #e9f6ff;
-  color: #0086c5;
+  background: #fff0f5;
+  color: var(--color-primary-dark);
   font-size: 13px;
   font-weight: 700;
   margin-bottom: 10px;
 }
 
 .oem-step-card p {
-  color: #4c6072;
+  color: var(--color-text);
   font-weight: 600;
   font-size: 15px;
   line-height: 1.45;
@@ -1596,7 +1601,7 @@ span.ico {
   font-size: 16px;
   font-weight: 600;
   line-height: 1.6;
-  color: #555;
+  color: var(--color-text);
 }
 
 .footer-text-content strong {
@@ -1830,11 +1835,50 @@ span.ico {
   }
 
   #menu nav.nav--open {
-    max-height: min(80vh, 420px);
+    max-height: min(80vh, 520px);
     opacity: 1;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     pointer-events: auto;
+  }
+
+  .mobile-only-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 16px;
+    border-top: 2px dashed #ffe0ec;
+    background: #fffaf5;
+  }
+  .mobile-action-phone,
+  .mobile-action-catalogue {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-text-dark);
+    padding: 12px 16px;
+    border-radius: 12px;
+    transition: var(--transition);
+  }
+  .mobile-action-phone {
+    background: #fff0f5;
+    border: 1px solid #ffd6e7;
+  }
+  .mobile-action-catalogue {
+    background: #f0faf5;
+    border: 1px solid #d4f0e7;
+  }
+  .mobile-action-phone .ico,
+  .mobile-action-catalogue .ico {
+    width: 24px;
+    height: 24px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: block;
+    margin: 0;
   }
 
   #menu .nav-links {
@@ -1933,6 +1977,55 @@ span.ico {
     gap: 16px;
   }
 
+  /* P0: Mobile font-size & padding overrides */
+  .products-title {
+    font-size: 36px;
+  }
+  .category-title {
+    font-size: 2rem;
+    padding: 8px 24px;
+  }
+  .detail-title {
+    font-size: 1.8rem;
+  }
+  .story-text {
+    font-size: 17px;
+  }
+  .story-closing {
+    font-size: 20px;
+  }
+  .fun-page-bg {
+    padding: 50px 0 60px;
+  }
+  .storybook-card {
+    padding: 24px;
+  }
+  .sticker-card {
+    min-width: unset;
+    padding: 24px;
+    border-radius: 28px;
+  }
+  .contact-wrapper {
+    gap: 20px;
+  }
+  .detail-image {
+    padding: 20px;
+  }
+  .subcategory-title {
+    font-size: 1.4rem;
+  }
+  /* Touch target fixes */
+  .btn_fun,
+  .back-btn {
+    padding: 12px 24px;
+  }
+  .lang-toggle {
+    min-height: 40px;
+  }
+  .lang-option {
+    padding: 12px 16px;
+  }
+
   .corporate-subtitle {
     font-size: 15px;
   }
@@ -1997,6 +2090,12 @@ span.ico {
 }
 
 @media (max-width: 480px) {
+  .trust-strip-grid {
+    grid-template-columns: 1fr;
+  }
+  .oem-flow-grid {
+    grid-template-columns: 1fr;
+  }
   .product-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 14px;
@@ -2236,7 +2335,7 @@ span.ico {
   gap: 15px;
   font-family: 'Quicksand', sans-serif;
   font-size: 1.1rem;
-  color: #4a4a4a;
+  color: var(--color-text);
 }
 
 .spec-icon {
@@ -2489,6 +2588,7 @@ span.ico {
   width: auto;
   height: auto;
   object-fit: contain;
+  mix-blend-mode: multiply;
   transition: all 0.3s ease;
 }
 .logo-item:hover {

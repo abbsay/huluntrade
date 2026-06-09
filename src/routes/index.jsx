@@ -13,7 +13,13 @@ const CATEGORIES = [
 ];
 
 export const Route = createFileRoute('/')({
-  component: Home
+  component: Home,
+  head: () => ({
+    meta: [
+      { title: 'Hulun Sweets — Delicious, Cute & Playful Candies' },
+      { name: 'description', content: 'Welcome to Hulun Sweets! We craft delicious, cute, and playful candies including marshmallows, jelly candies, lollipops, and candy toys that bring smiles and joy to everyone!' },
+    ],
+  }),
 })
 
 function Home() {

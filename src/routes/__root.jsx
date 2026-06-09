@@ -14,7 +14,7 @@ export const Route = createRootRoute({
     meta: [
       { charSet: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1.0' },
-      { name: 'theme-color', content: '#009fe3' },
+      { name: 'theme-color', content: '#ff6b9d' },
       { name: 'description', content: 'Hulun Sweets — Delicious, Cute & Playful Candies. Fluffy marshmallows, juicy jellies, sweet lollipops, and creative candy toys made to bring smiles and joy to everyone!' },
       { title: 'Hulun Sweets — Delicious, Cute & Playful Candies' },
     ],
@@ -115,7 +115,7 @@ function Header() {
         {/* Zone 1: Logo */}
         <div id="logo_menu">
           <Link to="/" onClick={closeMenu}>
-            <img src="/logo.png" alt="Hulun Trade Logo" id="logo_img" />
+            <img src="/logo.png" alt="Hulun Sweets Logo" id="logo_img" />
           </Link>
         </div>
 
@@ -139,6 +139,28 @@ function Header() {
               </li>
             ))}
           </ul>
+          <div className="mobile-only-actions">
+            <a href={`tel:${PHONE_TEL}`} className="mobile-action-phone">
+              <span
+                className="ico"
+                aria-hidden="true"
+                style={{ backgroundImage: `url('/images/phone_ico.png')` }}
+              />
+              {PHONE_DISPLAY}
+            </a>
+            <Link
+              to="/contact"
+              className="mobile-action-catalogue"
+              onClick={closeMenu}
+            >
+              <span
+                className="ico"
+                aria-hidden="true"
+                style={{ backgroundImage: `url('/images/catalog_ico.png')` }}
+              />
+              {t('nav.catalogue')}
+            </Link>
+          </div>
         </nav>
 
         {/* Zone 3: Actions (Phone, Catalogue, Language) */}

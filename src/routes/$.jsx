@@ -2,7 +2,13 @@ import { createFileRoute, Link } from '@tanstack/react-router'
 import { useI18n } from '../i18n'
 
 export const Route = createFileRoute('/$')({
-  component: NotFound
+  component: NotFound,
+  head: () => ({
+    meta: [
+      { title: 'Page Not Found — Hulun Sweets' },
+      { name: 'description', content: 'Oops! The candy page you are looking for has floated away. Return to Hulun Sweets for more delightful treats.' },
+    ],
+  }),
 })
 
 function NotFound() {

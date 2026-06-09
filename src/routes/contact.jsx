@@ -4,53 +4,53 @@ import { useI18n } from '../i18n'
 
 // SVG Icon components
 const UserIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="svg-icon">
+  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="svg-icon">
     <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
     <circle cx="12" cy="7" r="4" />
   </svg>
 );
 
 const MailIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="svg-icon">
+  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="svg-icon">
     <rect width="20" height="16" x="2" y="4" rx="2" />
     <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
   </svg>
 );
 
 const PhoneIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="svg-icon">
+  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="svg-icon">
     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
   </svg>
 );
 
 const MessageIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="svg-icon">
+  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="svg-icon">
     <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
   </svg>
 );
 
 const ClockIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="svg-icon">
+  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="svg-icon">
     <circle cx="12" cy="12" r="10" />
     <polyline points="12 6 12 12 16 14" />
   </svg>
 );
 
 const MapPinIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="svg-icon">
+  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="svg-icon">
     <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
     <circle cx="12" cy="10" r="3" />
   </svg>
 );
 
 const FloatingCandy = () => (
-  <svg viewBox="0 0 24 24" fill="currentColor" className="svg-candy-vector">
+  <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" className="svg-candy-vector">
     <path d="M17.2 6.8c-.4-.4-1-.4-1.4 0l-1.6 1.6C13.2 8.1 12 8 12 8s-.1 1.2.4 2.2L10.8 12 8 9.2l-4.2 4.2c-.4.4-.4 1 0 1.4l1.4 1.4c.4.4 1 .4 1.4 0l2.8-2.8 1.4 1.4c.4.4 1 .4 1.4 0l4.2-4.2-2.8-2.8 1.6-1.6c.4-.4.4-1 0-1.4l-1.4-1.4z" />
   </svg>
 );
 
 const FloatingLollipop = () => (
-  <svg viewBox="0 0 24 24" fill="currentColor" className="svg-candy-vector">
+  <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" className="svg-candy-vector">
     <circle cx="12" cy="8" r="5" />
     <path d="M12 13v8" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
     <path d="M12 5a3 3 0 0 1 3 3" fill="none" stroke="currentColor" strokeWidth="1.2" />
@@ -58,7 +58,13 @@ const FloatingLollipop = () => (
 );
 
 export const Route = createFileRoute('/contact')({
-  component: Contact
+  component: Contact,
+  head: () => ({
+    meta: [
+      { title: 'Contact Us — Hulun Sweets' },
+      { name: 'description', content: 'Get in touch with Hulun Sweets! Contact us for inquiries about candy customization, OEM bulk orders, distribution partnerships, or just to say hello!' },
+    ],
+  }),
 })
 
 function Contact() {
@@ -174,6 +180,7 @@ function Contact() {
                 type="text"
                 name="name"
                 placeholder={t('contact.name')}
+                aria-label={t('contact.name')}
                 value={form.name}
                 onChange={handleChange}
                 disabled={status === 'loading'}
@@ -189,6 +196,7 @@ function Contact() {
                 type="email"
                 name="email"
                 placeholder={t('contact.email')}
+                aria-label={t('contact.email')}
                 value={form.email}
                 onChange={handleChange}
                 disabled={status === 'loading'}
@@ -204,6 +212,7 @@ function Contact() {
                 type="tel"
                 name="phone"
                 placeholder={t('contact.phone')}
+                aria-label={t('contact.phone')}
                 value={form.phone}
                 onChange={handleChange}
                 disabled={status === 'loading'}
@@ -218,6 +227,7 @@ function Contact() {
                 name="message"
                 rows="5"
                 placeholder={t('contact.message')}
+                aria-label={t('contact.message')}
                 value={form.message}
                 onChange={handleChange}
                 disabled={status === 'loading'}

@@ -10,7 +10,13 @@ const CATEGORIES = [
 ];
 
 export const Route = createFileRoute('/products')({
-  component: Products
+  component: Products,
+  head: () => ({
+    meta: [
+      { title: 'Our Candy Categories — Hulun Sweets' },
+      { name: 'description', content: 'Browse our delightful candy categories: fluffy marshmallows, juicy jelly candies, handmade hard candies, and creative candy toys. Find your favorite sweet treat!' },
+    ],
+  }),
 })
 
 function Products() {
@@ -19,11 +25,11 @@ function Products() {
   return (
     <main className="products-page">
       {/* Playful Floating Background Elements */}
-      <div className="floating-candy float-1">🍬</div>
-      <div className="floating-candy float-2">🍭</div>
-      <div className="floating-candy float-3">✨</div>
-      <div className="floating-candy float-4">🎈</div>
-      <div className="floating-candy float-5">🍬</div>
+      <div className="floating-candy float-1" aria-hidden="true">🍬</div>
+      <div className="floating-candy float-2" aria-hidden="true">🍭</div>
+      <div className="floating-candy float-3" aria-hidden="true">✨</div>
+      <div className="floating-candy float-4" aria-hidden="true">🎈</div>
+      <div className="floating-candy float-5" aria-hidden="true">🍬</div>
 
       {/* Fun rounded banner */}
       <div className="products-banner">
