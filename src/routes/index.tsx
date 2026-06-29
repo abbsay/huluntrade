@@ -5,8 +5,8 @@ import { useI18n } from '../i18n'
 import HeroSlider from '../components/HeroSlider'
 
 const CATEGORIES = [
-  { id: 'marshmallow', name: 'Soft Marshmallow', desc: 'Lighter than air.', img: '/images/categories/minimal_marshmallow.svg', glow: 'from-glowPink to-transparent' },
-  { id: 'jelly',       name: 'Juicy Jelly', desc: 'Bursting with flavor.', img: '/images/categories/minimal_jelly.svg', glow: 'from-glowOrange to-transparent' },
+  { id: 'marshmallow', name: 'Marshmallow', desc: 'Lighter than air.', img: '/images/categories/minimal_marshmallow.svg', glow: 'from-glowPink to-transparent' },
+  { id: 'jelly',       name: 'Jelly', desc: 'Bursting with flavor.', img: '/images/categories/minimal_jelly.svg', glow: 'from-glowOrange to-transparent' },
   { id: 'hard_candy',  name: 'Hard Candy', desc: 'Enduring sweetness.', img: '/images/categories/minimal_hard_candy.svg', glow: 'from-glowPurple to-transparent' },
   { id: 'candy_toy',   name: 'Candy Toys', desc: 'Play meets taste.', img: '/images/categories/minimal_toy.svg', glow: 'from-glowBlue to-transparent' },
 ];

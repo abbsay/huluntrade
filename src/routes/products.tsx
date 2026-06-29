@@ -4,9 +4,9 @@ import { motion } from 'framer-motion'
 import { useI18n } from '../i18n'
 
 const CATEGORIES = [
-  { id: 'marshmallow', name: 'Soft Marshmallow', desc: 'Lighter than air.', img: '/images/categories/minimal_marshmallow.svg' },
-  { id: 'jelly',       name: 'Juicy Fruit Jelly', desc: 'Bursting with flavor dynamics.', img: '/images/categories/minimal_jelly.svg' },
-  { id: 'hard_candy',  name: 'Crystal Hard Candy', desc: 'Enduring sweetness. Unmatched crunch.', img: '/images/categories/minimal_hard_candy.svg' },
+  { id: 'marshmallow', name: 'Marshmallow', desc: 'Lighter than air.', img: '/images/categories/minimal_marshmallow.svg' },
+  { id: 'jelly',       name: 'Jelly', desc: 'Bursting with flavor dynamics.', img: '/images/categories/minimal_jelly.svg' },
+  { id: 'hard_candy',  name: 'Hard Candy', desc: 'Enduring sweetness. Unmatched crunch.', img: '/images/categories/minimal_hard_candy.svg' },
   { id: 'candy_toy',   name: 'Candy Toys', desc: 'Where taste meets play.', img: '/images/categories/minimal_toy.svg' }
 ];
 

@@ -5,7 +5,7 @@ import { Link } from '@tanstack/react-router';
 const SLIDES = [
   {
     id: 1,
-    title: "Soft Marshmallow",
+    title: "Marshmallow",
     subtitle: "Lighter than air. Sweeter than ever.",
     color: "from-[#FF2D55]/10 to-transparent",
     accent: "text-[#FF2D55]",
@@ -15,7 +15,7 @@ const SLIDES = [
   },
   {
     id: 2,
-    title: "Juicy Fruit Jelly",
+    title: "Jelly",
     subtitle: "Bursting with sweet and fruity joy.",
     color: "from-[#FF9500]/10 to-transparent",
     accent: "text-[#FF9500]",
@@ -25,7 +25,7 @@ const SLIDES = [
   },
   {
     id: 3,
-    title: "Crystal Hard Candy",
+    title: "Hard Candy",
     subtitle: "Enduring sweetness. Magical crunch.",
     color: "from-[#AF52DE]/10 to-transparent",
     accent: "text-[#AF52DE]",

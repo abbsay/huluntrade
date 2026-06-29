@@ -9,7 +9,7 @@ export const Route = createFileRoute('/category/$categoryId')({
   head: ({ params }) => {
     const categoryTitles: Record<string, string> = {
       marshmallow: 'Delicious Marshmallows — Hulun Sweets',
-      jelly: 'Juicy Jelly Candies — Hulun Sweets',
+      jelly: 'Jelly Candies — Hulun Sweets',
       hard_candy: 'Sweet Lollipops & Hard Candies — Hulun Sweets',
       candy_toy: 'Playful Candy Toys — Hulun Sweets',
     };
