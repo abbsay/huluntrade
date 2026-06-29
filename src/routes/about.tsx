@@ -55,7 +55,7 @@ function About() {
             Started as a visionary dream, Hulun Sweets focuses on the intersection of taste, geometry, and pure joy. No compromises. Just absolute perfection in every bite.
           </p>
           <p>
-            From the aerodynamic fluffiness of our Cloud Marshmallow to the rigorous flavor architecture of our Crystal Hard Candy, our team obsesses over the details that others ignore.
+            From the pillowy softness of our marshmallows to the vibrant flavors of our fruit jellies, we craft every sweet to bring a smile to your face.
           </p>
         </motion.div>
 

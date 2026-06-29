@@ -5,7 +5,7 @@ import { useI18n } from '../i18n'
 import HeroSlider from '../components/HeroSlider'
 
 const CATEGORIES = [
-  { id: 'marshmallow', name: 'Cloud Marshmallow', desc: 'Lighter than air.', img: '/images/categories/minimal_marshmallow.svg', glow: 'from-glowPink to-transparent' },
+  { id: 'marshmallow', name: 'Soft Marshmallow', desc: 'Lighter than air.', img: '/images/categories/minimal_marshmallow.svg', glow: 'from-glowPink to-transparent' },
   { id: 'jelly',       name: 'Juicy Jelly', desc: 'Bursting with flavor.', img: '/images/categories/minimal_jelly.svg', glow: 'from-glowOrange to-transparent' },
   { id: 'hard_candy',  name: 'Hard Candy', desc: 'Enduring sweetness.', img: '/images/categories/minimal_hard_candy.svg', glow: 'from-glowPurple to-transparent' },
   { id: 'candy_toy',   name: 'Candy Toys', desc: 'Play meets taste.', img: '/images/categories/minimal_toy.svg', glow: 'from-glowBlue to-transparent' },
@@ -60,7 +60,7 @@ function Home() {
             className="md:col-span-8 bg-white rounded-[3rem] p-10 md:p-16 flex flex-col items-start overflow-hidden relative group cursor-pointer h-[500px] md:h-[650px] border border-black/5 hover:shadow-2xl hover:shadow-strawberry/20 transition-all duration-700"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-apple-pink/0 via-transparent to-apple-pink/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-            <h3 className="text-3xl md:text-5xl font-black font-display text-choco tracking-tight z-10">Fluffy Clouds.</h3>
+            <h3 className="text-3xl md:text-5xl font-black font-display text-choco tracking-tight z-10">Fluffy Marshmallows.</h3>
             <p className="text-lg md:text-xl text-mocha font-medium mt-2 z-10 w-2/3">Experience the impossible lightness. Engineered with micro-bubble technology.</p>
             <motion.img 
               src="/images/categories/minimal_marshmallow.svg" 
