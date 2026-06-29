@@ -1,6 +1,7 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "huluntrade",
+  "name": "huluntrade-pro",
+  "account_id": "3c79e6ae374b917afed4a7aa8625b8d4",
   "compatibility_date": "2025-09-02",
   "compatibility_flags": ["nodejs_compat"],
   "main": "@tanstack/react-start/server-entry"
