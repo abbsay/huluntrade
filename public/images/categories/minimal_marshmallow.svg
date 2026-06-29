@@ -1,0 +1,12 @@
+<svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="marshGlow" cx="30%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="30%" stop-color="#ffb3c6"/>
+      <stop offset="100%" stop-color="#e56b8f"/>
+    </radialGradient>
+  </defs>
+  <rect x="80" y="130" width="240" height="140" rx="70" fill="url(#marshGlow)" />
+  <ellipse cx="200" cy="150" rx="100" ry="25" fill="#ffffff" opacity="0.45" filter="blur(4px)"/>
+  <ellipse cx="200" cy="255" rx="90" ry="15" fill="#a03056" opacity="0.3" filter="blur(6px)"/>
+</svg>

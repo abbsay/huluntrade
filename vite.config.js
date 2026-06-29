@@ -20,7 +20,7 @@ export default defineConfig({
         name: 'Hulun Trade — Candy & Sweets Distribution',
         short_name: 'Hulun Trade',
         description: 'Hulun Trade Co., Ltd. candy and sweets wholesale from Yiwu, China.',
-        theme_color: '#009fe3',
+        theme_color: '#ff6b9d',
         background_color: '#ffffff',
         icons: [
           {
