@@ -333,6 +333,141 @@ export const mockProducts = [
     "packaging": "Standard Bag"
   },
   {
+    "id": "hl-marsh-023",
+    "categoryId": "marshmallow",
+    "subcategoryId": "35g_marshmallow",
+    "name": "HL-MARSH-023",
+    "image": "/images/products/hl-marsh-023.jpg",
+    "description": "Sweet, soft, and fluffy marshmallow treat. Made with high-quality ingredients, featuring a cute design and a delightful vanilla taste.",
+    "features": [
+      "Soft & Fluffy Texture",
+      "Sweet Vanilla Accent",
+      "Individually Wrapped"
+    ],
+    "weight": "35g",
+    "packaging": "Standard Bag"
+  },
+  {
+    "id": "hl-marsh-024",
+    "categoryId": "marshmallow",
+    "subcategoryId": "35g_marshmallow",
+    "name": "HL-MARSH-024",
+    "image": "/images/products/hl-marsh-024.jpg",
+    "description": "Sweet, soft, and fluffy marshmallow treat. Made with high-quality ingredients, featuring a cute design and a delightful vanilla taste.",
+    "features": [
+      "Soft & Fluffy Texture",
+      "Sweet Vanilla Accent",
+      "Individually Wrapped"
+    ],
+    "weight": "35g",
+    "packaging": "Standard Bag"
+  },
+  {
+    "id": "hl-marsh-025",
+    "categoryId": "marshmallow",
+    "subcategoryId": "35g_marshmallow",
+    "name": "HL-MARSH-025",
+    "image": "/images/products/hl-marsh-025.jpg",
+    "description": "Sweet, soft, and fluffy marshmallow treat. Made with high-quality ingredients, featuring a cute design and a delightful vanilla taste.",
+    "features": [
+      "Soft & Fluffy Texture",
+      "Sweet Vanilla Accent",
+      "Individually Wrapped"
+    ],
+    "weight": "35g",
+    "packaging": "Standard Bag"
+  },
+  {
+    "id": "hl-marsh-026",
+    "categoryId": "marshmallow",
+    "subcategoryId": "35g_marshmallow",
+    "name": "HL-MARSH-026",
+    "image": "/images/products/hl-marsh-026.jpg",
+    "description": "Sweet, soft, and fluffy marshmallow treat. Made with high-quality ingredients, featuring a cute design and a delightful vanilla taste.",
+    "features": [
+      "Soft & Fluffy Texture",
+      "Sweet Vanilla Accent",
+      "Individually Wrapped"
+    ],
+    "weight": "35g",
+    "packaging": "Standard Bag"
+  },
+  {
+    "id": "hl-marsh-027",
+    "categoryId": "marshmallow",
+    "subcategoryId": "35g_marshmallow",
+    "name": "HL-MARSH-027",
+    "image": "/images/products/hl-marsh-027.jpg",
+    "description": "Sweet, soft, and fluffy marshmallow treat. Made with high-quality ingredients, featuring a cute design and a delightful vanilla taste.",
+    "features": [
+      "Soft & Fluffy Texture",
+      "Sweet Vanilla Accent",
+      "Individually Wrapped"
+    ],
+    "weight": "35g",
+    "packaging": "Standard Bag"
+  },
+  {
+    "id": "hl-marsh-028",
+    "categoryId": "marshmallow",
+    "subcategoryId": "35g_marshmallow",
+    "name": "HL-MARSH-028",
+    "image": "/images/products/hl-marsh-028.jpg",
+    "description": "Sweet, soft, and fluffy marshmallow treat. Made with high-quality ingredients, featuring a cute design and a delightful vanilla taste.",
+    "features": [
+      "Soft & Fluffy Texture",
+      "Sweet Vanilla Accent",
+      "Individually Wrapped"
+    ],
+    "weight": "35g",
+    "packaging": "Standard Bag"
+  },
+  {
+    "id": "hl-marsh-029",
+    "categoryId": "marshmallow",
+    "subcategoryId": "35g_marshmallow",
+    "name": "HL-MARSH-029",
+    "image": "/images/products/hl-marsh-029.jpg",
+    "description": "Sweet, soft, and fluffy marshmallow treat. Made with high-quality ingredients, featuring a cute design and a delightful vanilla taste.",
+    "features": [
+      "Soft & Fluffy Texture",
+      "Sweet Vanilla Accent",
+      "Individually Wrapped"
+    ],
+    "weight": "35g",
+    "packaging": "Standard Bag"
+  },
+  {
+    "id": "hl-marsh-030",
+    "categoryId": "marshmallow",
+    "subcategoryId": "35g_marshmallow",
+    "name": "HL-MARSH-030",
+    "image": "/images/products/hl-marsh-030.jpg",
+    "description": "Sweet, soft, and fluffy marshmallow treat. Made with high-quality ingredients, featuring a cute design and a delightful vanilla taste.",
+    "features": [
+      "Soft & Fluffy Texture",
+      "Sweet Vanilla Accent",
+      "Individually Wrapped"
+    ],
+    "weight": "35g",
+    "packaging": "Standard Bag"
+  },
+  {
+    "id": "hl-marsh-031",
+    "categoryId": "marshmallow",
+    "subcategoryId": "35g_marshmallow",
+    "name": "HL-MARSH-031",
+    "image": "/images/products/hl-marsh-031.jpg",
+    "description": "Sweet, soft, and fluffy marshmallow treat. Made with high-quality ingredients, featuring a cute design and a delightful vanilla taste.",
+    "features": [
+      "Soft & Fluffy Texture",
+      "Sweet Vanilla Accent",
+      "Individually Wrapped"
+    ],
+    "weight": "35g",
+    "packaging": "Standard Bag"
+  },
+  {
     "id": "yt24051401",
     "categoryId": "jelly",
     "subcategoryId": "50g_jelly",
