@@ -119,7 +119,7 @@ export const Route = createFileRoute('/api/contact')({
           const responseText = await gmailResponse.text();
           try {
             gmailData = JSON.parse(responseText);
-          } catch (e) {
+          } catch {
             gmailData = { error: responseText };
           }
 

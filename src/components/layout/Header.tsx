@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { useLocation, Link } from '@tanstack/react-router'
-import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { Home, Candy, Heart, Send } from 'lucide-react'
 import { useI18n, LANG_OPTIONS } from '../../i18n'
 import Magnetic from '../Magnetic'
@@ -99,9 +99,8 @@ export function Header() {
   const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const { scrollY } = useScroll();
-
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMenuOpen(false);
   }, [location.pathname]);
 

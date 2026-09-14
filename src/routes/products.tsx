@@ -1,7 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { Link } from '@tanstack/react-router'
 import { motion } from 'framer-motion'
-import { useI18n } from '../i18n'
 
 const CATEGORIES = [
   { id: 'marshmallow', name: 'Marshmallow', desc: 'Lighter than air.', img: '/images/categories/minimal_marshmallow.svg' },
@@ -17,8 +16,6 @@ export const Route = createFileRoute('/products')({
 const springApple = { type: 'spring', stiffness: 200, damping: 12, mass: 0.8 };
 
 function Products() {
-  const { t } = useI18n();
-
   return (
     <main className="min-h-screen bg-cream pt-40 lg:pt-48 pb-32 flex flex-col items-center antialiased">
       

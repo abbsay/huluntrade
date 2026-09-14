@@ -84,7 +84,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
   )
 }
 
-function RootLayout({ children }: { children: React.ReactNode }) {
+function RootLayout({ children }: { children?: React.ReactNode }) {
   const location = useLocation();
   
   return (
@@ -101,7 +101,7 @@ function RootLayout({ children }: { children: React.ReactNode }) {
             exit={{ opacity: 0, y: -40, filter: 'blur(12px)', scale: 0.99 }} 
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
-            <Outlet />
+            {children ?? <Outlet />}
           </motion.div>
         </AnimatePresence>
       </main>

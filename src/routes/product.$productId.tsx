@@ -1,4 +1,4 @@
-import { createFileRoute, Link, useNavigate, notFound } from '@tanstack/react-router'
+import { createFileRoute, Link, notFound } from '@tanstack/react-router'
 import { useI18n } from '../i18n'
 import { getProductById } from '../data/mockProducts'
 import { motion, useScroll, useTransform } from 'framer-motion'
@@ -290,6 +290,7 @@ function ProductDetail() {
               <motion.div whileHover={springHover} whileTap={springTap} transition={springTransition} className="inline-block w-full sm:w-auto">
                 <Link
                   to="/contact"
+                  onClick={triggerConfetti}
                   className={`flex items-center justify-center w-full sm:w-auto px-10 py-5 rounded-full font-black font-display tracking-wide text-[17px] shadow-xl jelly-highlight transition-all duration-300 text-white ${theme.btn} ${theme.shadow}`}
                 >
                   {t('product_details.inquire_button', 'Ask About This Sweet')} <img src="/images/categories/minimal_jelly.svg" className="w-6 h-6 ml-2 object-contain filter drop-shadow-sm" />

@@ -9,6 +9,7 @@ export default function Magnetic({ children }: { children: ReactNode }) {
   useEffect(() => {
     // Detect coarse pointers (touch devices) where hover/magnetic makes no sense
     if (typeof window !== 'undefined') {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setIsMobile(window.matchMedia('(pointer: coarse)').matches);
     }
   }, []);

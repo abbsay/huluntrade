@@ -15,7 +15,9 @@ export const playBloop = () => {
     gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.15);
     osc.connect(gain); gain.connect(ctx.destination);
     osc.start(); osc.stop(ctx.currentTime + 0.15);
-  } catch(e) {}
+  } catch {
+    /* ignore */
+  }
 }
 
 export function MagicCursor() {
@@ -30,19 +32,20 @@ export function MagicCursor() {
   useEffect(() => {
     // Only run on desktop devices to save performance and avoid touch conflicts
     if (window.matchMedia('(pointer: coarse)').matches) return;
-    
+
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsMounted(true);
 
     const moveCursor = (e: MouseEvent) => {
       cursorX.set(e.clientX);
       cursorY.set(e.clientY);
       const target = e.target as HTMLElement;
-      setIsHovering(!!target.closest('a, button, input, [role="button"], .group'));
+      setIsHovering(Boolean(target.closest('a, button, input, [role="button"], .group')));
     };
-    
-    const touchSfx = (e: MouseEvent) => { 
+
+    const touchSfx = (e: MouseEvent) => {
         const target = e.target as HTMLElement;
-        if(!!target.closest('a, button, input')) playBloop();
+        if (target.closest('a, button, input')) playBloop();
     }
     
     window.addEventListener('mousemove', moveCursor);

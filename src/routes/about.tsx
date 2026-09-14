@@ -1,6 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { useI18n } from '../i18n'
 
 export const Route = createFileRoute('/about')({
   component: About,
@@ -9,7 +8,6 @@ export const Route = createFileRoute('/about')({
 const springApple = { type: 'spring', stiffness: 200, damping: 12, mass: 0.8 };
 
 function About() {
-  const { t } = useI18n();
   const { scrollYProgress } = useScroll();
   const yParallax = useTransform(scrollYProgress, [0, 1], [0, -100]);
 

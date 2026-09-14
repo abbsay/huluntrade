@@ -1,7 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { Link } from '@tanstack/react-router'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { useI18n } from '../i18n'
 import HeroSlider from '../components/HeroSlider'
 
 const CATEGORIES = [
@@ -11,13 +10,6 @@ const CATEGORIES = [
   { id: 'candy_toy',   name: 'Candy Toys', desc: 'Play meets taste.', img: '/images/categories/minimal_toy.svg', glow: 'from-glowBlue to-transparent' },
 ];
 
-
-const trustItems = [
-  { label: 'Sweet Joy', value: '100%' },
-  { label: 'Global Delivery', value: 'Fast' },
-  { label: 'Pure Ingredients', value: 'Safe' },
-  { label: 'Happy Customers', value: '10K+' },
-];
 export const Route = createFileRoute('/')({
   component: Home,
 })
@@ -25,7 +17,6 @@ export const Route = createFileRoute('/')({
 const springApple = { type: 'spring', stiffness: 200, damping: 12, mass: 0.8 };
 
 function Home() {
-  const { t } = useI18n();
   const { scrollYProgress } = useScroll();
 
   return (
