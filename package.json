@@ -1,21 +1,20 @@
 {
-  "name": "madasweet-clone",
+  "name": "huluntrade-ultra",
   "private": true,
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite dev",
-    "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview",
-    "deploy": "npm run build && wrangler deploy"
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "deploy": "astro build && wrangler pages deploy dist"
   },
   "dependencies": {
-    "@cloudflare/vite-plugin": "^1.26.0",
-    "@tanstack/react-devtools": "^0.10.5",
-    "@tanstack/react-router": "latest",
-    "@tanstack/react-router-devtools": "^1.167.0",
-    "@tanstack/react-start": "latest",
+    "@astrojs/cloudflare": "^14.3.1",
+    "@astrojs/react": "^6.0.5",
+    "astro": "^7.3.2",
     "canvas-confetti": "^1.9.4",
     "framer-motion": "^12.40.0",
     "lucide-react": "^1.21.0",
@@ -24,28 +23,16 @@
     "swiper": "^12.1.4"
   },
   "devDependencies": {
-    "@eslint/js": "^10.0.1",
-    "@tanstack/devtools-vite": "latest",
-    "@tanstack/router-plugin": "^1.168.14",
+    "@astrojs/check": "^0.9.4",
     "@types/canvas-confetti": "^1.9.0",
     "@types/node": "^22.10.2",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
-    "@typescript-eslint/eslint-plugin": "^8.61.1",
-    "@typescript-eslint/parser": "^8.61.1",
-    "@vitejs/plugin-react": "^6.0.1",
     "autoprefixer": "^10.5.0",
-    "eslint": "^10.2.1",
-    "eslint-plugin-react-hooks": "^7.1.1",
-    "eslint-plugin-react-refresh": "^0.5.3",
-    "globals": "^17.6.0",
     "postcss": "^8.5.15",
     "tailwindcss": "^3.4.19",
     "tailwindcss-rtl": "^0.9.0",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.61.1",
-    "vite": "^8.0.10",
-    "vite-plugin-pwa": "^1.3.0",
-    "wrangler": "^4.70.0"
+    "wrangler": "^4.131.2"
   }
 }

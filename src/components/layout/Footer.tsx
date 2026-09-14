@@ -1,4 +1,3 @@
-import { Link } from '@tanstack/react-router'
 import { motion } from 'framer-motion'
 import { useI18n } from '../../i18n'
 
@@ -67,9 +66,9 @@ export function Footer() {
                 <a href="mailto:Van001@huluntrade.com" className="hover:text-strawberry transition-colors border-b-2 border-transparent hover:border-strawberry/30 pb-0.5">Van001@huluntrade.com</a>
               </div>
               <div className="flex items-center gap-3 pt-2">
-                <Link to="/contact" className="text-sm font-bold text-choco bg-white px-5 py-2.5 rounded-full border border-choco/10 shadow-sm hover:border-choco/30 transition-colors">
+                <a href="/contact" className="text-sm font-bold text-choco bg-white px-5 py-2.5 rounded-full border border-choco/10 shadow-sm hover:border-choco/30 transition-colors">
                   Open Contact Form 🚀
-                </Link>
+                </a>
               </div>
             </div>
           </motion.div>

@@ -1,4 +1,3 @@
-import { Link } from '@tanstack/react-router';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { useI18n } from '../i18n';
 import { mockProducts } from '../data/mockProducts';
@@ -44,7 +43,7 @@ const cardVariants = {
     y: 0,
     scale: 1,
     transition: {
-      type: 'spring',
+      type: 'spring' as const,
       stiffness: 260,
       damping: 22,
     },
@@ -59,7 +58,7 @@ const titleVariants = {
     y: 0,
     scale: 1,
     transition: {
-      type: 'spring',
+      type: 'spring' as const,
       stiffness: 300,
       damping: 20,
     },
@@ -74,7 +73,7 @@ const ctaVariants = {
     y: 0,
     scale: 1,
     transition: {
-      type: 'spring',
+      type: 'spring' as const,
       stiffness: 280,
       damping: 18,
       delay: 0.2,
@@ -159,8 +158,8 @@ function ProductGrid() {
                 }}
                 className="relative flex flex-col bg-white rounded-[2.5rem] shadow-[0_20px_40px_-15px_rgba(61,44,35,0.06)] border border-choco/5 overflow-hidden"
               >
-                <Link
-                  to={`/product/${item?.id}`}
+                <a
+                  href={`/product/${item?.id}`}
                   className="group relative flex flex-col flex-1"
                   aria-label={item?.name}
                 >
@@ -196,7 +195,7 @@ function ProductGrid() {
                       </span>
                     </div>
                   </div>
-                </Link>
+                </a>
               </motion.div>
             </TiltCard></div>
           ))}
@@ -222,13 +221,13 @@ function ProductGrid() {
             }}
             className="inline-block"
           >
-            <Link
-              to="/products"
+            <a
+              href="/products"
               className="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-choco text-cream rounded-full shadow-lg hover:bg-mocha hover:shadow-mocha/30 jelly-highlight transition-colors duration-300"
             >
               {t('home.view_all', 'View All Candies')}
               <svg className="w-5 h-5 ms-2 rtl:-scale-x-100" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-            </Link>
+            </a>
           </motion.div>
         </motion.div>
 

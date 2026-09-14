@@ -1,4 +1,4 @@
-import { useRef, useState, ReactNode, useEffect } from 'react';
+import { useRef, useState, type ReactNode, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 export default function Magnetic({ children }: { children: ReactNode }) {

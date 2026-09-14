@@ -15,13 +15,13 @@ export const LANG_OPTIONS = [
 ];
 
 // Flatten nested keys: { nav: { home: 'Home' } } -> { 'nav.home': 'Home' }
-function flatten(obj, prefix = '') {
-  return Object.entries(obj).reduce((acc, [key, val]) => {
+function flatten(obj: Record<string, any>, prefix = ''): Record<string, string> {
+  return Object.entries(obj).reduce<Record<string, string>>((acc, [key, val]) => {
     const fullKey = prefix ? `${prefix}.${key}` : key;
     if (typeof val === 'object' && val !== null) {
       Object.assign(acc, flatten(val, fullKey));
     } else {
-      acc[fullKey] = val;
+      acc[fullKey] = String(val);
     }
     return acc;
   }, {});

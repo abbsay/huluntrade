@@ -1,0 +1,211 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HeroSlider from '../components/HeroSlider';
+import ProductGrid from '../components/ProductGrid';
+
+const CATEGORIES = [
+  {
+    id: 'marshmallow',
+    name: 'Marshmallow',
+    tagline: 'Lighter than air',
+    desc: 'Fluffy, cloud-like textures in fun shapes, swirl twists, and creative themes.',
+    img: '/images/categories/minimal_marshmallow.svg',
+    badge: 'Hot Seller',
+    gradient: 'from-pink-500/10 via-pink-400/5 to-transparent',
+    border: 'hover:border-pink-300'
+  },
+  {
+    id: 'jelly',
+    name: 'Jelly Candy',
+    tagline: 'Bursting fruit flavor',
+    desc: 'Juicy, chewy, and crystal-clear gummies made with real fruit extract.',
+    img: '/images/categories/minimal_jelly.svg',
+    badge: 'Rich Fruit',
+    gradient: 'from-amber-500/10 via-amber-400/5 to-transparent',
+    border: 'hover:border-amber-300'
+  },
+  {
+    id: 'hard_candy',
+    name: 'Hard Candy',
+    tagline: 'Enduring sweet crunch',
+    desc: 'Artisanal lollipop swirls, crystal hard candies, and nostalgic treats.',
+    img: '/images/categories/minimal_hard_candy.svg',
+    badge: 'Classic',
+    gradient: 'from-purple-500/10 via-purple-400/5 to-transparent',
+    border: 'hover:border-purple-300'
+  },
+  {
+    id: 'candy_toy',
+    name: 'Candy Toys',
+    tagline: 'Play meets taste',
+    desc: 'Interactive novelty toys paired with delicious sweets for children everywhere.',
+    img: '/images/categories/minimal_toy.svg',
+    badge: 'Novelty Fun',
+    gradient: 'from-sky-500/10 via-sky-400/5 to-transparent',
+    border: 'hover:border-sky-300'
+  },
+];
+
+const ADVANTAGES = [
+  {
+    icon: '🌍',
+    title: 'Global Export to 40+ Nations',
+    desc: 'Trusted by supermarket chains, importers, and candy distributors across the Middle East, Central Asia, Southeast Asia, and Europe.'
+  },
+  {
+    icon: '✨',
+    title: 'Halal & HACCP Certified',
+    desc: 'Produced under strict clean-room international food safety protocols with complete Halal-compliant ingredients and traceability.'
+  },
+  {
+    icon: '🎨',
+    title: 'OEM / ODM Custom Processing',
+    desc: 'Full private label services from custom recipe formulations, shapes, and color matching to multi-language retail packaging.'
+  },
+  {
+    icon: '⚡',
+    title: 'Factory-Direct Pricing & Supply',
+    desc: 'Based in the Yiwu international trade center with rapid container shipping and flexible MOQ for overseas buyers.'
+  }
+];
+---
+
+<Layout
+  title="Hulun Sweets — Wholesale Candy & Confectionery Manufacturer | Yiwu, China"
+  description="Explore Hulun Sweets: wholesale marshmallows, fruit jellies, hard candies, and candy toys. Premium quality, Halal certified, and global OEM export."
+>
+  <!-- 1. FULL SCREEN HERO SLIDER -->
+  <HeroSlider client:load />
+
+  <!-- 2. CATEGORY SPOTLIGHT SECTION -->
+  <section class="py-20 md:py-28 bg-cream relative overflow-hidden">
+    <div class="max-w-[1400px] mx-auto px-4 md:px-6 xl:px-8">
+
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest bg-strawberry/10 text-strawberry mb-4 border border-strawberry/20">
+          Our Sweet Universe
+        </span>
+        <h2 class="text-4xl md:text-5xl font-black font-display text-choco tracking-tight">
+          Crafted to Bring Smiles Worldwide
+        </h2>
+        <p class="text-mocha text-lg md:text-xl font-medium mt-4">
+          Discover our four signature confectionery lines, meticulously developed for overseas retail and wholesale markets.
+        </p>
+      </div>
+
+      <!-- Category Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+        {CATEGORIES.map((cat) => (
+          <a
+            href={`/category/${cat.id}`}
+            class={`group relative bg-white rounded-[2.5rem] p-8 border border-choco/5 shadow-[0_15px_35px_rgba(61,44,35,0.05)] hover:shadow-[0_25px_50px_rgba(255,107,157,0.15)] transition-all duration-500 hover:-translate-y-2 flex flex-col justify-between overflow-hidden ${cat.border}`}
+          >
+            <!-- Ambient Glow -->
+            <div class={`absolute top-0 right-0 w-44 h-44 bg-gradient-to-bl ${cat.gradient} rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700 pointer-events-none`} />
+
+            <div>
+              <div class="flex items-center justify-between mb-6">
+                <span class="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-cream text-choco/80 border border-choco/5">
+                  {cat.badge}
+                </span>
+                <span class="text-strawberry opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-bold text-sm flex items-center gap-1">
+                  Explore &rarr;
+                </span>
+              </div>
+
+              <div class="w-24 h-24 mx-auto mb-6 relative group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500">
+                <img
+                  src={cat.img}
+                  alt={cat.name}
+                  class="w-full h-full object-contain filter drop-shadow-md"
+                  loading="lazy"
+                />
+              </div>
+
+              <h3 class="text-2xl font-black font-display text-choco text-center mb-1 group-hover:text-strawberry transition-colors">
+                {cat.name}
+              </h3>
+              <p class="text-xs font-bold text-strawberry uppercase tracking-wider text-center mb-3">
+                {cat.tagline}
+              </p>
+              <p class="text-mocha/80 text-sm leading-relaxed text-center">
+                {cat.desc}
+              </p>
+            </div>
+
+            <div class="mt-8 pt-4 border-t border-choco/5 flex items-center justify-center">
+              <span class="text-xs font-bold text-choco/70 group-hover:text-strawberry transition-colors">
+                View Catalog Collection
+              </span>
+            </div>
+          </a>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 3. FEATURED CANDY CATALOG -->
+  <ProductGrid client:visible />
+
+  <!-- 4. B2B EXPORT ADVANTAGES -->
+  <section class="py-24 bg-white relative overflow-hidden border-t border-b border-choco/5">
+    <div class="max-w-[1300px] mx-auto px-4 md:px-6 xl:px-8">
+
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest bg-amber-500/10 text-amber-700 mb-4 border border-amber-500/20">
+          Why Partner With Us
+        </span>
+        <h2 class="text-3xl md:text-5xl font-black font-display text-choco tracking-tight">
+          Your Reliable Confectionery Manufacturing Partner
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {ADVANTAGES.map((adv) => (
+          <div class="bg-cream/60 rounded-3xl p-8 border border-choco/5 hover:bg-cream transition-colors duration-300">
+            <div class="text-4xl mb-5">{adv.icon}</div>
+            <h3 class="text-xl font-bold font-display text-choco mb-3">
+              {adv.title}
+            </h3>
+            <p class="text-mocha text-sm leading-relaxed font-medium">
+              {adv.desc}
+            </p>
+          </div>
+        ))}
+      </div>
+
+      <!-- Factory Trust Metrics -->
+      <div class="mt-16 bg-gradient-to-r from-choco to-[#261A13] text-white rounded-[2.5rem] p-8 md:p-12 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8">
+        <div class="max-w-xl text-center md:text-left">
+          <h3 class="text-2xl md:text-3xl font-black font-display mb-3">
+            Ready to Expand Your Candy Business?
+          </h3>
+          <p class="text-white/80 text-base leading-relaxed font-medium">
+            Contact our export specialists today for sample kits, wholesale catalogs, and competitive container quotation.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-4">
+          <a
+            href="/contact"
+            class="px-8 py-4 rounded-full bg-strawberry text-white font-bold font-display tracking-wide hover:scale-105 transition-transform shadow-lg shadow-strawberry/30 text-base"
+          >
+            Inquire for Quotation &rarr;
+          </a>
+          <a
+            href="https://wa.me/8613967427888"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-6 py-4 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold text-sm transition-colors border border-white/10"
+          >
+            WhatsApp Direct 💬
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</Layout>

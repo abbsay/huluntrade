@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from '@tanstack/react-router';
 
 const SLIDES = [
   {
@@ -80,12 +79,12 @@ export default function HeroSlider() {
               </p>
               
               <div className="flex items-center gap-6">
-                <Link to="/products" className="bg-choco text-white px-8 py-4 rounded-full text-[17px] font-medium hover:scale-105 transition-transform duration-300">
+                <a href="/products" className="bg-choco text-white px-8 py-4 rounded-full text-[17px] font-medium hover:scale-105 transition-transform duration-300">
                   Shop now
-                </Link>
-                <Link to="/about" className={`text-[17px] font-medium hover:underline flex items-center group ${SLIDES[current].accent}`}>
+                </a>
+                <a href="/about" className={`text-[17px] font-medium hover:underline flex items-center group ${SLIDES[current].accent}`}>
                   Learn more <span className="ml-1 group-hover:translate-x-1 transition-transform">›</span>
-                </Link>
+                </a>
               </div>
             </motion.div>
           </div>

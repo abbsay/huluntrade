@@ -859,10 +859,10 @@ export const mockProducts = [
   }
 ];
 
-export const getProductsByCategory = (categoryId) => {
+export const getProductsByCategory = (categoryId: string) => {
   return mockProducts.filter(product => product.categoryId === categoryId);
 };
 
-export const getProductById = (id) => {
+export const getProductById = (id: string) => {
   return mockProducts.find(product => product.id === id);
 };

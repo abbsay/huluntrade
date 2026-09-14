@@ -30,5 +30,8 @@ dev-dist
 # Cloudflare wrangler cache
 .wrangler/
 
+# Astro build and cache
+.astro/
+
 # Tanstack router cache
 .tanstack/

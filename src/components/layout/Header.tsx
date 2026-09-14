@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
-import { useLocation, Link } from '@tanstack/react-router'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Home, Candy, Heart, Send } from 'lucide-react'
 import { useI18n, LANG_OPTIONS } from '../../i18n'
@@ -96,13 +95,14 @@ function LangSwitcher({ variant = 'desktop' }: { variant?: 'mobile' | 'desktop' 
 
 export function Header() {
   const { t } = useI18n();
-  const location = useLocation();
+  const [pathname, setPathname] = useState('/');
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setMenuOpen(false);
-  }, [location.pathname]);
+    if (typeof window !== 'undefined') {
+      setPathname(window.location.pathname);
+    }
+  }, []);
 
   useEffect(() => {
     if (menuOpen) {
@@ -138,7 +138,7 @@ export function Header() {
           <div className="flex items-center justify-between h-[6.5rem]">
 
             {/* Logo */}
-            <Link to="/" onClick={closeMenu} className="flex-shrink-0 relative z-20">
+            <a href="/" onClick={closeMenu} className="flex-shrink-0 relative z-20">
               <Magnetic>
                 <motion.img
                   src="/logo.png"
@@ -149,13 +149,13 @@ export function Header() {
                   transition={{ type: 'spring', stiffness: 400, damping: 10 }}
                 />
               </Magnetic>
-            </Link>
+            </a>
 
             {/* Desktop Nav */}
             <nav className="hidden lg:flex flex-1 items-center justify-center">
               <ul className="flex items-center space-x-2 rtl:space-x-reverse bg-cream/80 px-4 py-2 rounded-[2.5rem] border border-choco/5 backdrop-blur-xl shadow-inner relative">
                 {navItems.map((item) => {
-                  const isActive = location.pathname === item.path;
+                  const isActive = pathname === item.path || (item.path !== '/' && pathname.startsWith(item.path));
                   let iconSrc = '/images/categories/minimal_marshmallow.svg';
                   if(item.id === 'home') iconSrc = '/images/categories/minimal_marshmallow.svg';
                   if(item.id === 'products') iconSrc = '/images/categories/minimal_jelly.svg';
@@ -164,7 +164,7 @@ export function Header() {
 
                   return (
                     <li key={item.id} className="relative z-10 w-24">
-                      <Link to={item.path} className="block group w-full">
+                      <a href={item.path} className="block group w-full">
                         <motion.div
                           className="flex flex-col items-center justify-center py-2.5 relative z-10"
                           initial="initial"
@@ -194,7 +194,7 @@ export function Header() {
                             transition={{ type: 'spring', stiffness: 300, damping: 20 }}
                           />
                         )}
-                      </Link>
+                      </a>
                     </li>
                   );
                 })}
@@ -214,7 +214,7 @@ export function Header() {
                 <span className="tracking-tight">{PHONE_DISPLAY}</span>
               </motion.a>
 
-              <Link to="/contact">
+              <a href="/contact">
                 <motion.div
                   className="flex items-center gap-2 px-6 py-2.5 text-sm font-bold font-sans text-white bg-gradient-to-r from-strawberry to-[#FF9ebb] rounded-full shadow-lg shadow-strawberry/30 cursor-pointer"
                   whileHover={{ scale: 1.08, y: -2, boxShadow: '0 12px 24px rgba(255,107,157,0.4)' }}
@@ -222,7 +222,7 @@ export function Header() {
                 >
                   <img src="/images/categories/minimal_hard_candy.svg" className="w-6 h-6 drop-shadow-sm object-contain" /> {t('nav.catalogue', 'Catalogue')}
                 </motion.div>
-              </Link>
+              </a>
 
               <div className="h-6 w-px bg-mocha/20 mx-1" />
               <LangSwitcher variant="desktop" />
@@ -282,7 +282,7 @@ export function Header() {
                 <nav className="flex-1 mt-4">
                   <motion.ul className="space-y-4">
                     {navItems.map((item) => {
-                      const isActive = location.pathname === item.path;
+                      const isActive = pathname === item.path || (item.path !== '/' && pathname.startsWith(item.path));
                       let iconSrc = '/images/categories/minimal_marshmallow.svg';
                       if(item.id === 'home') iconSrc = '/images/categories/minimal_marshmallow.svg';
                       if(item.id === 'products') iconSrc = '/images/categories/minimal_jelly.svg';
@@ -291,7 +291,7 @@ export function Header() {
 
                       return (
                         <motion.li key={item.id}>
-                          <Link to={item.path} onClick={closeMenu}>
+                          <a href={item.path} onClick={closeMenu}>
                             <motion.div
                               className={`flex items-center gap-4 p-5 rounded-3xl text-2xl font-black font-display tracking-tight transition-all ${isActive ? 'bg-white shadow-[0_10px_20px_rgba(255,107,157,0.15)] text-strawberry border-2 border-strawberry/20' : 'bg-transparent text-mocha border-2 border-transparent'}`}
                               whileHover={{ scale: 1.02 }}
@@ -300,7 +300,7 @@ export function Header() {
                               <span className="w-12 h-12 flex items-center justify-center filter drop-shadow-sm"><img src={iconSrc} className="w-8 h-8 object-contain filter drop-shadow-md" alt={item.label} /></span>
                               {item.label}
                             </motion.div>
-                          </Link>
+                          </a>
                         </motion.li>
                       );
                     })}
@@ -325,7 +325,7 @@ export function Header() {
                       {PHONE_DISPLAY}
                     </motion.a>
 
-                    <Link to="/contact" onClick={closeMenu}>
+                    <a href="/contact" onClick={closeMenu}>
                       <motion.div
                         className="flex items-center justify-center gap-3 w-full py-4 rounded-2xl bg-strawberry text-white font-black font-display text-xl shadow-lg shadow-strawberry/20"
                         whileHover={{ scale: 1.02 }}
@@ -334,7 +334,7 @@ export function Header() {
                         <img src="/images/categories/minimal_hard_candy.svg" className="w-8 h-8 object-contain drop-shadow-sm" />
                         {t('nav.catalogue', 'Catalogue')}
                       </motion.div>
-                    </Link>
+                    </a>
                   </div>
                 </motion.div>
               </div>
