@@ -2,7 +2,6 @@
 import '../index.css';
 import { Header } from '../components/layout/Header';
 import { Footer } from '../components/layout/Footer';
-import { MagicCursor } from '../components/MagicEffects';
 import { ClientRouter } from 'astro:transitions';
 
 interface Props {
@@ -60,7 +59,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://huluntra
     <ClientRouter />
   </head>
   <body class="antialiased min-h-screen flex flex-col bg-cream text-choco font-sans selection:bg-strawberry selection:text-white">
-    <MagicCursor client:idle />
     <Header client:load />
 
     <main class="flex-grow w-full z-0">
