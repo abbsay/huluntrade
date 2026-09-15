@@ -1,0 +1,230 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'en' } = Astro.props;
+
+const MILESTONES_DATA: Record<string, Array<{ year: string; title: string; desc: string }>> = {
+  en: [
+    { year: '2012', title: 'Confectionery Inception', desc: 'Established specialized candy manufacturing and export operations in Yiwu.' },
+    { year: '2016', title: 'Halal & Clean-room Upgrade', desc: 'Achieved international Halal certification and modernized dust-free automated lines.' },
+    { year: '2020', title: 'Global OEM Network', desc: 'Expanded custom private label processing for Middle East and European supermarket chains.' },
+    { year: '2026', title: 'Digital Trade & Innovation', desc: 'Serving 40+ countries with advanced rapid sampling and container logistics fulfillment.' }
+  ],
+  ar: [
+    { year: '2012', title: 'انطلاقة صناعة الحلويات', desc: 'تأسيس عمليات تصنيع وتصدير الحلويات المتخصصة في مدينة إيوو.' },
+    { year: '2016', title: 'شهادة حلال وتحديث الغرف المعقمة', desc: 'الحصول على شهادات الحلال الدولية وتحديث خطوط الإنتاج الآلية المعقمة الخالية من الغبار.' },
+    { year: '2020', title: 'شبكة تصنيع OEM العالمية', desc: 'التوسع في معالجة العلامات التجارية الخاصة لسلاسل السوبرماركت في الشرق الأوسط وأوروبا.' },
+    { year: '2026', title: 'التجارة الرقمية والابتكار', desc: 'تلبية طلبات أكثر من 40 دولة مع إرسال عينات سريع وشحن حاويات متكامل.' }
+  ],
+  ru: [
+    { year: '2012', title: 'Основание производства', desc: 'Запуск специализированного кондитерского производства и экспорта в городе Иу.' },
+    { year: '2016', title: 'Сертификация Халяль и модернизация', desc: 'Получение международного сертификата Халяль и запуск чистых автоматизированных линий.' },
+    { year: '2020', title: 'Глобальная сеть OEM', desc: 'Расширение контрактного производства под СТМ для торговых сетей Ближнего Востока и Европы.' },
+    { year: '2026', title: 'Инновации и логистика', desc: 'Поставки в более чем 40 стран мира с быстрой отправкой образцов и контейнерной логистикой.' }
+  ],
+  fr: [
+    { year: '2012', title: 'Création de la manufacture', desc: 'Lancement des activités de fabrication et d’exportation de confiseries à Yiwu.' },
+    { year: '2016', title: 'Certification Halal & Salles blanches', desc: 'Obtention de la certification Halal et modernisation de lignes automatisées stériles.' },
+    { year: '2020', title: 'Réseau OEM International', desc: 'Développement de marques de distributeurs pour les grandes surfaces au Moyen-Orient et en Europe.' },
+    { year: '2026', title: 'Commerce numérique & Innovation', desc: 'Présence dans plus de 40 pays avec expédition rapide d’échantillons et logistique conteneurs.' }
+  ]
+};
+
+const VALUES_DATA: Record<string, Array<{ icon: string; title: string; desc: string }>> = {
+  en: [
+    { icon: '🍬', title: 'Pure Flavor & Texture', desc: 'Using high-purity gelatin, pectin, and natural extracts for soft, clean, and delightful mouthfeel.' },
+    { icon: '🛡️', title: 'Food Safety Assured', desc: 'Stringent laboratory testing for microbial counts, heavy metals, and ingredient authenticity.' },
+    { icon: '🤝', title: 'Long-term Partnership', desc: 'Transparent pricing, dependable delivery schedules, and dedicated account managers for every buyer.' },
+    { icon: '💡', title: 'Creative R&D Design', desc: 'Regularly releasing eye-catching packaging shapes and kid-friendly novelty themes.' }
+  ],
+  ar: [
+    { icon: '🍬', title: 'نكهات نقية وقوام مثالي', desc: 'استخدام جيلاتين نقي وبكتين وخلاصات طبيعية للحصول على قوام طري ولذيذ.' },
+    { icon: '🛡️', title: 'سلامة الغذاء المضمونة', desc: 'فحوصات مخبرية صارمة للمعايير الميكروبية والمعادن ومطابقة المكونات.' },
+    { icon: '🤝', title: 'شراكات طويلة الأمد', desc: 'أسعار واضحة ومواعيد تسليم موثوقة ومسؤولو حسابات مخصصون لكل مشترٍ.' },
+    { icon: '💡', title: 'ابتكار وتطوير مستمر', desc: 'إطلاق أشكال تغليف جذابة بانتظام وأفكار ألعاب محبوبة للأطفال.' }
+  ],
+  ru: [
+    { icon: '🍬', title: 'Натуральный вкус и текстура', desc: 'Использование чистого желатина, пектина и натуральных соков для идеальной консистенции.' },
+    { icon: '🛡️', title: 'Гарантия пищевой безопасности', desc: 'Строгий лабораторный контроль микробиологических показателей и качества сырья.' },
+    { icon: '🤝', title: 'Долгосрочное партнерство', desc: 'Прозрачные цены, соблюдение графиков поставок и персональный менеджер.' },
+    { icon: '💡', title: 'Инновационный R&D дизайн', desc: 'Регулярный выпуск привлекательных упаковок и ярких детских новинок.' }
+  ],
+  fr: [
+    { icon: '🍬', title: 'Saveur pure & Texture délicate', desc: 'Gélatine de haute pureté, pectine et extraits naturels pour une texture fondante et savoureuse.' },
+    { icon: '🛡️', title: 'Sécurité alimentaire garantie', desc: 'Analyses régulières en laboratoire pour garantir une conformité irréprochable des ingrédients.' },
+    { icon: '🤝', title: 'Partenariats durables', desc: 'Tarification transparente, respect des délais d’expédition et gestionnaires de compte dédiés.' },
+    { icon: '💡', title: 'R&D et design créatif', desc: 'Lancement régulier de formats d’emballages attractifs et de concepts ludiques pour enfants.' }
+  ]
+};
+
+const milestones = MILESTONES_DATA[lang] || MILESTONES_DATA['en'];
+const values = VALUES_DATA[lang] || VALUES_DATA['en'];
+
+const pageTitle = lang === 'ar' ? 'من نحن — حلويات هولون | مصنع حلويات ومصدّر عالمي' :
+                  lang === 'ru' ? 'О нас — Hulun Sweets | Кондитерская фабрика и мировой экспортер' :
+                  lang === 'fr' ? 'À propos de nous — Hulun Sweets | Usine de confiserie et exportateur mondial' :
+                  'About Us — Hulun Sweets | Confectionery Factory & Global Exporter';
+
+const pageDesc = lang === 'ar' ? 'اكتشف حلويات هولون: إمكانيات مصنعنا، إنتاج معقم معتمد حلال، وتفانينا في صناعة أرقى الحلويات للأسواق العالمية.' :
+                 lang === 'ru' ? 'О кондитерской фабрике Hulun Sweets: мощности производства, цеха стандарта Халяль и экспорт сладостей по всему миру.' :
+                 lang === 'fr' ? 'Découvrez Hulun Sweets: nos capacités d’usine, notre production certifiée Halal en salle blanche et notre engagement qualité.' :
+                 'Discover Hulun Sweets: our factory capabilities, Halal-certified clean room production, and dedication to crafting high quality candies for overseas markets.';
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDesc}
+  lang={lang}
+>
+  <div class="pt-36 lg:pt-44 pb-32 bg-cream min-h-screen">
+    <div class="max-w-[1300px] mx-auto px-4 md:px-6 xl:px-8">
+
+      <!-- Hero Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest bg-strawberry/10 text-strawberry mb-4 border border-strawberry/20">
+          {lang === 'ar' ? 'ملف المصنع' : lang === 'ru' ? 'Профиль фабрики' : lang === 'fr' ? 'Profil de l’usine' : 'Factory Profile'}
+        </span>
+        <h1 class="text-4xl md:text-6xl font-black font-display text-choco tracking-tight">
+          {lang === 'ar' ? 'نشر متعة وسعادة الحلويات في كل ركن من أركان العالم' :
+           lang === 'ru' ? 'Дарим сладкую радость в каждом уголке мира' :
+           lang === 'fr' ? 'Apporter la joie gourmande aux quatre coins du globe' :
+           'Bringing Sweet Joy to Every Corner of the Globe'}
+        </h1>
+        <p class="text-mocha text-lg md:text-xl font-medium mt-6 leading-relaxed">
+          {lang === 'ar' ? 'يقع مقر حلويات هولون في مركز التجارة العالمي بمدينة إيوو بمقاطعة تشجيانغ، وتجمع بين خطوط تصنيع الحلويات الآلية الحديثة والمذاق الأصيل والالتزام التام بمعايير التصدير الدولية.' :
+           lang === 'ru' ? 'Фабрика Hulun Sweets расположена в международном торговом хабе Иу (провинция Чжэцзян), объединяя автоматизированные кондитерские линии, отменный вкус и строгие экспортные стандарты.' :
+           lang === 'fr' ? 'Basée au cœur du carrefour commercial mondial de Yiwu (Zhejiang), Hulun Sweets combine des lignes automatisées ultramodernes, des saveurs authentiques et une conformité rigoureuse à l’exportation.' :
+           'Headquartered in the global trading hub of Yiwu, Zhejiang, Hulun Sweets combines modern automated confectionery lines with authentic taste and strict export compliance.'}
+        </p>
+      </div>
+
+      <!-- Factory Overview Split Card -->
+      <div class="bg-white rounded-[2.5rem] p-8 md:p-14 border border-choco/5 shadow-sm mb-20 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-strawberry mb-2 block">
+            {lang === 'ar' ? 'الجودة أولاً في صناعة الحلويات' : lang === 'ru' ? 'Качество превыше всего' : lang === 'fr' ? 'La qualité avant tout' : 'Quality First Confectionery'}
+          </span>
+          <h2 class="text-3xl md:text-4xl font-black font-display text-choco mb-6 leading-tight">
+            {lang === 'ar' ? 'تميز معتمد من المواد الخام حتى المنتج النهائي المعبأ' :
+             lang === 'ru' ? 'Контроль совершенства: от сырья до готовой упаковки' :
+             lang === 'fr' ? 'Excellence certifiée: des matières premières au conditionnement' :
+             'Certified Excellence from Raw Materials to Finished Packages'}
+          </h2>
+          <div class="space-y-4 text-mocha text-base md:text-lg leading-relaxed font-medium">
+            <p>
+              {lang === 'ar' ? 'في حلويات هولون، نؤمن بأن الحلوى ليست مجرد سكر—بل هي لغة عالمية للاحتفال والبهجة وابتسامات الطفولة.' :
+               lang === 'ru' ? 'В Hulun Sweets мы верим, что сладости — это не просто сахар, это универсальный язык радости, тепла и детских улыбок.' :
+               lang === 'fr' ? 'Chez Hulun Sweets, nous pensons que la confiserie est bien plus que du sucre: c’est un langage universel de célébration, de partage et de sourires.' :
+               'At Hulun Sweets, we believe candy is more than just sugar—it is a universal language of celebration, warmth, and childhood smiles.'}
+            </p>
+            <p>
+              {lang === 'ar' ? 'تتميز منشآتنا بخطوط قوالب محكمة الحرارة، وخطوط بثق آلية للمارشميلو الملون، وأنظمة تغليف متطورة تضمن فترة صلاحية طويلة ونظافة تامة أثناء الشحن الدولي.' :
+               lang === 'ru' ? 'Наши производственные мощности включают формующие линии с климат-контролем, экструдеры для многоцветного маршмеллоу и автоматические флоу-пак системы для идеальной сохранности при перевозке.' :
+               lang === 'fr' ? 'Nos installations disposent de systèmes de moulage thermo-régulés, de lignes d’extrusion pour guimauves multicolores et de machines d’ensachage automatique assurant une hygiène irréprochable et une longue conservation.' :
+               'Our manufacturing facilities feature modern temperature-controlled molding, extrusion lines for multi-colored marshmallows, and automated flow-wrapping systems that ensure long shelf-life and pristine hygiene across transit.'}
+            </p>
+            <p>
+              {lang === 'ar' ? 'بفضل شهادات الحلال المعتمدة والامتثال التام لمعايير سلامة الأغذية، تحظى منتجاتنا بثقة رفوف المتاجر في دبي والرياض وموسكو وباريس وغيرها.' :
+               lang === 'ru' ? 'Благодаря сертификату Халяль и строгому соблюдению мировых норм, наша продукция представлена на полках супермаркетов в Дубае, Эр-Рияде, Москве, Париже и десятках других стран.' :
+               lang === 'fr' ? 'Grâce à notre certification Halal et notre conformité aux standards internationaux, nos produits sont distribués avec succès à Dubaï, Riyad, Moscou, Paris et bien au-delà.' :
+               'With comprehensive Halal verification and strict adherence to international export standards, our products are welcomed on retail shelves across Dubai, Riyadh, Moscow, Paris, and beyond.'}
+            </p>
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-tr from-pink-100/50 via-cream to-amber-100/40 rounded-3xl p-8 sm:p-12 border border-choco/5 flex flex-col justify-center">
+          <h3 class="text-xl font-black font-display text-choco mb-6">
+            {lang === 'ar' ? 'أبرز مميزات المصنع' : lang === 'ru' ? 'Преимущества нашей фабрики' : lang === 'fr' ? 'Points forts de notre usine' : 'Our Factory Highlights'}
+          </h3>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-4">
+              <span class="w-8 h-8 rounded-full bg-strawberry text-white flex items-center justify-center font-bold text-sm flex-shrink-0">✓</span>
+              <div>
+                <strong class="text-choco font-bold">
+                  {lang === 'ar' ? 'خطوط إنتاج آلية متطورة:' : lang === 'ru' ? 'Автоматизированные линии:' : lang === 'fr' ? 'Lignes automatisées:' : 'Automated Production Lines:'}
+                </strong>
+                <p class="text-sm text-mocha mt-0.5">
+                  {lang === 'ar' ? 'طاقة إنتاجية عالية تضمن ثبات الجودة العالية في كل دفعة.' :
+                   lang === 'ru' ? 'Высокая производительность и безупречная стабильность от партии к партии.' :
+                   lang === 'fr' ? 'Haute cadence assurant une régularité parfaite d’un lot à l’autre.' :
+                   'High-capacity extrusion & molding ensuring batch-to-batch consistency.'}
+                </p>
+              </div>
+            </li>
+            <li class="flex items-start gap-4">
+              <span class="w-8 h-8 rounded-full bg-strawberry text-white flex items-center justify-center font-bold text-sm flex-shrink-0">✓</span>
+              <div>
+                <strong class="text-choco font-bold">
+                  {lang === 'ar' ? 'مطابق للشريعة الإسلامية (حلال 100%):' : lang === 'ru' ? '100% соответствие Халяль:' : lang === 'fr' ? '100% Conforme Halal:' : '100% Halal Compliant:'}
+                </strong>
+                <p class="text-sm text-mocha mt-0.5">
+                  {lang === 'ar' ? 'تدقيق صارم للمواد الخام لضمان خلوها التام من مشتقات الخنزير والكحول.' :
+                   lang === 'ru' ? 'Строгий аудит сырья, гарантирующий отсутствие свиного желатина и спирта.' :
+                   lang === 'fr' ? 'Audit strict garantissant des recettes sans porc et sans alcool.' :
+                   'Strict raw material auditing guaranteeing pork-free and alcohol-free recipes.'}
+                </p>
+              </div>
+            </li>
+            <li class="flex items-start gap-4">
+              <span class="w-8 h-8 rounded-full bg-strawberry text-white flex items-center justify-center font-bold text-sm flex-shrink-0">✓</span>
+              <div>
+                <strong class="text-choco font-bold">
+                  {lang === 'ar' ? 'تغليف وتصنيع مخصص OEM:' : lang === 'ru' ? 'Индивидуальная упаковка OEM:' : lang === 'fr' ? 'Emballages OEM sur mesure:' : 'Custom OEM Packaging:'}
+                </strong>
+                <p class="text-sm text-mocha mt-0.5">
+                  {lang === 'ar' ? 'أحجام كرتون مرنة، وصناديق عرض التجزئة، وتصاميم باركود متعددة اللغات.' :
+                   lang === 'ru' ? 'Гибкие размеры коробок, шоубоксы для ритейла и мультиязычные штрих-коды.' :
+                   lang === 'fr' ? 'Cartons sur mesure, présentoirs de caisse et étiquetage multilingue.' :
+                   'Flexible carton sizing, retail display boxes, and multi-lingual barcoding.'}
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Core Values -->
+      <div class="mb-20">
+        <h2 class="text-3xl font-black font-display text-choco text-center mb-12">
+          {lang === 'ar' ? 'التزاماتنا الأساسية في التصنيع' : lang === 'ru' ? 'Наши принципы и обязательства' : lang === 'fr' ? 'Nos engagements de fabrication' : 'Our Core Manufacturing Commitments'}
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {values.map((val) => (
+            <div class="bg-white p-8 rounded-3xl border border-choco/5 shadow-sm flex flex-col">
+              <div class="text-4xl mb-4">{val.icon}</div>
+              <h3 class="text-xl font-bold font-display text-choco mb-2">{val.title}</h3>
+              <p class="text-mocha text-sm leading-relaxed">{val.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Growth Milestones -->
+      <div class="bg-white rounded-[2.5rem] p-8 md:p-14 border border-choco/5 shadow-sm">
+        <h2 class="text-3xl font-black font-display text-choco text-center mb-12">
+          {lang === 'ar' ? 'مسيرة نمونا وتصديرنا' : lang === 'ru' ? 'Этапы нашего развития' : lang === 'fr' ? 'Notre parcours d’exportation' : 'Our Growth & Export Journey'}
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          {milestones.map((m) => (
+            <div class="relative pl-6 rtl:pl-0 rtl:pr-6 md:pl-0 md:rtl:pr-0 border-l-2 rtl:border-l-0 rtl:border-r-2 md:border-l-0 md:rtl:border-r-0 md:border-t-2 border-strawberry/30 pt-4">
+              <span class="text-2xl font-black font-display text-strawberry block mb-1">
+                {m.year}
+              </span>
+              <h4 class="text-lg font-bold font-display text-choco mb-2">
+                {m.title}
+              </h4>
+              <p class="text-sm text-mocha leading-relaxed">
+                {m.desc}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</Layout>

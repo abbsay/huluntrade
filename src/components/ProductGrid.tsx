@@ -1,5 +1,5 @@
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import { useI18n } from '../i18n';
+import { useTranslations, useTranslatedPath } from '../i18n';
 import { mockProducts } from '../data/mockProducts';
 import React from 'react';
 
@@ -16,13 +16,6 @@ const FEATURED_IDS = [
 const FEATURED = FEATURED_IDS
   .map(id => mockProducts.find(p => p.id === id))
   .filter(Boolean);
-
-const CATEGORY_LABELS: Record<string, string> = {
-  marshmallow: 'Marshmallow',
-  jelly: 'Jelly Candy',
-  hard_candy: 'Hard Candy',
-  candy_toy: 'Candy Toy',
-};
 
 // Stagger container variants
 const gridContainerVariants = {
@@ -88,7 +81,7 @@ function TiltCard({ children }: { children: React.ReactNode }) {
   const mouseYSpring = useSpring(y, { stiffness: 300, damping: 20 });
   const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["15deg", "-15deg"]);
   const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-15deg", "15deg"]);
-  
+
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
     const width = rect.width;
@@ -100,7 +93,7 @@ function TiltCard({ children }: { children: React.ReactNode }) {
     x.set(xPct);
     y.set(yPct);
   };
-  
+
   return (
     <div style={{ perspective: 1200 }} onMouseMove={handleMouseMove} onMouseLeave={() => {x.set(0); y.set(0)}} className="h-full w-full">
       <motion.div style={{ rotateX, rotateY, transformStyle: "preserve-3d" }} className="h-full w-full relative">
@@ -110,8 +103,16 @@ function TiltCard({ children }: { children: React.ReactNode }) {
   );
 }
 
-function ProductGrid() {
-  const { t } = useI18n();
+export default function ProductGrid({ currentLang = 'en' }: { currentLang?: string }) {
+  const t = useTranslations(currentLang);
+  const translatePath = useTranslatedPath(currentLang);
+
+  const categoryLabels: Record<string, string> = {
+    marshmallow: t('products_page.marshmallow', 'Marshmallow'),
+    jelly: t('products_page.jelly', 'Jelly Candy'),
+    hard_candy: t('products_page.hard_candy', 'Hard Candy'),
+    candy_toy: t('products_page.candy_toy', 'Candy Toy'),
+  };
 
   return (
     <section className="py-16 md:py-24 bg-cream" id="featured-products">
@@ -159,7 +160,7 @@ function ProductGrid() {
                 className="relative flex flex-col bg-white rounded-[2.5rem] shadow-[0_20px_40px_-15px_rgba(61,44,35,0.06)] border border-choco/5 overflow-hidden"
               >
                 <a
-                  href={`/product/${item?.id}`}
+                  href={translatePath(`/product/${item?.id}`)}
                   className="group relative flex flex-col flex-1"
                   aria-label={item?.name}
                 >
@@ -179,7 +180,7 @@ function ProductGrid() {
                   <div className="flex flex-col flex-1 p-4 sm:p-5 pt-4 text-center sm:text-start h-[160px] justify-between">
                     <div>
                       <p className="text-xs sm:text-sm font-bold tracking-wider text-strawberry uppercase mb-1 sm:mb-2 opacity-80 group-hover:opacity-100 transition-opacity">
-                        {item?.categoryId ? (CATEGORY_LABELS[item.categoryId] || item.categoryId) : 'Candy'}
+                        {item?.categoryId ? (categoryLabels[item.categoryId] || item.categoryId) : 'Candy'}
                       </p>
                       <h3 className="text-sm sm:text-base md:text-lg font-bold text-choco font-display tracking-wide line-clamp-2 leading-snug group-hover:text-blue-600 transition-colors">
                         {item?.name}
@@ -222,7 +223,7 @@ function ProductGrid() {
             className="inline-block"
           >
             <a
-              href="/products"
+              href={translatePath('/products')}
               className="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-choco text-cream rounded-full shadow-lg hover:bg-mocha hover:shadow-mocha/30 jelly-highlight transition-colors duration-300"
             >
               {t('home.view_all', 'View All Candies')}
@@ -235,5 +236,3 @@ function ProductGrid() {
     </section>
   );
 }
-
-export default ProductGrid;

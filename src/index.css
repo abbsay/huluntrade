@@ -6,6 +6,11 @@
   body {
     background-color: #FFFFFF;
     color: #1D1D1F;
-    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+    font-family: "Quicksand", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  }
+
+  [dir="rtl"] body,
+  [dir="rtl"] {
+    font-family: "Noto Sans Arabic", "Quicksand", ui-sans-serif, system-ui, sans-serif;
   }
 }

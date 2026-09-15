@@ -1,0 +1,179 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { useTranslations, useTranslatedPath } from '../../i18n';
+
+interface Props {
+  category: {
+    id: string;
+    name: string;
+    title: string;
+    desc: string;
+    img: string;
+  };
+  products: any[];
+  lang?: string;
+}
+
+const { category, products, lang = 'en' } = Astro.props;
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+
+const CATEGORY_NAMES_LOCALE: Record<string, Record<string, { name: string; title: string; desc: string }>> = {
+  ar: {
+    marshmallow: {
+      name: 'مارشميلو',
+      title: 'مارشميلو شهي طري — حلويات هولون',
+      desc: 'اكتشف حلويات المارشميلو الناعمة والخفيفة كالسحاب. أشكال مرحة وحلزونية ونكهات فواكه تصدر عالمياً.',
+    },
+    jelly: {
+      name: 'حلوى الجيلي',
+      title: 'حلوى جيلي الفواكه اللذيذة — حلويات هولون',
+      desc: 'استكشف تشكيلتنا من حلوى الجيلي الطرية والمنعشة الغنية بنكهات الفواكه الصافية.',
+    },
+    hard_candy: {
+      name: 'حلوى صلبة ومصاصات',
+      title: 'حلوى صلبة ومصاصات — حلويات هولون',
+      desc: 'مصاصات فنية ملونة وحلوى صلبة كلاسيكية مصنوعة يدويًا بدقة تدوم متعتها طويلاً.',
+    },
+    candy_toy: {
+      name: 'ألعاب الحلوى الممتعة',
+      title: 'ألعاب حلوى إبداعية للأطفال — حلويات هولون',
+      desc: 'ألعاب تفاعلية مبتكرة تجمع بين تسلية اللعب ومذاق الحلوى الشهي للأطفال.',
+    },
+  },
+  ru: {
+    marshmallow: {
+      name: 'Маршмеллоу',
+      title: 'Вкусный маршмеллоу — Hulun Sweets',
+      desc: 'Нежный, воздушный маршмеллоу с текстурой облака. Оригинальные формы, спирали и фруктовые вкусы.',
+    },
+    jelly: {
+      name: 'Желейные конфеты',
+      title: 'Сочные желейные конфеты — Hulun Sweets',
+      desc: 'Коллекция жевательного мармелада и кристально прозрачных фруктовых желейных сладостей.',
+    },
+    hard_candy: {
+      name: 'Карамель и леденцы',
+      title: 'Карамель и леденцы — Hulun Sweets',
+      desc: 'Классическая хрустящая карамель, яркие леденцы на палочке и авторские сладкие спирали.',
+    },
+    candy_toy: {
+      name: 'Конфеты-игрушки',
+      title: 'Конфеты-игрушки для детей — Hulun Sweets',
+      desc: 'Интерактивные игрушки с вкусным сладким наполнением, дарящие часы радости детям.',
+    },
+  },
+  fr: {
+    marshmallow: {
+      name: 'Guimauve',
+      title: 'Délicieuses Guimauves — Hulun Sweets',
+      desc: 'Découvrez nos guimauves aériennes et moelleuses. Formes créatives, torsades fruitées et qualité export.',
+    },
+    jelly: {
+      name: 'Bonbons Gélifiés',
+      title: 'Gélifiés Fruités et Juteux — Hulun Sweets',
+      desc: 'Explorez notre gamme de bonbons gélifiés fruités, tendres et translucides aux extraits naturels de fruits.',
+    },
+    hard_candy: {
+      name: 'Sucettes & Bonbons Durs',
+      title: 'Sucettes et Bonbons Durs — Hulun Sweets',
+      desc: 'Sucettes artisanales torsadées, bonbons durs cristallins et friandises traditionnelles incontournables.',
+    },
+    candy_toy: {
+      name: 'Jouets Sucrés & Nouveautés',
+      title: 'Jouets de Confiserie Amusants — Hulun Sweets',
+      desc: 'Jouets interactifs combinant le plaisir du jeu et la gourmandise pour les enfants du monde entier.',
+    },
+  },
+};
+
+const locCat = CATEGORY_NAMES_LOCALE[lang]?.[category.id];
+const catName = locCat?.name || category.name;
+const catTitle = locCat?.title || category.title;
+const catDesc = locCat?.desc || category.desc;
+---
+
+<Layout
+  title={catTitle}
+  description={catDesc}
+  lang={lang}
+>
+  <div class="pt-36 lg:pt-44 pb-32 bg-cream min-h-screen">
+    <div class="max-w-[1400px] mx-auto px-4 md:px-6 xl:px-8">
+
+      <!-- Breadcrumbs -->
+      <nav class="mb-8 flex items-center gap-2 text-xs font-bold text-mocha/70">
+        <a href={translatePath('/')} class="hover:text-strawberry transition-colors">
+          {t('nav.home', 'Home')}
+        </a>
+        <span>/</span>
+        <a href={translatePath('/products')} class="hover:text-strawberry transition-colors">
+          {t('nav.products', 'Categories')}
+        </a>
+        <span>/</span>
+        <span class="text-choco font-black">{catName}</span>
+      </nav>
+
+      <!-- Category Hero Header -->
+      <div class="bg-white rounded-[2.5rem] p-8 md:p-14 border border-choco/5 shadow-sm mb-16 flex flex-col md:flex-row items-center gap-8 md:gap-12">
+        <div class="w-32 h-32 md:w-40 md:h-40 flex-shrink-0 bg-cream/70 rounded-full p-6 border border-choco/5 flex items-center justify-center filter drop-shadow-sm">
+          <img
+            src={category.img}
+            alt={catName}
+            class="w-full h-full object-contain"
+          />
+        </div>
+        <div class="text-center md:text-start flex-1">
+          <span class="inline-block px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-strawberry/10 text-strawberry mb-3">
+            {products.length} {lang === 'ar' ? 'صنف في التشكيلة' : lang === 'ru' ? 'товаров в коллекции' : lang === 'fr' ? 'produits dans la collection' : 'Products in Collection'}
+          </span>
+          <h1 class="text-3xl md:text-5xl font-black font-display text-choco tracking-tight mb-3">
+            {catName}
+          </h1>
+          <p class="text-mocha text-base md:text-lg leading-relaxed max-w-2xl">
+            {catDesc}
+          </p>
+        </div>
+      </div>
+
+      <!-- Products Grid -->
+      <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+        {products.map((product) => (
+          <div class="group flex flex-col bg-white rounded-[2rem] border border-choco/5 shadow-[0_10px_30px_rgba(61,44,35,0.04)] hover:shadow-[0_20px_45px_rgba(255,107,157,0.18)] hover:-translate-y-2 transition-all duration-300 overflow-hidden">
+            <a href={translatePath(`/product/${product.id}`)} class="flex flex-col flex-1">
+              <div class="relative aspect-square w-full bg-gradient-to-b from-[#FFF8F8] to-white p-6 flex items-center justify-center overflow-hidden">
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  class="w-full h-full object-contain filter drop-shadow-md group-hover:scale-110 transition-transform duration-500"
+                  loading="lazy"
+                />
+              </div>
+
+              <div class="flex flex-col flex-1 p-5 justify-between bg-white">
+                <h3 class="text-base sm:text-lg font-bold font-display text-choco group-hover:text-strawberry transition-colors line-clamp-2 leading-snug">
+                  {product.name}
+                </h3>
+
+                <div class="mt-4 pt-3 border-t border-choco/5 flex flex-wrap items-center justify-between gap-2 text-xs font-semibold text-mocha">
+                  <span>⚖️ {product.weight || '35g'}</span>
+                  <span class="text-mocha/70">📦 {product.packaging || 'Box'}</span>
+                </div>
+              </div>
+            </a>
+
+            <div class="px-5 pb-5 pt-0 bg-white">
+              <a
+                href={translatePath(`/product/${product.id}`)}
+                class="w-full py-2.5 rounded-full bg-cream hover:bg-strawberry hover:text-white text-choco font-bold text-xs flex items-center justify-center gap-1 transition-colors"
+              >
+                {lang === 'ar' ? 'عرض المواصفات ←' : lang === 'ru' ? 'Спецификация →' : lang === 'fr' ? 'Spécifications →' : 'View Specifications →'}
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </div>
+</Layout>

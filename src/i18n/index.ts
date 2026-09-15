@@ -4,3 +4,4 @@
 export { useI18n } from './context.js';
 export { I18nProvider } from './provider.jsx';
 export { LANG_OPTIONS, LOCALES, RTL_LANGS } from './config.js';
+export * from './utils.js';

@@ -1,22 +1,23 @@
 import { motion } from 'framer-motion'
-import { useI18n } from '../../i18n'
+import { useTranslations, useTranslatedPath } from '../../i18n'
 
-export function Footer() {
-  const { t } = useI18n();
+export function Footer({ currentLang = 'en' }: { currentLang?: string }) {
+  const t = useTranslations(currentLang);
+  const translatePath = useTranslatedPath(currentLang);
 
   return (
     <footer className="relative bg-white pt-20 pb-10 mt-0 z-10 overflow-hidden font-sans border-t-[8px] border-cream">
-      
+
       {/* Playful Top Decoration (Optional abstract blob bleeding into footer) */}
       <div className="absolute -top-32 -right-32 w-64 h-64 bg-pink-100 rounded-full mix-blend-multiply opacity-50 blur-[50px] z-0 pointer-events-none"></div>
 
       <div className="max-w-[1200px] mx-auto px-6 lg:px-12 relative z-10">
-        
+
         {/* Adorable 2-Column Layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 mb-16">
-          
+
           {/* Left: Address / Brand */}
-          <motion.div 
+          <motion.div
             className="flex flex-col bg-cream/50 p-8 rounded-[2rem] border border-mocha/5 hover:border-strawberry/20 hover:bg-cream transition-colors duration-500 group"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -44,7 +45,7 @@ export function Footer() {
           </motion.div>
 
           {/* Right: Connect / Contact */}
-          <motion.div 
+          <motion.div
             className="flex flex-col bg-pink-50/50 p-8 rounded-[2rem] border border-mocha/5 hover:border-strawberry/20 hover:bg-pink-50 transition-colors duration-500 group"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -55,7 +56,7 @@ export function Footer() {
               <img src="/images/categories/minimal_toy.svg" className="w-full h-full object-contain" alt="Contact Us" />
             </div>
             <h3 className="text-2xl font-black font-display text-choco tracking-tight mb-4">Let's Talk Sweet!</h3>
-            
+
             <div className="space-y-4 text-lg font-medium text-mocha/80">
               <div className="flex items-center gap-3">
                 <img src="/images/categories/minimal_jelly.svg" className="w-7 h-7 mr-2 object-contain drop-shadow-sm flex-shrink-0" alt="Phone" />
@@ -66,7 +67,7 @@ export function Footer() {
                 <a href="mailto:Van001@huluntrade.com" className="hover:text-strawberry transition-colors border-b-2 border-transparent hover:border-strawberry/30 pb-0.5">Van001@huluntrade.com</a>
               </div>
               <div className="flex items-center gap-3 pt-2">
-                <a href="/contact" className="text-sm font-bold text-choco bg-white px-5 py-2.5 rounded-full border border-choco/10 shadow-sm hover:border-choco/30 transition-colors">
+                <a href={translatePath('/contact')} className="text-sm font-bold text-choco bg-white px-5 py-2.5 rounded-full border border-choco/10 shadow-sm hover:border-choco/30 transition-colors">
                   Open Contact Form 🚀
                 </a>
               </div>
@@ -76,7 +77,7 @@ export function Footer() {
         </div>
 
         {/* Bottom Copyright & Playful Emojis */}
-        <motion.div 
+        <motion.div
           className="border-t-[3px] border-dashed border-choco/10 pt-8 flex flex-col md:flex-row justify-center items-center text-[13px] text-mocha font-bold tracking-widest uppercase gap-4"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}

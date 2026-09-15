@@ -1,8 +1,9 @@
 ---
-import CategoryPage from '../../components/pages/CategoryPage.astro';
-import { mockProducts } from '../../data/mockProducts';
+import CategoryPage from '../../../components/pages/CategoryPage.astro';
+import { mockProducts } from '../../../data/mockProducts';
 
-export async function getStaticPaths() {
+export function getStaticPaths() {
+  const locales = ['ar', 'ru', 'fr'];
   const categories = [
     {
       id: 'marshmallow',
@@ -34,16 +35,19 @@ export async function getStaticPaths() {
     },
   ];
 
-  return categories.map((cat) => ({
-    params: { id: cat.id },
-    props: {
-      category: cat,
-      products: mockProducts.filter((p) => p.categoryId === cat.id),
-    },
-  }));
+  return locales.flatMap((locale) =>
+    categories.map((cat) => ({
+      params: { locale, id: cat.id },
+      props: {
+        category: cat,
+        products: mockProducts.filter((p) => p.categoryId === cat.id),
+      },
+    }))
+  );
 }
 
+const { locale } = Astro.params;
 const { category, products } = Astro.props;
 ---
 
-<CategoryPage category={category} products={products} lang="en" />
+<CategoryPage category={category} products={products} lang={locale} />

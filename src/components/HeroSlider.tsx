@@ -1,48 +1,67 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslations, useTranslatedPath } from '../i18n';
 
-const SLIDES = [
-  {
-    id: 1,
-    title: "Marshmallow",
-    subtitle: "Lighter than air. Sweeter than ever.",
-    color: "from-[#FF2D55]/10 to-transparent",
-    accent: "text-[#FF2D55]",
-    bg: "bg-[#FFF0F3]",
-    img: '/images/categories/minimal_marshmallow.svg',
-    blob: "bg-[#FF2D55]"
-  },
-  {
-    id: 2,
-    title: "Jelly",
-    subtitle: "Bursting with sweet and fruity joy.",
-    color: "from-[#FF9500]/10 to-transparent",
-    accent: "text-[#FF9500]",
-    bg: "bg-[#FFF8F0]",
-    img: '/images/categories/minimal_jelly.svg',
-    blob: "bg-[#FF9500]"
-  },
-  {
-    id: 3,
-    title: "Hard Candy",
-    subtitle: "Enduring sweetness. Magical crunch.",
-    color: "from-[#AF52DE]/10 to-transparent",
-    accent: "text-[#AF52DE]",
-    bg: "bg-[#F9F0FF]",
-    img: '/images/categories/minimal_hard_candy.svg',
-    blob: "bg-[#AF52DE]"
-  }
-];
+interface HeroSliderProps {
+  currentLang?: string;
+}
 
-export default function HeroSlider() {
+export default function HeroSlider({ currentLang = 'en' }: HeroSliderProps) {
   const [current, setCurrent] = useState(0);
+  const t = useTranslations(currentLang);
+  const translatePath = useTranslatedPath(currentLang);
+
+  const SLIDES = [
+    {
+      id: 1,
+      categoryKey: 'marshmallow',
+      title: t('products_page.marshmallow', 'Marshmallow'),
+      subtitle: currentLang === 'ar' ? 'أخف من الهواء، وأحلى من أي وقت مضى.' :
+                currentLang === 'ru' ? 'Легче воздуха. Слаще, чем когда-либо.' :
+                currentLang === 'fr' ? 'Plus léger que l’air. Plus doux que jamais.' :
+                'Lighter than air. Sweeter than ever.',
+      color: "from-[#FF2D55]/10 to-transparent",
+      accent: "text-[#FF2D55]",
+      bg: "bg-[#FFF0F3]",
+      img: '/images/categories/minimal_marshmallow.svg',
+      blob: "bg-[#FF2D55]"
+    },
+    {
+      id: 2,
+      categoryKey: 'jelly',
+      title: t('products_page.jelly', 'Jelly Candy'),
+      subtitle: currentLang === 'ar' ? 'مليئة بنكهات الفواكه اللذيذة والبهجة.' :
+                currentLang === 'ru' ? 'Взрыв фруктового вкуса и радости.' :
+                currentLang === 'fr' ? 'Une explosion de saveurs fruitées et de joie.' :
+                'Bursting with sweet and fruity joy.',
+      color: "from-[#FF9500]/10 to-transparent",
+      accent: "text-[#FF9500]",
+      bg: "bg-[#FFF8F0]",
+      img: '/images/categories/minimal_jelly.svg',
+      blob: "bg-[#FF9500]"
+    },
+    {
+      id: 3,
+      categoryKey: 'hard_candy',
+      title: t('products_page.hard_candy', 'Hard Candy'),
+      subtitle: currentLang === 'ar' ? 'حلاوة تدوم وقرمشة سحرية لا تُقاوم.' :
+                currentLang === 'ru' ? 'Долгоиграющая сладость. Волшебный хруст.' :
+                currentLang === 'fr' ? 'Douceur durable. Croquant magique.' :
+                'Enduring sweetness. Magical crunch.',
+      color: "from-[#AF52DE]/10 to-transparent",
+      accent: "text-[#AF52DE]",
+      bg: "bg-[#F9F0FF]",
+      img: '/images/categories/minimal_hard_candy.svg',
+      blob: "bg-[#AF52DE]"
+    }
+  ];
 
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % SLIDES.length);
-    }, 5000); // 5 seconds per slide
+    }, 5000);
     return () => clearInterval(timer);
-  }, []);
+  }, [SLIDES.length]);
 
   return (
     <div className="relative w-full h-screen overflow-hidden bg-white">
@@ -69,7 +88,7 @@ export default function HeroSlider() {
               transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
             >
               <h2 className={`text-sm md:text-base font-bold tracking-widest uppercase mb-4 ${SLIDES[current].accent}`}>
-                New Arrival
+                {currentLang === 'ar' ? 'وصل حديثاً' : currentLang === 'ru' ? 'Новинки' : currentLang === 'fr' ? 'Nouveautés' : 'New Arrival'}
               </h2>
               <h1 className="text-5xl md:text-7xl lg:text-8xl font-semibold text-choco font-display tracking-tighter leading-[1.05] mb-6">
                 {SLIDES[current].title}
@@ -77,13 +96,19 @@ export default function HeroSlider() {
               <p className="text-xl md:text-2xl text-mocha font-medium max-w-lg tracking-tight mb-10">
                 {SLIDES[current].subtitle}
               </p>
-              
+
               <div className="flex items-center gap-6">
-                <a href="/products" className="bg-choco text-white px-8 py-4 rounded-full text-[17px] font-medium hover:scale-105 transition-transform duration-300">
-                  Shop now
+                <a
+                  href={translatePath('/products')}
+                  className="bg-choco text-white px-8 py-4 rounded-full text-[17px] font-medium hover:scale-105 transition-transform duration-300 shadow-md"
+                >
+                  {currentLang === 'ar' ? 'تسوق الآن' : currentLang === 'ru' ? 'Смотреть каталог' : currentLang === 'fr' ? 'Découvrir' : 'Shop now'}
                 </a>
-                <a href="/about" className={`text-[17px] font-medium hover:underline flex items-center group ${SLIDES[current].accent}`}>
-                  Learn more <span className="ml-1 group-hover:translate-x-1 transition-transform">›</span>
+                <a
+                  href={translatePath('/about')}
+                  className={`text-[17px] font-medium hover:underline flex items-center group ${SLIDES[current].accent}`}
+                >
+                  {t('nav.about', 'About us')} <span className="mx-1 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform">›</span>
                 </a>
               </div>
             </motion.div>
@@ -109,6 +134,7 @@ export default function HeroSlider() {
           <button
             key={i}
             onClick={() => setCurrent(i)}
+            aria-label={`Go to slide ${i + 1}`}
             className="w-16 h-1.5 rounded-full bg-black/10 overflow-hidden relative cursor-pointer"
           >
             {current === i && (

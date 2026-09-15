@@ -1,0 +1,19 @@
+---
+import ProductDetailPage from '../../../components/pages/ProductDetailPage.astro';
+import { mockProducts } from '../../../data/mockProducts';
+
+export function getStaticPaths() {
+  const locales = ['ar', 'ru', 'fr'];
+  return locales.flatMap((locale) =>
+    mockProducts.map((p) => ({
+      params: { locale, id: p.id },
+      props: { product: p },
+    }))
+  );
+}
+
+const { locale } = Astro.params;
+const { product } = Astro.props;
+---
+
+<ProductDetailPage product={product} lang={locale} />
