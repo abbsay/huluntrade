@@ -1,0 +1,15 @@
+---
+import CatalogPage from '../../components/pages/CatalogPage.astro';
+
+export function getStaticPaths() {
+  return [
+    { params: { locale: 'ar' } },
+    { params: { locale: 'ru' } },
+    { params: { locale: 'fr' } },
+  ];
+}
+
+const { locale } = Astro.params;
+---
+
+<CatalogPage lang={locale} />

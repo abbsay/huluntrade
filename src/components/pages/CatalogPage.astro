@@ -1,0 +1,32 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { mockProducts } from '../../data/mockProducts';
+import CatalogBook from '../CatalogBook';
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'en' } = Astro.props;
+
+const pageTitle = lang === 'ar' ? 'كتالوج المنتجات التصديري 2026 — حلويات هولون | الدليل الكامل للمارشميلو والجيلي والحلويات' :
+                  lang === 'ru' ? 'Экспортный каталог кондитерских изделий 2026 — Hulun Sweets | Маршмеллоу, желе и леденцы' :
+                  lang === 'fr' ? 'Catalogue officiel d’exportation 2026 — Hulun Sweets | Guimauves, gélifiés et confiseries' :
+                  '2026 Confectionery Export Catalog & Lookbook — Hulun Sweets | Complete Collection';
+
+const pageDesc = lang === 'ar' ? 'تصفح واحفظ كتالوج المنتجات التصديري الكامل لعام 2026 من مصنع حلويات هولون: مواصفات المارشميلو، حلوى الجيلي، المصاصات، وألعاب الحلوى مع شهادات الحلال والـ HACCP.' :
+                 lang === 'ru' ? 'Полный экспортный лукбук и каталог сладостей 2026 фабрики Hulun Sweets: характеристики маршмеллоу, мармелада и карамели с сертификатами Халяль и HACCP.' :
+                 lang === 'fr' ? 'Consultez et téléchargez le catalogue complet de confiseries d’exportation 2026 par Hulun Sweets: guimauves, bonbons gélifiés et sucettes certifiés Halal.' :
+                 'Browse and download the complete 2026 export confectionery catalog and line sheet by Hulun Sweets: marshmallows, fruit jellies, artisanal lollipops, and candy toys.';
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDesc}
+  lang={lang}
+>
+  <div class="pt-28 lg:pt-32">
+    <!-- 2026 Complete Confectionery Lookbook & Product Manual Island -->
+    <CatalogBook client:load products={mockProducts} currentLang={lang} />
+  </div>
+</Layout>

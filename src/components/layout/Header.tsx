@@ -144,6 +144,7 @@ export function Header({ currentLang = 'en' }: { currentLang?: string }) {
 
   const homePath = translatePath('/');
   const productsPath = translatePath('/products');
+  const catalogPath = translatePath('/catalog');
   const aboutPath = translatePath('/about');
   const contactPath = translatePath('/contact');
 
@@ -234,7 +235,7 @@ export function Header({ currentLang = 'en' }: { currentLang?: string }) {
                 <span className="tracking-tight">{PHONE_DISPLAY}</span>
               </motion.a>
 
-              <a href={contactPath}>
+              <a href={catalogPath}>
                 <motion.div
                   className="flex items-center gap-2 px-6 py-2.5 text-sm font-bold font-sans text-white bg-gradient-to-r from-strawberry to-[#FF9ebb] rounded-full shadow-lg shadow-strawberry/30 cursor-pointer"
                   whileHover={{ scale: 1.08, y: -2, boxShadow: '0 12px 24px rgba(255,107,157,0.4)' }}
@@ -342,7 +343,7 @@ export function Header({ currentLang = 'en' }: { currentLang?: string }) {
                       {PHONE_DISPLAY}
                     </motion.a>
 
-                    <a href={contactPath} onClick={closeMenu}>
+                    <a href={catalogPath} onClick={closeMenu}>
                       <motion.div
                         className="flex items-center justify-center gap-3 w-full py-4 rounded-2xl bg-strawberry text-white font-black font-display text-xl shadow-lg shadow-strawberry/20"
                         whileHover={{ scale: 1.02 }}
