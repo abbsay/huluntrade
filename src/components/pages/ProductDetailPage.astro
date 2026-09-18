@@ -1,7 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { mockProducts } from '../../data/mockProducts';
-import { useTranslations, useTranslatedPath } from '../../i18n';
+import ProductDetailContent from '../ProductDetailContent';
 
 interface Props {
   product: any;
@@ -9,8 +8,6 @@ interface Props {
 }
 
 const { product, lang = 'en' } = Astro.props;
-const t = useTranslations(lang);
-const translatePath = useTranslatedPath(lang);
 
 const CATEGORY_NAMES: Record<string, Record<string, string>> = {
   en: {
@@ -39,18 +36,8 @@ const CATEGORY_NAMES: Record<string, Record<string, string>> = {
   },
 };
 
-const catName = CATEGORY_NAMES[lang]?.[product.categoryId] || CATEGORY_NAMES['en'][product.categoryId] || product.categoryId;
+const catName = CATEGORY_NAMES[lang]?.[product.categoryId] || product.categoryId;
 
-// Find related products in the same category
-const relatedProducts = mockProducts
-  .filter((p) => p.categoryId === product.categoryId && p.id !== product.id)
-  .slice(0, 4);
-
-const inquiryMessage = encodeURIComponent(
-  `Hello Hulun Sweets, I am interested in wholesale inquiry for product: ${product.name} (SKU: ${product.id}). Please provide container pricing and MOQ specifications.`
-);
-
-// Schema.org Product Structured Data for GEO / Rich Snippets
 const productSchema = {
   "@context": "https://schema.org",
   "@type": "Product",
@@ -75,8 +62,8 @@ const productSchema = {
 };
 
 const pageTitle = lang === 'ar' ? `${product.name} — حلويات هولون | مواصفات الجملة والتصدير` :
-                  lang === 'ru' ? `${product.name} — Hulun Sweets | Оптовые характеристики` :
-                  lang === 'fr' ? `${product.name} — Hulun Sweets | Spécifications Grossiste` :
+                  lang === 'ru' ? `${product.name} — Hulun Sweets | Оптовые спецификации` :
+                  lang === 'fr' ? `${product.name} — Hulun Sweets | Spécifications d’exportation` :
                   `${product.name} — Hulun Sweets | Wholesale Specification`;
 
 const pageDesc = lang === 'ar' ? `تفاصيل ومواصفات حلويات ${product.name} بالجملة من مصنع هولون. الوزن الصافي: ${product.weight || '35g'}، التغليف: ${product.packaging || 'Box'}، معتمد حلال.` :
@@ -94,193 +81,6 @@ const pageDesc = lang === 'ar' ? `تفاصيل ومواصفات حلويات ${p
   <!-- Schema.org Product JSON-LD Injection for GEO & AI Crawlers -->
   <script type="application/ld+json" is:inline set:html={JSON.stringify(productSchema)} />
 
-  <div class="pt-36 lg:pt-44 pb-32 bg-cream min-h-screen">
-    <div class="max-w-[1300px] mx-auto px-4 md:px-6 xl:px-8">
-
-      <!-- Breadcrumbs -->
-      <nav class="mb-8 flex items-center gap-2 text-xs font-bold text-mocha/70">
-        <a href={translatePath('/')} class="hover:text-strawberry transition-colors">
-          {t('nav.home', 'Home')}
-        </a>
-        <span>/</span>
-        <a href={translatePath('/products')} class="hover:text-strawberry transition-colors">
-          {t('nav.products', 'Products')}
-        </a>
-        <span>/</span>
-        <a href={translatePath(`/category/${product.categoryId}`)} class="hover:text-strawberry transition-colors">
-          {catName}
-        </a>
-        <span>/</span>
-        <span class="text-choco font-black truncate max-w-[200px] sm:max-w-none">{product.name}</span>
-      </nav>
-
-      <!-- Main Product Details Split -->
-      <div class="bg-white rounded-[2.5rem] p-6 sm:p-10 lg:p-14 border border-choco/5 shadow-[0_20px_50px_rgba(61,44,35,0.06)] grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-
-        <!-- Left Column: Hero Product Visual -->
-        <div class="flex flex-col items-center justify-center">
-          <div class="relative w-full aspect-square max-w-[500px] bg-gradient-to-b from-[#FFF5F7] to-[#FAF6F0] rounded-[2.5rem] p-8 sm:p-12 flex items-center justify-center border border-strawberry/10 overflow-hidden shadow-inner">
-            <img
-              src={product.image}
-              alt={product.name}
-              class="w-full h-full object-contain filter drop-shadow-2xl hover:scale-105 transition-transform duration-500"
-            />
-            <div class="absolute top-6 left-6 rtl:left-auto rtl:right-6">
-              <span class="px-3.5 py-1.5 rounded-full text-xs font-black uppercase tracking-wider bg-white/90 backdrop-blur-md text-strawberry border border-strawberry/15 shadow-sm">
-                {catName}
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right Column: Specs & Inquiry CTA -->
-        <div class="flex flex-col justify-between">
-          <div>
-            <div class="flex items-center gap-3 mb-2">
-              <span class="text-xs font-mono font-bold text-mocha/60 bg-cream px-3 py-1 rounded-md border border-choco/5">
-                SKU: {product.id}
-              </span>
-              <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-3 py-1 rounded-md border border-emerald-200">
-                ✓ {lang === 'ar' ? 'جاهز للتصدير' : lang === 'ru' ? 'Готово к экспорту' : lang === 'fr' ? 'Prêt à l’export' : 'Export Ready'}
-              </span>
-            </div>
-
-            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black font-display text-choco tracking-tight mb-4">
-              {product.name}
-            </h1>
-
-            <p class="text-mocha text-base sm:text-lg leading-relaxed mb-8">
-              {product.description ||
-                (lang === 'ar' ? 'استمتع بحلويات شهية ومصنوعة بمكونات نقية ومعايير سلامة دولية معتمدة للتصدير.' :
-                 lang === 'ru' ? 'Изысканные кондитерские изделия из отборных ингредиентов по строгим международным стандартам экспорта.' :
-                 lang === 'fr' ? 'Savourez des confiseries délicieuses préparées avec des ingrédients purs et selon des normes de sécurité certifiées pour l’export.' :
-                 'Indulge in delicious confectionery crafted with pure ingredients, authentic sweet flavor, and certified export-grade safety standards.')}
-            </p>
-
-            <!-- Specification Highlights -->
-            <div class="grid grid-cols-2 gap-4 mb-8">
-              <div class="bg-cream/60 p-5 rounded-2xl border border-choco/5">
-                <div class="text-[11px] font-bold uppercase tracking-wider text-mocha/60 mb-1">
-                  {lang === 'ar' ? 'الوزن الصافي' : lang === 'ru' ? 'Вес нетто' : lang === 'fr' ? 'Poids net' : 'Net Weight'}
-                </div>
-                <div class="text-xl font-black font-display text-choco">
-                  {product.weight || '35g'}
-                </div>
-              </div>
-
-              <div class="bg-cream/60 p-5 rounded-2xl border border-choco/5">
-                <div class="text-[11px] font-bold uppercase tracking-wider text-mocha/60 mb-1">
-                  {lang === 'ar' ? 'نوع التغليف' : lang === 'ru' ? 'Формат упаковки' : lang === 'fr' ? 'Format d’emballage' : 'Packaging Format'}
-                </div>
-                <div class="text-xl font-black font-display text-choco truncate">
-                  {product.packaging || 'Standard Box'}
-                </div>
-              </div>
-
-              <div class="bg-cream/60 p-5 rounded-2xl border border-choco/5">
-                <div class="text-[11px] font-bold uppercase tracking-wider text-mocha/60 mb-1">
-                  {lang === 'ar' ? 'الشهادات' : lang === 'ru' ? 'Сертификаты' : lang === 'fr' ? 'Certification' : 'Certification'}
-                </div>
-                <div class="text-xl font-black font-display text-choco">
-                  Halal / HACCP
-                </div>
-              </div>
-
-              <div class="bg-cream/60 p-5 rounded-2xl border border-choco/5">
-                <div class="text-[11px] font-bold uppercase tracking-wider text-mocha/60 mb-1">
-                  {lang === 'ar' ? 'فترة الصلاحية' : lang === 'ru' ? 'Срок годности' : lang === 'fr' ? 'Conservation' : 'Shelf Life'}
-                </div>
-                <div class="text-xl font-black font-display text-choco">
-                  {lang === 'ar' ? '18-24 شهراً' : lang === 'ru' ? '18–24 месяца' : lang === 'fr' ? '18–24 Mois' : '18–24 Months'}
-                </div>
-              </div>
-            </div>
-
-            {product.features && product.features.length > 0 && (
-              <div class="mb-8">
-                <h4 class="text-xs font-bold uppercase tracking-wider text-mocha/70 mb-3">
-                  {lang === 'ar' ? 'مميزات المنتج الرئيسية' : lang === 'ru' ? 'Особенности продукта' : lang === 'fr' ? 'Points forts du produit' : 'Product Key Features'}
-                </h4>
-                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                  {product.features.map((feat: string) => (
-                    <li class="flex items-center gap-2 text-sm font-medium text-choco bg-cream/30 px-3 py-2 rounded-xl border border-choco/5">
-                      <span class="text-strawberry">🍬</span>
-                      <span>{feat}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-          </div>
-
-          <!-- B2B Action Buttons -->
-          <div class="pt-6 border-t border-choco/5 flex flex-col sm:flex-row items-center gap-4">
-            <a
-              href={`${translatePath('/contact')}?subject=${encodeURIComponent(`Inquiry for ${product.name}`)}`}
-              class="w-full sm:w-auto flex-1 px-8 py-4 rounded-full bg-strawberry text-white font-bold font-display text-center shadow-lg shadow-strawberry/25 hover:bg-pink-600 transition-colors"
-            >
-              {lang === 'ar' ? 'طلب أسعار الجملة ←' : lang === 'ru' ? 'Запросить оптовые цены →' : lang === 'fr' ? 'Demander un devis grossiste →' : 'Inquire Wholesale Pricing →'}
-            </a>
-
-            <a
-              href={`https://wa.me/8613967427888?text=${inquiryMessage}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="w-full sm:w-auto px-6 py-4 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-center transition-colors flex items-center justify-center gap-2 shadow-md"
-            >
-              <span>{lang === 'ar' ? 'واتساب فوري' : lang === 'ru' ? 'WhatsApp' : lang === 'fr' ? 'WhatsApp' : 'WhatsApp Direct'}</span>
-              <span>💬</span>
-            </a>
-          </div>
-
-        </div>
-
-      </div>
-
-      <!-- Related Sweets in Same Category -->
-      {relatedProducts.length > 0 && (
-        <div class="mt-24">
-          <div class="flex items-center justify-between mb-8">
-            <h3 class="text-2xl sm:text-3xl font-black font-display text-choco">
-              {lang === 'ar' ? `المزيد في قسم ${catName}` :
-               lang === 'ru' ? `Другие сладости в категории ${catName}` :
-               lang === 'fr' ? `Plus de produits dans ${catName}` :
-               `More in ${catName}`}
-            </h3>
-            <a
-              href={translatePath(`/category/${product.categoryId}`)}
-              class="text-strawberry hover:underline font-bold text-sm"
-            >
-              {lang === 'ar' ? 'عرض الفئة ←' : lang === 'ru' ? 'Смотреть категорию →' : lang === 'fr' ? 'Voir la catégorie →' : 'View Category →'}
-            </a>
-          </div>
-
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
-            {relatedProducts.map((rel) => (
-              <a
-                href={translatePath(`/product/${rel.id}`)}
-                class="group bg-white rounded-3xl p-5 border border-choco/5 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col"
-              >
-                <div class="aspect-square bg-cream/50 rounded-2xl p-4 flex items-center justify-center mb-3">
-                  <img
-                    src={rel.image}
-                    alt={rel.name}
-                    class="w-full h-full object-contain group-hover:scale-105 transition-transform"
-                    loading="lazy"
-                  />
-                </div>
-                <h4 class="text-sm font-bold font-display text-choco group-hover:text-strawberry transition-colors line-clamp-2">
-                  {rel.name}
-                </h4>
-                <div class="mt-auto pt-2 text-xs text-mocha/70 font-semibold">
-                  {rel.weight || '35g'}
-                </div>
-              </a>
-            ))}
-          </div>
-        </div>
-      )}
-
-    </div>
-  </div>
+  <!-- Restored 100% Original TanStack Monolithic Apple Card with Animated Dashed Ring, Parallax & Confetti -->
+  <ProductDetailContent client:load product={product} currentLang={lang} />
 </Layout>
