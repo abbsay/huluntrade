@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import { mockProducts } from '../../data/mockProducts';
 import { useTranslatedPath } from '../../i18n';
+import { getCategoriesWithLocale, ALL_TAB_NAMES } from '../../data/categories';
 
 interface Props {
   lang?: string;
@@ -10,247 +11,17 @@ interface Props {
 const { lang = 'en' } = Astro.props;
 const translatePath = useTranslatedPath(lang);
 
-const CATEGORIES_DATA: Record<string, Array<{
-  id: string;
-  name: string;
-  tagline: string;
-  countText: string;
-  img: string;
-  glow: string;
-  border: string;
-  accent: string;
-}>> = {
-  en: [
-    {
-      id: 'marshmallow',
-      name: 'Marshmallows',
-      tagline: 'Lighter than air',
-      countText: '31 Varieties',
-      img: '/images/categories/minimal_marshmallow.svg',
-      glow: 'from-pink-500/15 via-rose-400/5 to-transparent',
-      border: 'hover:border-pink-300 hover:shadow-pink-500/20',
-      accent: 'text-pink-500 bg-pink-50',
-    },
-    {
-      id: 'jelly',
-      name: 'Jelly Candies',
-      tagline: 'Juicy fruit burst',
-      countText: '7 Varieties',
-      img: '/images/categories/minimal_jelly.svg',
-      glow: 'from-amber-500/15 via-orange-400/5 to-transparent',
-      border: 'hover:border-amber-300 hover:shadow-amber-500/20',
-      accent: 'text-amber-600 bg-amber-50',
-    },
-    {
-      id: 'hard_candy',
-      name: 'Hard Candy & Pops',
-      tagline: 'Enduring sweet crunch',
-      countText: '19 Varieties',
-      img: '/images/categories/minimal_hard_candy.svg',
-      glow: 'from-purple-500/15 via-fuchsia-400/5 to-transparent',
-      border: 'hover:border-purple-300 hover:shadow-purple-500/20',
-      accent: 'text-purple-600 bg-purple-50',
-    },
-    {
-      id: 'candy_toy',
-      name: 'Candy Toys',
-      tagline: 'Play meets taste',
-      countText: 'Novelty Fun',
-      img: '/images/categories/minimal_toy.svg',
-      glow: 'from-sky-500/15 via-blue-400/5 to-transparent',
-      border: 'hover:border-sky-300 hover:shadow-sky-500/20',
-      accent: 'text-sky-600 bg-sky-50',
-    },
-  ],
-  ar: [
-    {
-      id: 'marshmallow',
-      name: 'مارشميلو',
-      tagline: 'أخف من الهواء',
-      countText: '31 صنفاً',
-      img: '/images/categories/minimal_marshmallow.svg',
-      glow: 'from-pink-500/15 via-rose-400/5 to-transparent',
-      border: 'hover:border-pink-300 hover:shadow-pink-500/20',
-      accent: 'text-pink-500 bg-pink-50',
-    },
-    {
-      id: 'jelly',
-      name: 'حلوى الجيلي',
-      tagline: 'انفجار نكهات الفواكه',
-      countText: '7 أصناف',
-      img: '/images/categories/minimal_jelly.svg',
-      glow: 'from-amber-500/15 via-orange-400/5 to-transparent',
-      border: 'hover:border-amber-300 hover:shadow-amber-500/20',
-      accent: 'text-amber-600 bg-amber-50',
-    },
-    {
-      id: 'hard_candy',
-      name: 'حلوى صلبة ومصاصات',
-      tagline: 'قرمشة وحلاوة تدوم',
-      countText: '19 صنفاً',
-      img: '/images/categories/minimal_hard_candy.svg',
-      glow: 'from-purple-500/15 via-fuchsia-400/5 to-transparent',
-      border: 'hover:border-purple-300 hover:shadow-purple-500/20',
-      accent: 'text-purple-600 bg-purple-50',
-    },
-    {
-      id: 'candy_toy',
-      name: 'ألعاب الحلوى',
-      tagline: 'متعة اللعب ولذة المذاق',
-      countText: 'مبتكرة وممتعة',
-      img: '/images/categories/minimal_toy.svg',
-      glow: 'from-sky-500/15 via-blue-400/5 to-transparent',
-      border: 'hover:border-sky-300 hover:shadow-sky-500/20',
-      accent: 'text-sky-600 bg-sky-50',
-    },
-  ],
-  ru: [
-    {
-      id: 'marshmallow',
-      name: 'Маршмеллоу',
-      tagline: 'Легче воздуха',
-      countText: '31 вид',
-      img: '/images/categories/minimal_marshmallow.svg',
-      glow: 'from-pink-500/15 via-rose-400/5 to-transparent',
-      border: 'hover:border-pink-300 hover:shadow-pink-500/20',
-      accent: 'text-pink-500 bg-pink-50',
-    },
-    {
-      id: 'jelly',
-      name: 'Желейные конфеты',
-      tagline: 'Взрыв фруктового сока',
-      countText: '7 видов',
-      img: '/images/categories/minimal_jelly.svg',
-      glow: 'from-amber-500/15 via-orange-400/5 to-transparent',
-      border: 'hover:border-amber-300 hover:shadow-amber-500/20',
-      accent: 'text-amber-600 bg-amber-50',
-    },
-    {
-      id: 'hard_candy',
-      name: 'Карамель и леденцы',
-      tagline: 'Долгая сладость и хруст',
-      countText: '19 видов',
-      img: '/images/categories/minimal_hard_candy.svg',
-      glow: 'from-purple-500/15 via-fuchsia-400/5 to-transparent',
-      border: 'hover:border-purple-300 hover:shadow-purple-500/20',
-      accent: 'text-purple-600 bg-purple-50',
-    },
-    {
-      id: 'candy_toy',
-      name: 'Конфеты-игрушки',
-      tagline: 'Игра и вкус вместе',
-      countText: 'Новинки',
-      img: '/images/categories/minimal_toy.svg',
-      glow: 'from-sky-500/15 via-blue-400/5 to-transparent',
-      border: 'hover:border-sky-300 hover:shadow-sky-500/20',
-      accent: 'text-sky-600 bg-sky-50',
-    },
-  ],
-  fr: [
-    {
-      id: 'marshmallow',
-      name: 'Guimauves',
-      tagline: 'Plus léger que l’air',
-      countText: '31 Variétés',
-      img: '/images/categories/minimal_marshmallow.svg',
-      glow: 'from-pink-500/15 via-rose-400/5 to-transparent',
-      border: 'hover:border-pink-300 hover:shadow-pink-500/20',
-      accent: 'text-pink-500 bg-pink-50',
-    },
-    {
-      id: 'jelly',
-      name: 'Bonbons Gélifiés',
-      tagline: 'Explosion de fruits',
-      countText: '7 Variétés',
-      img: '/images/categories/minimal_jelly.svg',
-      glow: 'from-amber-500/15 via-orange-400/5 to-transparent',
-      border: 'hover:border-amber-300 hover:shadow-amber-500/20',
-      accent: 'text-amber-600 bg-amber-50',
-    },
-    {
-      id: 'hard_candy',
-      name: 'Sucettes & Bonbons',
-      tagline: 'Croquant et douceur',
-      countText: '19 Variétés',
-      img: '/images/categories/minimal_hard_candy.svg',
-      glow: 'from-purple-500/15 via-fuchsia-400/5 to-transparent',
-      border: 'hover:border-purple-300 hover:shadow-purple-500/20',
-      accent: 'text-purple-600 bg-purple-50',
-    },
-    {
-      id: 'candy_toy',
-      name: 'Jouets Sucrés',
-      tagline: 'Le jeu et la friandise',
-      countText: 'Nouveautés',
-      img: '/images/categories/minimal_toy.svg',
-      glow: 'from-sky-500/15 via-blue-400/5 to-transparent',
-      border: 'hover:border-sky-300 hover:shadow-sky-500/20',
-      accent: 'text-sky-600 bg-sky-50',
-    },
-  ],
-};
+const categories = getCategoriesWithLocale(lang);
+const allTabName = ALL_TAB_NAMES[lang] || ALL_TAB_NAMES.en;
 
-const CATEGORIES_MAP: Record<string, Array<{ id: string; name: string }>> = {
-  en: [
-    { id: 'all', name: 'All Candies' },
-    { id: 'marshmallow', name: 'Marshmallows' },
-    { id: 'jelly', name: 'Jelly Candies' },
-    { id: 'hard_candy', name: 'Hard Candy & Pops' },
-    { id: 'candy_toy', name: 'Candy Toys' },
-  ],
-  ar: [
-    { id: 'all', name: 'جميع الحلويات' },
-    { id: 'marshmallow', name: 'مارشميلو' },
-    { id: 'jelly', name: 'حلوى الجيلي' },
-    { id: 'hard_candy', name: 'حلوى صلبة ومصاصات' },
-    { id: 'candy_toy', name: 'ألعاب الحلوى' },
-  ],
-  ru: [
-    { id: 'all', name: 'Все сладости' },
-    { id: 'marshmallow', name: 'Маршмеллоу' },
-    { id: 'jelly', name: 'Желейные конфеты' },
-    { id: 'hard_candy', name: 'Леденцы и карамель' },
-    { id: 'candy_toy', name: 'Конфеты-игрушки' },
-  ],
-  fr: [
-    { id: 'all', name: 'Tous les bonbons' },
-    { id: 'marshmallow', name: 'Guimauves' },
-    { id: 'jelly', name: 'Bonbons Gélifiés' },
-    { id: 'hard_candy', name: 'Sucettes & Bonbons' },
-    { id: 'candy_toy', name: 'Jouets Sucrés' },
-  ],
-};
+const filterTabs = [
+  { id: 'all', name: allTabName },
+  ...categories.map((c) => ({ id: c.id, name: c.catalogName })),
+];
 
-const CATEGORY_NAMES: Record<string, Record<string, string>> = {
-  en: {
-    marshmallow: 'Marshmallow',
-    jelly: 'Jelly Candy',
-    hard_candy: 'Hard Candy',
-    candy_toy: 'Candy Toy',
-  },
-  ar: {
-    marshmallow: 'مارشميلو',
-    jelly: 'حلوى الجيلي',
-    hard_candy: 'حلوى صلبة',
-    candy_toy: 'ألعاب الحلوى',
-  },
-  ru: {
-    marshmallow: 'Маршмеллоу',
-    jelly: 'Желейные конфеты',
-    hard_candy: 'Карамель и леденцы',
-    candy_toy: 'Конфеты-игрушки',
-  },
-  fr: {
-    marshmallow: 'Guimauve',
-    jelly: 'Bonbon Gélifié',
-    hard_candy: 'Bonbon Dur',
-    candy_toy: 'Jouet Sucré',
-  },
-};
-
-const categoryBanners = CATEGORIES_DATA[lang] || CATEGORIES_DATA.en;
-const categories = CATEGORIES_MAP[lang] || CATEGORIES_MAP.en;
-const categoryNames = CATEGORY_NAMES[lang] || CATEGORY_NAMES.en;
+const categoryNamesMap = Object.fromEntries(
+  categories.map((c) => [c.id, c.name])
+);
 
 const pageTitle = lang === 'ar' ? 'كتالوج المنتجات الكامل — حلويات هولون | مارشميلو، جيلي، وحلويات بالجملة' :
                   lang === 'ru' ? 'Полный каталог продукции — Hulun Sweets | Маршмеллоу, мармелад, леденцы оптом' :
@@ -289,7 +60,7 @@ const pageDesc = lang === 'ar' ? 'تصفح مجموعتنا الكاملة ال�
 
       <!-- ── 4 CATEGORY HERO BIG CARDS ── -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
-        {categoryBanners.map((cat) => (
+        {categories.map((cat) => (
           <a
             href={translatePath(`/category/${cat.id}`)}
             class={`group relative bg-white rounded-[2.5rem] p-7 border border-choco/5 shadow-[0_15px_35px_rgba(61,44,35,0.05)] hover:shadow-[0_25px_50px_rgba(255,107,157,0.18)] transition-all duration-500 hover:-translate-y-2 flex flex-col justify-between overflow-hidden cursor-pointer ${cat.border}`}
@@ -318,7 +89,7 @@ const pageDesc = lang === 'ar' ? 'تصفح مجموعتنا الكاملة ال�
               </div>
 
               <h3 class="text-2xl font-black font-display text-choco text-center mb-1 group-hover:text-strawberry transition-colors">
-                {cat.name}
+                {cat.catalogName}
               </h3>
               <p class="text-xs font-bold text-strawberry uppercase tracking-wider text-center">
                 {cat.tagline}
@@ -336,16 +107,16 @@ const pageDesc = lang === 'ar' ? 'تصفح مجموعتنا الكاملة ال�
 
       <!-- Category Filter Tabs -->
       <div class="flex flex-wrap items-center justify-center gap-3 mb-16" id="filter-tabs">
-        {categories.map((cat, idx) => (
+        {filterTabs.map((tab, idx) => (
           <button
-            data-filter={cat.id}
+            data-filter={tab.id}
             class={`filter-btn px-6 py-3 rounded-full text-sm font-bold font-display tracking-wide transition-all duration-300 shadow-sm cursor-pointer ${
               idx === 0
                 ? 'active bg-strawberry text-white shadow-strawberry/20 shadow-md'
                 : 'bg-white text-choco hover:bg-strawberry/10 border border-choco/5'
             }`}
           >
-            {cat.name}
+            {tab.name}
           </button>
         ))}
       </div>
@@ -368,7 +139,7 @@ const pageDesc = lang === 'ar' ? 'تصفح مجموعتنا الكاملة ال�
                 />
                 <div class="absolute top-4 left-4 rtl:left-auto rtl:right-4">
                   <span class="inline-block px-3 py-1 rounded-full text-[11px] font-black uppercase tracking-wider bg-white/90 backdrop-blur-md text-strawberry border border-strawberry/10 shadow-sm">
-                    {categoryNames[product.categoryId] || product.categoryId}
+                    {categoryNamesMap[product.categoryId] || product.categoryId}
                   </span>
                 </div>
               </div>

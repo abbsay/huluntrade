@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Home, Candy, Heart, Send } from 'lucide-react'
 import { LANG_OPTIONS, useTranslations, useTranslatedPath, SUPPORTED_LANGS } from '../../i18n'
 import Magnetic from '../Magnetic'
 
@@ -119,6 +118,9 @@ export function Header({ currentLang = 'en' }: { currentLang?: string }) {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       setPathname(window.location.pathname);
+      const onPageLoad = () => setPathname(window.location.pathname);
+      document.addEventListener('astro:page-load', onPageLoad);
+      return () => document.removeEventListener('astro:page-load', onPageLoad);
     }
   }, []);
 
@@ -146,10 +148,10 @@ export function Header({ currentLang = 'en' }: { currentLang?: string }) {
   const contactPath = translatePath('/contact');
 
   const navItems = [
-    { id: 'home',        path: homePath,     label: t('nav.home',     'Home'),    icon: Home },
-    { id: 'products',    path: productsPath, label: t('nav.products', 'Products'), icon: Candy },
-    { id: 'about',       path: aboutPath,    label: t('nav.about',   'About us'), icon: Heart },
-    { id: 'contact-nav', path: contactPath,  label: t('nav.contact', 'Contact'),  icon: Send },
+    { id: 'home',        path: homePath,     label: t('nav.home',     'Home'),    iconSrc: '/images/categories/minimal_marshmallow.svg' },
+    { id: 'products',    path: productsPath, label: t('nav.products', 'Products'), iconSrc: '/images/categories/minimal_jelly.svg' },
+    { id: 'about',       path: aboutPath,    label: t('nav.about',   'About us'), iconSrc: '/images/categories/minimal_hard_candy.svg' },
+    { id: 'contact-nav', path: contactPath,  label: t('nav.contact', 'Contact'),  iconSrc: '/images/categories/minimal_toy.svg' },
   ];
 
   return (
@@ -179,11 +181,6 @@ export function Header({ currentLang = 'en' }: { currentLang?: string }) {
               <ul className="flex items-center space-x-2 rtl:space-x-reverse bg-cream/80 px-4 py-2 rounded-[2.5rem] border border-choco/5 backdrop-blur-xl shadow-inner relative">
                 {navItems.map((item) => {
                   const isActive = pathname === item.path || (item.path !== homePath && pathname.startsWith(item.path));
-                  let iconSrc = '/images/categories/minimal_marshmallow.svg';
-                  if(item.id === 'home') iconSrc = '/images/categories/minimal_marshmallow.svg';
-                  if(item.id === 'products') iconSrc = '/images/categories/minimal_jelly.svg';
-                  if(item.id === 'about') iconSrc = '/images/categories/minimal_hard_candy.svg';
-                  if(item.id === 'contact-nav') iconSrc = '/images/categories/minimal_toy.svg';
 
                   return (
                     <li key={item.id} className="relative z-10 w-24">
@@ -202,7 +199,7 @@ export function Header({ currentLang = 'en' }: { currentLang?: string }) {
                             transition={{ type: 'spring' as const, stiffness: 400, damping: 10 }}
                             className="mb-1 flex items-center justify-center"
                           >
-                            <img src={iconSrc} className="w-10 h-10 object-contain filter drop-shadow-md" alt={item.label} />
+                            <img src={item.iconSrc} className="w-10 h-10 object-contain filter drop-shadow-md" alt={item.label} />
                           </motion.div>
 
                           <span className={`text-[12px] font-black font-display tracking-widest uppercase transition-colors duration-300 ${isActive ? 'text-strawberry' : 'text-mocha group-hover:text-strawberry'}`}>
@@ -308,11 +305,6 @@ export function Header({ currentLang = 'en' }: { currentLang?: string }) {
                   <motion.ul className="space-y-4">
                     {navItems.map((item) => {
                       const isActive = pathname === item.path || (item.path !== homePath && pathname.startsWith(item.path));
-                      let iconSrc = '/images/categories/minimal_marshmallow.svg';
-                      if(item.id === 'home') iconSrc = '/images/categories/minimal_marshmallow.svg';
-                      if(item.id === 'products') iconSrc = '/images/categories/minimal_jelly.svg';
-                      if(item.id === 'about') iconSrc = '/images/categories/minimal_hard_candy.svg';
-                      if(item.id === 'contact-nav') iconSrc = '/images/categories/minimal_toy.svg';
 
                       return (
                         <motion.li key={item.id}>
@@ -322,7 +314,7 @@ export function Header({ currentLang = 'en' }: { currentLang?: string }) {
                               whileHover={{ scale: 1.02 }}
                               whileTap={{ scale: 0.95 }}
                             >
-                              <span className="w-12 h-12 flex items-center justify-center filter drop-shadow-sm"><img src={iconSrc} className="w-8 h-8 object-contain filter drop-shadow-md" alt={item.label} /></span>
+                              <span className="w-12 h-12 flex items-center justify-center filter drop-shadow-sm"><img src={item.iconSrc} className="w-8 h-8 object-contain filter drop-shadow-md" alt={item.label} /></span>
                               {item.label}
                             </motion.div>
                           </a>

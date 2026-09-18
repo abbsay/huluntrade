@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import CategoryContent from '../CategoryContent';
+import { CATEGORIES_I18N } from '../../data/categories';
 
 interface Props {
   category: {
@@ -16,79 +17,10 @@ interface Props {
 
 const { category, products, lang = 'en' } = Astro.props;
 
-const CATEGORY_NAMES_LOCALE: Record<string, Record<string, { name: string; title: string; desc: string }>> = {
-  ar: {
-    marshmallow: {
-      name: 'مارشميلو',
-      title: 'مارشميلو شهي طري — حلويات هولون',
-      desc: 'اكتشف حلويات المارشميلو الناعمة والخفيفة كالسحاب. أشكال مرحة وحلزونية ونكهات فواكه تصدر عالمياً.',
-    },
-    jelly: {
-      name: 'حلوى الجيلي',
-      title: 'حلوى جيلي الفواكه اللذيذة — حلويات هولون',
-      desc: 'استكشف تشكيلتنا من حلوى الجيلي الطرية والمنعشة الغنية بنكهات الفواكه الصافية.',
-    },
-    hard_candy: {
-      name: 'حلوى صلبة ومصاصات',
-      title: 'حلوى صلبة ومصاصات — حلويات هولون',
-      desc: 'مصاصات فنية ملونة وحلوى صلبة كلاسيكية مصنوعة يدويًا بدقة تدوم متعتها طويلاً.',
-    },
-    candy_toy: {
-      name: 'ألعاب الحلوى الممتعة',
-      title: 'ألعاب حلوى إبداعية للأطفال — حلويات هولون',
-      desc: 'ألعاب تفاعلية مبتكرة تجمع بين تسلية اللعب ومذاق الحلوى الشهي للأطفال.',
-    },
-  },
-  ru: {
-    marshmallow: {
-      name: 'Маршмеллоу',
-      title: 'Вкусный маршмеллоу — Hulun Sweets',
-      desc: 'Нежный, воздушный маршмеллоу с текстурой облака. Оригинальные формы, спирали и фруктовые вкусы.',
-    },
-    jelly: {
-      name: 'Желейные конфеты',
-      title: 'Сочные желейные конфеты — Hulun Sweets',
-      desc: 'Коллекция жевательного мармелада и кристально прозрачных фруктовых желейных сладостей.',
-    },
-    hard_candy: {
-      name: 'Карамель и леденцы',
-      title: 'Карамель и леденцы — Hulun Sweets',
-      desc: 'Классическая хрустящая карамель, яркие леденцы на палочке и авторские сладкие спирали.',
-    },
-    candy_toy: {
-      name: 'Конфеты-игрушки',
-      title: 'Конфеты-игрушки для детей — Hulun Sweets',
-      desc: 'Интерактивные игрушки с вкусным сладким наполнением, дарящие часы радости детям.',
-    },
-  },
-  fr: {
-    marshmallow: {
-      name: 'Guimauve',
-      title: 'Délicieuses Guimauves — Hulun Sweets',
-      desc: 'Découvrez nos guimauves aériennes et moelleuses. Formes créatives, torsades fruitées et qualité export.',
-    },
-    jelly: {
-      name: 'Bonbons Gélifiés',
-      title: 'Gélifiés Fruités et Juteux — Hulun Sweets',
-      desc: 'Explorez notre gamme de bonbons gélifiés fruités, tendres et translucides aux extraits naturels de fruits.',
-    },
-    hard_candy: {
-      name: 'Sucettes & Bonbons Durs',
-      title: 'Sucettes et Bonbons Durs — Hulun Sweets',
-      desc: 'Sucettes artisanales torsadées, bonbons durs cristallins et friandises traditionnelles incontournables.',
-    },
-    candy_toy: {
-      name: 'Jouets de Bonbons',
-      title: 'Jouets de Bonbons Amusants — Hulun Sweets',
-      desc: 'Jouets interactifs novateurs accompagnés de confiseries savoureuses pour les enfants.',
-    },
-  },
-};
-
-const locCat = CATEGORY_NAMES_LOCALE[lang]?.[category.id];
-const catName = locCat?.name || category.name;
-const catTitle = locCat?.title || category.title;
-const catDesc = locCat?.desc || category.desc;
+const dict = CATEGORIES_I18N[lang]?.[category.id] || CATEGORIES_I18N.en[category.id];
+const catName = dict?.name || category.name;
+const catTitle = dict?.title || category.title;
+const catDesc = dict?.desc || category.desc;
 ---
 
 <Layout
@@ -96,7 +28,6 @@ const catDesc = locCat?.desc || category.desc;
   description={catDesc}
   lang={lang}
 >
-  <!-- Restored 100% Original TanStack Category UI with Subcategory Sections, Hover Springs & Magnetic Breadcrumb -->
   <CategoryContent
     client:load
     categoryId={category.id}
